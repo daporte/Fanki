@@ -10,7 +10,7 @@ productRouteConfig.prototype.init = function() {
     this.addRoutes();
     this.processRoutes();
 
-};
+};//
 
 productRouteConfig.prototype.processRoutes = function(){
     var self = this;
