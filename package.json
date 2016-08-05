@@ -20,5 +20,8 @@
     "bootstrap":"*",
     "jquery":"*",
     "ngstorage":"*"
+  },
+  "engines": {
+    "node" : "4.3.2"
   }
 }
