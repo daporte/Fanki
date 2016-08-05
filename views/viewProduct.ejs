@@ -1,0 +1,81 @@
+<% include layout.ejs%>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"><%=title%></h3>
+    </div>
+    <br>
+
+    <div data-ng-app="productModule"
+         data-ng-controller="viewProductController">
+
+        <div class="container">
+            <table data-ng-show="products.length > 0"
+                   class="table table-striped table-hover">
+                <tr class="success">
+                    <td>
+        <div
+            data-order="{OrderBy : 'productCategoryId', Name : 'DESC'}"
+            data-ng-click="onHeaderClick( $event)">
+
+            Front Side </div>
+
+                </td>
+
+                        <td>Back Side</td>
+                        <td>Is Active</td>
+                        <td>Deck Name</td>
+                        <td>Added By</td>
+                        <td>Actions</td>
+                </tr>
+                <tr data-ng-repeat="product in products">
+                    <td>{{product.FrontSide}}</td>
+
+                    <td>{{product.PartialDescription}} ...</td>
+                    <td>{{product.IsActive}}</td>
+                    <td>{{product.DeckName}}</td>
+                    <td>{{product.AddedBy}}</td>
+
+
+
+
+
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                            Edit Product <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/editProduct/{{product.Id}}">Edit Product</a></li>
+
+                            <li>
+                                <button type="button"
+                                        class="btn btn-primary"
+                                        data-toggle="modal"
+                                        data-target="#exampleModal"
+                                        data-categoryId="{{product.Id}}"
+                                        data-ng-click="setCurrentProductCategoryId(product.id)">
+                                    Delete Product
+                                </button>
+
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+</div>
+
+
+
+    <script src="../../javascripts/angular.min.js"></script>
+
+
+    <script src="../../javascripts/app/ProductCategory/productModule.js"></script>
+    <script src="../../javascripts/app/ProductCategory/productService.js"></script>
+    <script src="../../javascripts/app/ProductCategory/viewProductController.js"></script>

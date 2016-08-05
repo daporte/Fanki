@@ -1,0 +1,111 @@
+angular.module("loginModule")
+    .controller("loginController", loginController);
+
+loginController.$inject = ["$scope", "$timeout", "loginService", "requiredFieldValidationService_Login", "$localStorage"];
+
+function loginController($scope, $timeout, loginService, requiredFieldValidationService_Login, $localStorage) {
+
+    /*
+    $scope.$storage = $localStorage.$default({
+        x : 55,
+        Username : "lll"
+    })
+*/
+    $scope.$storage = loginService.storage;
+
+        
+    $scope.user = {
+
+        Username: "",
+        Password: "",
+        
+
+    };
+
+    $scope.validationResult = {
+
+        containsValidationError: false,
+        validationSummary: ""
+    }
+
+
+
+
+    bindView = function (user) {
+        /*
+         console.log(user.username);
+         console.log("scope username")
+         $scope.Username = user.username;
+         console.log($scope.Username)
+         */
+/*
+        for(var property in loginService.storage){
+            if(property != "Username") {
+                delete loginService.storage[property];
+            }
+        }
+*/      console.log("alter this");
+        console.log(loginService.storage);
+        console.log(user.Username)
+        loginService.storage.Username = user.Username
+        for (var property in user) {
+            split = property.split("_")
+            if(split[0] == "deck"){
+                loginService.storage.decks[split[1]] = user[property];
+            }
+
+        }
+        console.log("STORAGE")
+        console.log(loginService.storage);
+        $scope.$apply()
+
+    }
+
+    $scope.logout = function () {
+        loginService.storage.Username = "";
+        /*
+        for(var i =0; i <loginService.decks.length; i++){
+            loginService.decks[i] = 0;
+        }
+        */
+        window.location.href = "/";
+    }
+
+
+     $scope.login = function () {
+
+     var validationMessages = requiredFieldValidationService_Login.getRequiredFieldValidationErrorMessage(
+        [
+         {name: $scope.user.Username || "", errorMessage: "Please enter username"},
+         {name: $scope.user.Password || "", errorMessage: "Please enter password"},
+
+        ]
+     );
+
+     if (validationMessages.length > 0) {
+         $scope.validationResult.containsValidationError = true;
+         console.log("validation errors exist");
+         angular.element("#validationErrorMessage").empty();
+         validationMessages.forEach(function (errorMessage) {
+         angular.element("<li></li>")
+         .html(errorMessage)
+         .appendTo("#validationErrorMessage")
+        });
+     } else {
+
+
+         console.log($scope.User)
+         loginService.login($scope.user)
+         .success(function (data) {
+             console.log("data")
+             console.log(data)
+             bindView(data)
+             window.location.href = "/myDecks";
+
+ })
+ }
+ }
+
+
+
+ }

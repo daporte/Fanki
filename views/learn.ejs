@@ -1,0 +1,26 @@
+<% include layout%>
+
+<div class="container"
+     data-ng-cloak
+     data-ng-modules="productCategoryModule, productModule"
+         data-ng-controller="learnController">
+    <div class="well">{{FrontSide}}</div>
+    <div class="well" ng-show="show">{{BackSide}}</div>
+    <button type="button"
+            class="btn btn-primary"
+            ng-show="!show"
+            data-ng-click="showAnswer()">
+        Show
+    </button>
+    <button type="button"
+            class="btn btn-primary"
+            ng-show="show"
+            data-ng-click="getCard()">
+        Next
+    </button>
+
+</div>
+
+<script src="../../javascripts/app/productCategory/learnController.js"></script>
+<script src="../../javascripts/app/productCategory/productCategoryService.js"></script>
+<script src="../../javascripts/app/productCategory/productService.js"></script>

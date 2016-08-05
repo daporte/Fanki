@@ -1,0 +1,114 @@
+<% include layout.ejs%>
+
+
+<div class="panel-body">
+
+    <div class="container"
+         data-ng-cloak
+         data-ng-app="productModule"
+         data-ng-controller="createCardController">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+
+                <h3 class="panel-title"> Deck :  {{DeckName}}</h3>
+            </div>
+        </div>
+
+        <form
+                class="navbar-form navbar-left" role="search"
+                method="POST"
+                name="formProductCategory">
+
+            <%include validationSummary.ejs%>
+            <div class="row">
+            <div class="form-group">
+                <label for="productDetails">Front Side</label>
+             <textarea
+                     class="form-control"
+                     placeholder="Front side"
+                     name="productDetails"
+                     id="productDetails"
+                     rows="5"
+                     cols="30"
+                     ng-model="product.FrontSide"
+                     style="width:100%"
+                     required>
+
+
+             </textarea>
+            </div>
+            </div>
+
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="productDetails">Back Side</label>
+             <textarea
+                     class="form-control"
+                     placeholder="Back side"
+                    name="productDetails"
+                     id="productDetails"
+                     rows="5"
+                     cols="30"
+
+                     ng-model="product.BackSide"
+
+                     style="width:100%"
+                     required>
+
+
+             </textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="">Added By</label>
+                    &nbsp;&nbsp;
+
+                    <input type="text"
+                           class="form-control"
+                           placeholder="???"
+                           name="productSelling"
+                           id="productSelling"
+                           ng-model="product.AddedBy"
+                           style="width:100%"
+                           required>
+                </div>
+            </div>
+
+
+
+
+
+            <div>&nbsp</div>
+            <div class="row">
+                <div class="form-group" style="padding-left:40%">
+                    <button type="button" class="bin bin-primary"
+                            ng-click="createCard(product)"
+                    >Create Product</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+
+
+<script src="../../javascripts/angular.min.js"></script>
+
+<!--script src="../public/javascripts/app/productCategory/productCategoryModule.js"></script>
+<script src="../public/javascripts/app/productCategory/productCategoryService.js"></script>
+<script src="../public/javascripts/app/productCategory/productCategoryController.js"></script-->
+
+
+<script src="../../javascripts/app/productCategory/productModule.js"></script>
+<script src="../../javascripts/app/productCategory/productService.js"></script>
+<script src="../../javascripts/app/productCategory/createCardController.js"></script>
+
+<script src="../../javascripts/app/productCategory/requiredFieldValidationService_Product.js"></script>

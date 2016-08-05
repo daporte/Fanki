@@ -1,0 +1,106 @@
+<% include layout.ejs%>
+
+<% include pageTitle%>
+<div class="panel-body">
+
+    <div class="container"
+         data-ng-cloak
+         data-ng-app="productCategoryModule"
+         data-ng-controller="productCategoryController">
+
+        <form
+                class="navbar-form navbar-left" role="search"
+                method="POST"
+                name="formProductCategory">
+
+            <%include validationSummary.ejs%>
+            <div class="row">
+                <div class="form-group">
+                    <label for="">Deck Name</label>
+                    &nbsp;&nbsp;
+
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Please enter name of your deck"
+                           name="productCategory"
+                           id="productCategory"
+                           ng-model="productCategory.DeckName"
+                           style="width:100%"
+                           required>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="productDetails">Description</label>
+             <textarea
+                     class="form-control"
+                     placeholder="Please describe your deck"
+                     name="productDetails"
+                     id="productDetails"
+                     rows="5"
+                     cols="30"
+
+                     ng-model="productCategory.Description"
+
+                     style="width:100%"
+                     required>
+
+
+             </textarea>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="productDetails">Added By</label>
+             <textarea
+                     class="form-control"
+                     placeholder="???"
+                     name="productDetails"
+                     id="productDetails"
+                     rows="5"
+                     cols="30"
+
+                     ng-model="productCategory.AddedBy"
+
+                     style="width:100%"
+                     required>
+
+
+             </textarea>
+                </div>
+            </div>
+
+
+
+            <div>&nbsp</div>
+            <div class="row">
+                <div class="form-group" style="padding-left:40%">
+                    <button type="button" class="bin bin-primary"
+                            ng-click="createProductCategory(productCategory)"
+                    >Create Deck</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+</div>
+
+<script src="../../javascripts/angular.min.js"></script>
+
+<!--script src="../public/javascripts/app/productCategory/productCategoryModule.js"></script>
+<script src="../public/javascripts/app/productCategory/productCategoryService.js"></script>
+<script src="../public/javascripts/app/productCategory/productCategoryController.js"></script-->
+
+
+<script src="../../javascripts/app/productCategory/productCategoryModule.js"></script>
+<script src="../../javascripts/app/productCategory/productCategoryService.js"></script>
+<script src="../../javascripts/app/productCategory/productCategoryController.js"></script>
+
+<script src="../../javascripts/app/productCategory/requiredFieldValidationService.js"></script>

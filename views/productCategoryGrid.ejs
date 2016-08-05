@@ -1,0 +1,52 @@
+<table
+        data-ng-show="productCategories.length > 0"
+
+        class="table table-striped table-hover"
+
+>
+    <tr class="success">
+        <td>Deck Name</td>
+        <td>Description</td>
+        <td>IsActive</td>
+        <td>AddedBy</td>
+        <td>Created Date</td>
+        <td>Modified Date</td>
+        <td>Actions</td>
+    </tr>
+
+    <tr data-ng-repeat="productCategory in productCategories">
+        <td>{{productCategory.DeckName}}</td>
+        <td><button
+                    type="button"
+                    class="btn btn primary"
+                    data-toggle="modal"
+                    data-target="#DeckDetailsModalWindow"
+                    data-categoryId="{{productCategory.Id}}"
+                    data-ng-click="showProductDetailsInformation(productCategory)">View Details</button></td>
+        <td>{{productCategory.IsValid == "1" ? "Valid" : "Invalid"}}</td>
+        <td>{{productCategory.AddedBy}}</td>
+        <td>{{productCategory.CreatedDate}}</td>
+        <td>{{productCategory.ModifiedDate}}</td>
+        <td class="info">
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    Edit <span class="caret"></span>
+                </button>
+                <ui class="dropdown-menu" role="menu">
+                    <li><a href="/editDeck/{{productCategory.Id}}">Edit Deck</a> </li>
+                    <li><a href="/editProductCategory/{{productCategory.Id}}">Edit Deck Info</a></li>
+
+                    <li class="divider"></li>
+                    <li><button
+                                type="button"
+                                class="btn btn primary"
+                                data-toggle="modal"
+                                data-target="#exampleModal"
+                                data-categoryId="{{productCategory.Id}}"
+                                data-ng-click="setCurrentProductCategoryId(productCategory.Id)">Delete Deck</button></li>
+                </ui>
+            </div>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,84 @@
+<% include layout.ejs%>
+
+
+
+<br>
+
+<div data-ng-app="productCategoryModule"
+     data-ng-controller="viewProductCategoryController">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+
+            <h3 class="panel-title"> {{DeckName}}</h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <table
+                data-ng-show="productCategories.length > 0"
+
+                class="table table-striped table-hover"
+
+        >
+            <tr class="success">
+                <td>Deck Name</td>
+                <td>Description</td>
+                <td>AddedBy</td>
+                <td>Created Date</td>
+                <td>Modified Date</td>
+                <td>Add</td>
+
+            </tr>
+
+            <tr data-ng-repeat="productCategory in productCategories">
+                <td>{{productCategory.DeckName}}</td>
+                <td><button
+                            type="button"
+                            class="btn btn primary"
+                            data-toggle="modal"
+                            data-target="#DeckDetailsModalWindow"
+                            data-categoryId="{{productCategory.Id}}"
+                            data-ng-click="showProductDetailsInformation(productCategory)">View Details</button></td>
+
+                <td>{{productCategory.AddedBy}}</td>
+                <td>{{productCategory.CreatedDate}}</td>
+                <td>{{productCategory.ModifiedDate}}</td>
+                <td class="info">
+                    <input type="checkbox" ng-model="check" ng-click="addDeck(productCategory, check)" ng-checked="$storage.decks[productCategory.Id]==1">
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this card?</h4>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-ng-click="deleteCard()">Delete Card</button>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+
+
+<script src="../../javascripts/app/productCategory/productCategoryService.js"></script>
+<script src="../../javascripts/app/productCategory/viewProductCategoryController.js"></script>
+
+<script src="../../javascripts/app/productCategory/requiredFieldValidationService.js"></script>
+
+

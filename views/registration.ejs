@@ -1,0 +1,66 @@
+<% include layout%>
+<div class="panel-body">
+
+    <div class="container"
+         data-ng-cloak
+         data-ng-modules="loginModule"
+         data-ng-controller="registerController">
+
+        <form
+                class="navbar-form navbar-left" role="search"
+                method="POST"
+                name="formProductCategory">
+            <%include validationSummary.ejs%>
+            <div class="row">
+                <div class="form-group">
+                    <label for="">Set Username</label>
+                    &nbsp;&nbsp;
+
+                    <input type="text"
+                           class="form-control"
+                           placeholder="New username"
+                           name="productSelling"
+                           id="productSelling"
+                           ng-model="newUser.Username"
+                           style="width:100%"
+                           required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="">Set Password</label>
+                    &nbsp;&nbsp;
+
+                    <input type="text"
+                           class="form-control"
+                           placeholder="New password"
+                           name="productSelling"
+                           id="productSelling"
+                           ng-model="newUser.Password"
+                           style="width:100%"
+                           required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group" style="padding-left:40%">
+                    <button type="button" class="bin bin-primary"
+                            ng-click="register()"
+                    >Register</button>
+                </div>
+            </div>
+
+
+
+
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+<script src="../../javascripts/app/productCategory/registerController.js"></script>
+
+
