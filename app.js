@@ -14,8 +14,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -26,6 +24,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+var port = process.env.PORT || 3001;
+app.listen(port);
+
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
+app.use('/public/javascripts/app/Videos', express.static(__dirname + '/public/javascripts/app/Videos'));
 
 
 var productCategoryRoute = require("./routes/productCategoryRouteConfig.js");
@@ -68,3 +72,5 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
+
