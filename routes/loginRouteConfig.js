@@ -61,6 +61,7 @@ loginRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/login",
 
         callbackFunction: function(request, response) {
+            console.log("in route")
             console.log(request.body)
 
             var loginDao = require("../server/dao/loginDao.js");
