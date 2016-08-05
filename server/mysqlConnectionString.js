@@ -2,10 +2,10 @@ var mysqlConnectionString = {
 
     connection :{
         dev :{
-            host: "localhost",
-            user: "root",
-            password: "bagrsehen1",
-            database: "fanki"
+            host: "gx97kbnhgjzh3efb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+            user: "y3q1ay9id81zhv7b",
+            password: "z4z8628640iv46h3",
+            database: "mbhkw9gpsgxyuaj7"
 
         }
 
