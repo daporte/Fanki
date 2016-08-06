@@ -1,8 +1,8 @@
 angular.module("productModule").controller("editDeckController",editDeckController);
 
-editDeckController.$inject = ["$scope", "$timeout", "productService"];
+editDeckController.$inject = ["$scope", "$timeout", "productService", "$route"];
 
-function editDeckController($scope, $timeout, productService) {
+function editDeckController($scope, $timeout, productService, $route) {
 
     $scope.products = [];
     $scope.DeckName = "";
@@ -70,7 +70,7 @@ function editDeckController($scope, $timeout, productService) {
                 .success(function(data){
                     if(data && data.status && data.status == "successful"){
                         console.log("Succcess");
-                        
+                        $route.reload();
                     }
 
                 });
