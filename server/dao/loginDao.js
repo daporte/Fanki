@@ -4,7 +4,7 @@ var loginDao = {
 
     createUser: function(user, OnSuccessfulCallback){
 
-        var insertStatement = "INSERT INTO Users SET?";
+        var insertStatement = "INSERT INTO users SET?";
 
         var userToBeAdded = {
 
