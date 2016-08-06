@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b28fec-d28b-4203-be9a-f9204902d5cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/createCard.ejs" afterPath="$PROJECT_DIR$/views/createCard.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/loginRouteConfig.js" afterPath="$PROJECT_DIR$/routes/loginRouteConfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/createProductCategory.ejs" afterPath="$PROJECT_DIR$/views/createProductCategory.ejs" />
     </list>
     <ignored path="Fanki.iws" />
@@ -56,11 +56,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createProductCategory.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createProductCategory.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/createProductCategory.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loginDao.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/dao/loginDao.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-425">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -71,16 +81,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="720">
               <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editCardController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/editCardController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -106,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editDeckController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/editDeckController.js">
+      <file leaf-file-name="loginRouteConfig.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/loginRouteConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-612">
-              <caret line="4" column="60" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
+            <state relative-caret-position="414">
+              <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -189,7 +189,6 @@
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/loginService.js" />
         <option value="$PROJECT_DIR$/views/editDeck.ejs" />
         <option value="$PROJECT_DIR$/server/dao/productDao.js" />
-        <option value="$PROJECT_DIR$/routes/loginRouteConfig.js" />
         <option value="$PROJECT_DIR$/server/dao/loginDao.js" />
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/editDeckController.js" />
         <option value="$PROJECT_DIR$/views/layout.ejs" />
@@ -198,6 +197,7 @@
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/viewProductCategoryController.js" />
         <option value="$PROJECT_DIR$/views/createCard.ejs" />
         <option value="$PROJECT_DIR$/views/createProductCategory.ejs" />
+        <option value="$PROJECT_DIR$/routes/loginRouteConfig.js" />
       </list>
     </option>
   </component>
@@ -878,12 +878,12 @@
       <workItem from="1470379740652" duration="11978000" />
       <workItem from="1470420093669" duration="91000" />
       <workItem from="1470420743785" duration="8576000" />
-      <workItem from="1470467818807" duration="4926000" />
+      <workItem from="1470467818807" duration="5217000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160935000" />
+    <option name="totallyTimeSpent" value="161226000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1219,22 +1219,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/loginRouteConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="65" column="37" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dao/loginDao.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -1326,7 +1310,23 @@
     <entry file="file://$PROJECT_DIR$/views/createProductCategory.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dao/loginDao.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/loginRouteConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
           <folding />
         </state>
       </provider>

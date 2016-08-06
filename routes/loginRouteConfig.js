@@ -70,10 +70,13 @@ loginRouteConfig.prototype.addRoutes = function () {
             loginDao.loginDao.login(request.body, function (status) {
                 console.log("STATUS")
                 console.log(status)
-                productCategoryDao.productCategoryDao.getAllUserDecks(status.username, function(userData){
-                    response.json(userData[0]);
-                    console.log(userData[0]);
-                });
+                if(status=="successful"){
+                    productCategoryDao.productCategoryDao.getAllUserDecks(status.username, function(userData){
+                        response.json(userData[0]);
+                        console.log(userData[0]);
+                    });
+                }
+
 
             })
 
