@@ -150,7 +150,7 @@ var productDao = {
     ,
     getDeckIdFromCard : function (cardId, callback) {
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT decks_FK FROM cards WHERE Id = ?" ;
+        var queryStatement = "SELECT decks_FK FROM Cards WHERE Id = ?" ;
         if (connection){
             connection.query(queryStatement, cardId, function(err, rows, fields){
                 if (err) {throw err;}
