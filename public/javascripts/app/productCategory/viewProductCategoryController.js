@@ -53,15 +53,15 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
         if($scope.currentProductCategoryId>0){
             productCategoryService.deleteProductCategoryById($scope.currentProductCategoryId)
                 .success(function(data){
-                    if(data && data.status && data.status == "successful"){
 
-                        console.log("Succcess");
-                        console.log(data.resultId);
-                        //window.location.href = "/viewProductCategory/deck_"+data.resultId;
-                        console.log(loginService.storage.decks[data.resultId])
-                        delete loginService.storage.decks[data.resultId];
-                        window.location.href = "/viewProductCategory";
-                    }
+
+                    console.log("Succcess");
+                    console.log(data.resultId);
+                    //window.location.href = "/viewProductCategory/deck_"+data.resultId;
+                    console.log(loginService.storage.decks[data.resultId])
+                    delete loginService.storage.decks[data.resultId];
+                    window.location.href = "/viewProductCategory";
+
 
                 });
          
