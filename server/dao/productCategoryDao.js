@@ -147,7 +147,7 @@ var productCategoryDao = {
         var queryStatement = "DELETE FROM Decks WHERE Id = ?";
         if (connection){
             connection.query(queryStatement, productCategoryId, function(err, rows, fields){
-                if (err) {throw err;}
+               
 
                 console.log("rowz")
                 console.log(rows);
