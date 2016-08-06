@@ -262,6 +262,7 @@ var productCategoryDao = {
     
     getAllUserDecks : function(Username, callback){
         console.log("in dao m8");
+        
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         var queryStatement = "SELECT * FROM userDecks WHERE Username = ?";
         console.log(Username)
