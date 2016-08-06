@@ -70,11 +70,12 @@ function editDeckController($scope, $timeout, productService) {
                 .success(function(data){
                     if(data && data.status && data.status == "successful"){
                         console.log("Succcess");
+                        window.location.href = "/editDeck/" + productService.getIdFromEndPoint();
                     }
 
                 });
 
-            window.location.href = productService.getIdFromEndPoint();
+
         }
     };
 
