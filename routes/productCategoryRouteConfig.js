@@ -150,16 +150,19 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
             productCategoryDao.productCategoryDao.deleteProductCategoryById(request.params.productCategoryId,
                 function (status) {
                     console.log("im here ")
+                    if(status=="successful"){
 
-                    productCategoryDao.productCategoryDao.deleteTable(request.params.productCategoryId, function(status2) {
+                        productCategoryDao.productCategoryDao.deleteTable(request.params.productCategoryId, function(status2) {
 
-                        productCategoryDao.productCategoryDao.deleteFromUserDecks(request.params.productCategoryId, function (status3) {
+                            productCategoryDao.productCategoryDao.deleteFromUserDecks(request.params.productCategoryId, function (status3) {
 
-                            response.json(status3);
-                            console.log(status3);
-                        });
+                                response.json(status3);
+                                console.log(status3);
+                            });
 
-                    })
+                        })
+                    }
+
 
 
                 });
