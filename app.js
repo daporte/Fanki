@@ -7,9 +7,35 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+//---
+var passport = require('passport');
+
+// This is the file we created in step 2.
+// This will configure Passport to use Auth0
+var strategy = require('./setup-passport');
+
+// Session and cookies middlewares to keep user logged in
+var session = require('express-session');
+//---
 
 var app = express();
 
+//---
+app.use(session({ secret: 'trrfmgtYzvSYrnH3BLS1YQ2vzfZnhq_KNFDEXwgCfR6p06EtgYbDVY3Qg5uUcP-d', resave: false,  saveUninitialized: false }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/callback',
+    passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
+    function(req, res) {
+      if (!req.user) {
+        throw new Error('user null');
+      }
+      res.redirect("/user");
+    });
+
+//---
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

@@ -84,7 +84,6 @@ var productDao = {
             connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
         }
     }
-
     ,
     updateProduct : function(product, callback){
         console.log("im in dao")
