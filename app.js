@@ -61,9 +61,11 @@ app.use('/public/javascripts/app/Videos', express.static(__dirname + '/public/ja
 var productCategoryRoute = require("./routes/productCategoryRouteConfig.js");
 var productRoute = require("./routes/productRouteConfig.js");
 var loginRoute = require("./routes/loginRouteConfig.js");
+var indexRoute = require("./routes/index.js");
 new productCategoryRoute(app)
 new productRoute(app);
 new loginRoute(app);
+new indexRoute(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
