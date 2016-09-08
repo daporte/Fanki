@@ -209,15 +209,17 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
     self.routeTable.push({
         requestType : "get",
-        requestUrl : "/getAllUserDecks/:username",
+        requestUrl : "/getAllUserDecks/:UserId",
         callbackFunction : function(request, response){
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
             console.log("checkthis")
-            console.log(request.params.username)
-            productCategoryDao.productCategoryDao.getAllUserDecks(request.params.username,
+            console.log(request.params.UserId)
+            productCategoryDao.productCategoryDao.getAllUserDecks(request.params.UserId,
                 function (productCategories) {
                     console.log("PROPERTIES")
 
+                    response.json(productCategories[0]);
+                    /*
                     var activeDecks = [];
                     for (var property in productCategories[0]) {
                         if (productCategories[0].hasOwnProperty(property)) {
@@ -240,6 +242,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                     productCategoryDao.productCategoryDao.getDeckInfo(inClause, function(resultDecks) {
                         response.json(resultDecks);
                     });
+                    */
                 });
 
         }

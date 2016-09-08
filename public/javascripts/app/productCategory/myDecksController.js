@@ -7,12 +7,12 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
     $scope.productCategories = [];
     console.log(loginService.storage);
 
-    getAllUserDecks(loginService.storage.Username);
+    getAllUserDecks(loginService.storage.UserId);
 
-    function getAllUserDecks(username){
+    function getAllUserDecks(UserId){
         console.log("do you even");
-        console.log(username);
-        productCategoryService.getAllUserDecks(username)
+        console.log(UserId);
+        productCategoryService.getAllUserDecks(UserId)
             .success(function (data){
                 console.log("zzzzzzzzzzzzzzzzzzzzz");
                 console.log(data);

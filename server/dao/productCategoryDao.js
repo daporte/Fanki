@@ -284,15 +284,15 @@ var productCategoryDao = {
     
     ,
     
-    getAllUserDecks : function(Username, callback){
-        console.log("in dao m8");
+    getAllUserDecks : function(UserId, callback){
+        console.log("in dao m7");
         
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM userDecks WHERE Username = ?";
-        console.log(Username)
+        var queryStatement = "SELECT * FROM userDecks LEFT JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
+        console.log(UserId)
         console.log(queryStatement)
         if (connection){
-            connection.query(queryStatement, Username, function(err, rows, fields){
+            connection.query(queryStatement, UserId, function(err, rows, fields){
                 if (err) {throw err;}
 
                 //console.log(rows);

@@ -76,9 +76,9 @@ function productCategoryService($http, $location) {
 
         }
         ,
-        getAllUserDecks : function (username){
+        getAllUserDecks : function (UserId){
             
-            return $http.get("/getAllUserDecks/" + username);
+            return $http.get("/getAllUserDecks/" + UserId);
         }
         ,
         getCardsFromDeck : function (deckId, username) {
