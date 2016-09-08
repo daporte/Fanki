@@ -33,11 +33,12 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
     }
 
 
-    $scope.showUser = function (nickname) {
+    $scope.showUser = function (nickname, id) {
         console.log("HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
         console.log(nickname);
+        console.log(id);
         loginService.storage.Username = nickname;
-        $scope.$apply()
+        loginService.storage.UserId = id;
     }
 
     bindView = function (user) {
@@ -72,6 +73,7 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
 
     $scope.logout = function () {
         loginService.storage.Username = "";
+        loginService.storage.UserId = "";
         /*
         for(var i =0; i <loginService.decks.length; i++){
             loginService.decks[i] = 0;
