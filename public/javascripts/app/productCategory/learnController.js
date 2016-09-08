@@ -51,7 +51,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
                 }
                 */
                 console.log("zdar")
-                var idx = Math.floor(Math.random() * Object.keys(cards).length)
+                var idx = Math.floor(Math.random() * Object.keys(data).length)
                 console.log(idx);
                 var chosenCard = data[idx];
                 console.log(chosenCard);
