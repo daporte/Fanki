@@ -191,7 +191,8 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
             productCategoryDao.productCategoryDao.updateUserDecks(request.body.Id, request.body.UserId, request.body.On,
                 function (status) {
-
+                    response.json(status);
+                    /*
                     if(request.body.On){
                         productCategoryDao.productCategoryDao.addUserToDecksTable(request.body.Id, request.body.UserId, function (result) {
 
@@ -201,6 +202,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                     console.log("im here ")
                     console.log(status);
                     response.json(status);
+                    */
                 });
         }
     });
