@@ -33,7 +33,7 @@ app.get('/callback',
       if (!req.user) {
         throw new Error('user null');
       }
-      res.render("user", {title: req.user});
+      res.redirect("/user");
     });
 
 //---
