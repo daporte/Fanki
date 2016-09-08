@@ -59,7 +59,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 //app.use('/callback', routes);
-app.use('/user', users);
+//app.use('/user', users);
+
+app.get('/user', function (req, res) {
+    res.render('user', {
+        user: req.user
+    });
+});
 
 var port = process.env.PORT || 3001;
 app.listen(port);
