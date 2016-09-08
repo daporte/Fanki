@@ -1,7 +1,12 @@
 <% include layout.ejs%>
 <span>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa</span>
+<div class="container"
+     data-ng-cloak
+     data-ng-app="loginModule"
+     data-ng-controller="loginController">
+    <button type="button" class="btn btn-danger" data-ng-click="showUser()">ShowUser</button>
+</div>
 
-<button type="button" class="btn btn-danger" data-ng-click="showUser()">ShowUser</button>
-
+<script src="../../javascripts/app/productCategory/loginModule.js"></script>
 <script src="../../javascripts/app/productCategory/loginController.js"></script>
 <script src="../../javascripts/app/productCategory/loginService.js"></script>
