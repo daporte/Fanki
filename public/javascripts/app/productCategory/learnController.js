@@ -32,7 +32,9 @@ function learnController($scope, $timeout, loginService, productCategoryService,
             .success(function(data){
 
                 console.log(data);
+                /*
                 var cards = []
+
                 for(var property in data[0]){
 
                     if(property.startsWith("card")){
@@ -47,10 +49,11 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
                     }
                 }
+                */
                 console.log("zdar")
                 var idx = Math.floor(Math.random() * Object.keys(cards).length)
                 console.log(idx);
-                var chosenCard = cards[idx];
+                var chosenCard = data[idx];
                 console.log(chosenCard);
 
                 productService.getProductById(chosenCard.cardId)
