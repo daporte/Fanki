@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/indexRoute.js');
-var users = require('./routes/user');
+var users = require('./routes/users.js');
 //---
 var passport = require('passport');
 
