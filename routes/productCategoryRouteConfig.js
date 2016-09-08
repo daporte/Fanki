@@ -184,7 +184,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         callbackFunction : function(request, response){
 
             console.log(request.body.Id);
-            console.log(request.body.Username);
+            console.log(request.body.UserId);
             console.log(request.body.On);
 
             var productCategoryDao = require("../server/dao/productCategoryDao.js");

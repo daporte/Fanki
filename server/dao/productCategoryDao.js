@@ -206,30 +206,48 @@ var productCategoryDao = {
         }
     }
     ,
-    updateUserDecks : function(deckId, username, on, callback){
+    updateUserDecks : function(DeckId, UserId, on, callback){
         console.log("daohere");
-
-
-
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "UPDATE userDecks SET deck_" + deckId + " = ? WHERE Username = ?";
-        if (connection){
-            connection.query(queryStatement, [on, username], function(err, rows, fields){
-                if (err) {throw err;}
+
+        if(on){
+
+            var insertObject = {
+                UserId : UserId,
+                DeckId : DeckId
+            }
+
+            var queryStatement = "INSERT INTO userDecks SET?";
+            if (connection){
+                connection.query(queryStatement, insertObject, function(err, rows, fields){
+                    if (err) {throw err;}
 
 
+                    if(rows){
+                        callback({status : "successful"});
+                    }
 
+                });
 
+                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+            }
+        } else {
+            var queryStatement = "DELETE FROM userDecks WHERE DeckId = ? AND UserId = ?";
+            if (connection){
+                connection.query(queryStatement, [DeckId, UserId], function(err, rows, fields){
+                    if (err) {throw err;}
 
+                    if(rows){
+                        callback({status : "successful"});
+                    }
 
-                if(rows){
-                    callback({status : "successful"});
-                }
-
-            });
-
-            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+                });
+                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+            }
         }
+
+
+
 
     }
     ,
