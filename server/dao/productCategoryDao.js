@@ -209,7 +209,7 @@ var productCategoryDao = {
     updateUserDecks : function(DeckId, UserId, on, callback){
         console.log("daohere");
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-
+        console.log(UserId);
         if(on){
 
             var insertObject = {
