@@ -25,7 +25,7 @@ app.use(session({ secret: 'trrfmgtYzvSYrnH3BLS1YQ2vzfZnhq_KNFDEXwgCfR6p06EtgYbDV
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+/*
 app.get('/callback',
     passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
     function(req, res) {
@@ -34,7 +34,7 @@ app.get('/callback',
       }
       res.redirect("/user");
     });
-
+*/
 //---
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
