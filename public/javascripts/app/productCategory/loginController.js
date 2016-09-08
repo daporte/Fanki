@@ -37,6 +37,7 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
         console.log("HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
         console.log(nickname);
         loginService.storage.Username = nickname;
+        $scope.$apply()
     }
 
     bindView = function (user) {
