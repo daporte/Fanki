@@ -55,7 +55,8 @@ function learnController($scope, $timeout, loginService, productCategoryService,
                 console.log(idx);
                 var chosenCard = data[idx];
                 console.log(chosenCard);
-
+                bindView(chosenCard);
+                /*
                 productService.getProductById(chosenCard.cardId)
                     .success(function (data2) {
                         console.log(data2)
@@ -65,7 +66,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
 
                     })
-
+                */
 
         })
     }
