@@ -68,8 +68,8 @@ function productCategoryService($http, $location) {
 
         }
         ,
-        addDeckToUser : function (deck, username, on) {
-            deck["Username"] = username;
+        addDeckToUser : function (deck, UserId, on) {
+            deck["UserId"] = UserId;
             deck["On"] = on;
 
             return $http.post("/addDeckToUser",deck);

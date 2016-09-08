@@ -234,14 +234,16 @@ var productCategoryDao = {
     }
     ,
     
-    addUserToDecksTable : function (deckId, username, callback) {
+    addUserToDecksTable : function (DeckId, UserId, callback) {
         console.log("in dao m8");
         var insertObject = {
-            Username : username
+            UserId : UserId,
+            DeckId : DeckId
         }
 
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "INSERT INTO deck_" + deckId + " SET?";
+        //var queryStatement = "INSERT INTO deck_" + deckId + " SET?";
+        var queryStatement = "INSERT INTO userDecks SET?";
         console.log(queryStatement)
         if (connection){
             try {

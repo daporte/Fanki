@@ -189,11 +189,11 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
-            productCategoryDao.productCategoryDao.updateUserDecks(request.body.Id, request.body.Username, request.body.On,
+            productCategoryDao.productCategoryDao.updateUserDecks(request.body.Id, request.body.UserId, request.body.On,
                 function (status) {
 
                     if(request.body.On){
-                        productCategoryDao.productCategoryDao.addUserToDecksTable(request.body.Id, request.body.Username, function (result) {
+                        productCategoryDao.productCategoryDao.addUserToDecksTable(request.body.Id, request.body.UserId, function (result) {
 
                         })
                     }

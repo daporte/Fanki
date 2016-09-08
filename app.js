@@ -72,6 +72,7 @@ app.get('/user', function (req, res) {
 var port = process.env.PORT || 3001;
 app.listen(port);
 
+
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/public/javascripts/app/Videos', express.static(__dirname + '/public/javascripts/app/Videos'));
 

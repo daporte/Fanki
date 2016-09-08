@@ -39,7 +39,7 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
 
     $scope.addDeck = function (deck, on) {
         console.log(deck)
-        productCategoryService.addDeckToUser(deck, loginService.storage.Username, on)
+        productCategoryService.addDeckToUser(deck, loginService.storage.UserId, on)
             .success(function (data) {
                 console.log(deck.Id)
                 console.log(on)
