@@ -29,7 +29,7 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
     }
 
 
-    showUser = function () {
+    $scope.showUser = function () {
         console.log("HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
     }
 
