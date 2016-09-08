@@ -25,16 +25,17 @@ app.use(session({ secret: 'trrfmgtYzvSYrnH3BLS1YQ2vzfZnhq_KNFDEXwgCfR6p06EtgYbDV
 
 app.use(passport.initialize());
 app.use(passport.session());
-/*
+
 app.get('/callback',
     passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
     function(req, res) {
+      console.log("ZA+DAAR")
       if (!req.user) {
         throw new Error('user null');
       }
       res.redirect("/user");
     });
-*/
+
 //---
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,7 +50,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/callback', routes);
+//app.use('/callback', routes);
 app.use('/users', users);
 
 var port = process.env.PORT || 3001;
