@@ -331,7 +331,7 @@ var productCategoryDao = {
     getCardsFromDeck : function (deckId, UserId, callback) {
 
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM bridge LEFT JOIN Cards ON bridge CardId = Cards.Id WHERE UserId = ?"
+        var queryStatement = "SELECT * FROM bridge LEFT JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ?"
 
         if (connection) {
             connection.query(queryStatement, UserId, function (err, rows, fields) {
