@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var routes = require('./routes/indexRoute');
 var users = require('./routes/users');
 //---
 var passport = require('passport');
@@ -61,7 +61,7 @@ app.use('/public/javascripts/app/Videos', express.static(__dirname + '/public/ja
 var productCategoryRoute = require("./routes/productCategoryRouteConfig.js");
 var productRoute = require("./routes/productRouteConfig.js");
 var loginRoute = require("./routes/loginRouteConfig.js");
-var indexRoute = require("./routes/index.js");
+var indexRoute = require("./routes/indexRoute.js");
 new productCategoryRoute(app)
 new productRoute(app);
 new loginRoute(app);
