@@ -77,13 +77,16 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         console.log("binding view");
         console.log(card)
 
+        $scope.FrontSide = card.FrontSide;
+        $scope.BackSide = card.BackSide;
+        $scope.show = false;
 
-
+        /*
         $scope.FrontSide = card.product[0].FrontSide;
         $scope.BackSide = card.product[0].BackSide;
         $scope.show = false;
         console.log($scope.FrontSide)
-
+        */
 
 
 
