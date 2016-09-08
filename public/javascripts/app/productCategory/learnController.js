@@ -28,7 +28,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
 
         console.log("GETTING CARD")
-        productCategoryService.getCardsFromDeck(productCategoryService.getIdFromEndPoint(), loginService.storage.Username)
+        productCategoryService.getCardsFromDeck(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function(data){
 
                 console.log(data);

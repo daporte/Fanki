@@ -328,13 +328,13 @@ var productCategoryDao = {
 
     }
     ,
-    getCardsFromDeck : function (deckId, username, callback) {
+    getCardsFromDeck : function (deckId, UserId, callback) {
 
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM deck_" + deckId + " WHERE Username = ?"
+        var queryStatement = "SELECT * FROM bridge WHERE UserId = ?"
 
         if (connection) {
-            connection.query(queryStatement, username, function (err, rows, fields) {
+            connection.query(queryStatement, UserId, function (err, rows, fields) {
                 if (err) {
                     throw err;
                 }

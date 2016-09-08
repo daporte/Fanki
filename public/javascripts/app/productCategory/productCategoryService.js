@@ -81,11 +81,11 @@ function productCategoryService($http, $location) {
             return $http.get("/getAllUserDecks/" + UserId);
         }
         ,
-        getCardsFromDeck : function (deckId, username) {
+        getCardsFromDeck : function (deckId, UserId) {
 
             return $http.post("/getCardsFromDeck",  {
                 deckId : deckId,
-                username : username
+                UserId : UserId
             });
         }
     }

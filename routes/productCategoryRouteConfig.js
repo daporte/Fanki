@@ -257,7 +257,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
-            productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.username,
+            productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.UserId,
                 function (status) {
 
                     
