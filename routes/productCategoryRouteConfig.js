@@ -218,7 +218,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 function (productCategories) {
                     console.log("PROPERTIES")
 
-                    response.json(productCategoriesd);
+                    response.json(productCategories);
                     /*
                     var activeDecks = [];
                     for (var property in productCategories[0]) {
