@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/callback',
     passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
     function(req, res) {
+      console.log("IM AUTHENTICATED");
       if (!req.user) {
         throw new Error('user null');
       }
