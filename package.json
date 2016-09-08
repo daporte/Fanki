@@ -19,7 +19,8 @@
     "gulp-nodemon":"*",
     "bootstrap":"*",
     "jquery":"*",
-    "ngstorage":"*"
+    "ngstorage":"*",
+    "passport":"*"
   },
   "engines": {
     "node" : "4.3.2"
