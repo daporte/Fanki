@@ -20,6 +20,8 @@
     "bootstrap":"*",
     "jquery":"*",
     "ngstorage":"*",
+    "passport":"*",
+    "express-session":"*",
     "passport-oauth":"*"
   },
   "engines": {
