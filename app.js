@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/indexRoute.js');
-var users = require('./routes/users');
+var users = require('./routes/user');
 //---
 var passport = require('passport');
 
@@ -59,7 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 //app.use('/callback', routes);
-app.use('/users', users);
+app.use('/user', users);
 
 var port = process.env.PORT || 3001;
 app.listen(port);
