@@ -62,7 +62,7 @@ app.use('/', routes);
 //app.use('/user', users);
 
 app.get('/user', function (req, res) {
-    res.render('user', {
+    res.render('userTemp', {
         user: req.user
     });
 });
