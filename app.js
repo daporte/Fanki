@@ -32,7 +32,9 @@ app.get('/callback',
       console.log("ZA+DAAR")
       if (!req.user) {
         throw new Error('user null');
+
       }
+      console.log(req.user)
       res.redirect("/user");
     });
 
