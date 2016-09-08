@@ -334,7 +334,7 @@ var productCategoryDao = {
         var queryStatement = "SELECT * FROM bridge LEFT JOIN Cards WHERE UserId = ?"
 
         if (connection) {
-            connection.query(queryStatement, UserId, function (err, rows, fields) {
+            connection.query(queryStatement, [UserId], function (err, rows, fields) {
                 if (err) {
                     throw err;
                 }
