@@ -22,7 +22,7 @@
     "ngstorage":"*",
     "passport":"*",
     "express-session":"*",
-    "passport-oauth":"*"
+    "passport-auth0":"*"
   },
   "engines": {
     "node" : "4.3.2"
