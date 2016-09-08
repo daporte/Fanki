@@ -34,12 +34,14 @@ app.get('/callback',
         throw new Error('user null');
 
       }
-      console.log(req.user)
-      var elem = angular.element(document.querySelector('[ng-controller]'));
-      console.log("elem-------");
-      console.log(elem)
-        //loginService.storage.Username = req.user.nickname;
+
       res.redirect("/user");
+      //console.log(req.user)
+      //var elem = angular.element(document.querySelector('[ng-controller]'));
+      //console.log("elem-------");
+      //console.log(elem)
+        //loginService.storage.Username = req.user.nickname;
+      
     });
 
 //---
