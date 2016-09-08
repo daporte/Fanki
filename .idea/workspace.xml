@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b28fec-d28b-4203-be9a-f9204902d5cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js" afterPath="$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js" afterPath="$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" afterPath="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/dao/productCategoryDao.js" afterPath="$PROJECT_DIR$/server/dao/productCategoryDao.js" />
     </list>
     <ignored path="Fanki.iws" />
@@ -81,8 +78,8 @@
       <file leaf-file-name="productCategoryDao.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="336" column="51" selection-start-line="336" selection-start-column="51" selection-end-line="336" selection-end-column="51" />
+            <state relative-caret-position="258">
+              <caret line="333" column="67" selection-start-line="333" selection-start-column="67" selection-end-line="333" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -964,12 +961,12 @@
       <workItem from="1472535709611" duration="88000" />
       <workItem from="1472585440815" duration="1433000" />
       <workItem from="1472640330585" duration="1825000" />
-      <workItem from="1473325511652" duration="26368000" />
+      <workItem from="1473325511652" duration="26977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191708000" />
+    <option name="totallyTimeSpent" value="192317000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
@@ -1426,8 +1423,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="336" column="51" selection-start-line="336" selection-start-column="51" selection-end-line="336" selection-end-column="51" />
+        <state relative-caret-position="258">
+          <caret line="333" column="67" selection-start-line="333" selection-start-column="67" selection-end-line="333" selection-end-column="67" />
           <folding />
         </state>
       </provider>
