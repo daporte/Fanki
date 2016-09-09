@@ -90,10 +90,10 @@ function productCategoryService($http, $location) {
         }
         ,
 
-        getNextCard : function (UserId) {
+        getNextCard : function (deckId, UserId) {
 
             return $http.post("/getNextCard",  {
-                deckId : getIdFromEndPoint(),
+                deckId : deckId,
                 UserId : UserId
             });
         }

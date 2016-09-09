@@ -56,7 +56,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
                 var chosenCard = data[0];
                 var now = new Date().getTime();
 
-                productCategoryService.getNextCard(loginService.storage.UserId)
+                productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
                     .success(function (nextCards) {
                         console.log(nextCards);
                         bindView(nextCards[0])
