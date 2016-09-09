@@ -53,6 +53,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         productCategoryService.logRep(loginService.storage.UserId, productCategoryService.getIdFromEndPoint(), $scope.CardId, EF, RepInterval, Reps, TotalReps)
             .success(function(status){
                 console.log(status);
+                $scope.getCard();
             })
     }
 
