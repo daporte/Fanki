@@ -28,6 +28,14 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     }
 
 
+    $scope.addNewCard = function(){
+        productCategoryService.addNewCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
+            .success(function(newCard){
+                console.log(newCard);
+                bindView(newCard);
+            })
+    }
+
     $scope.doRep = function (q) {
         var EF =computeEF($scope.EF, q);
         var TotalReps = $scope.TotalReps + 1;

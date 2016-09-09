@@ -98,6 +98,14 @@ function productCategoryService($http, $location) {
             });
         }
         ,
+        addNewCard : function (deckId, UserId) {
+
+            return $http.post("/addNewCard",  {
+                deckId : deckId,
+                UserId : UserId
+            });
+        }
+        ,
         logRep : function (UserId, DeckId, CardId, EF, RepInterval, Reps, TotalReps) {
             return $http.post("/logRep",  {
                 UserId : UserId,
