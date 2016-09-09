@@ -371,7 +371,7 @@ var productCategoryDao = {
         console.log("Dao hi");
         console.log(request.body);
 
-        if(request.body.TotalReps == 1){
+        if(!(request.body.TotalReps) || request.body.TotalReps == 1){
             console.log("inserting");
             var queryStatement = "INSERT INTO bridge SET?";
             if (connection){
