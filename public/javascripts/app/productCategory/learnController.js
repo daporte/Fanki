@@ -32,6 +32,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         productCategoryService.addNewCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function(newCards){
                 console.log(newCards);
+                unbindView();
                 bindView(newCards[0]);
             })
     }
@@ -63,6 +64,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         productCategoryService.logRep(loginService.storage.UserId, productCategoryService.getIdFromEndPoint(), $scope.CardId, EF, RepInterval, Reps, TotalReps)
             .success(function(status){
                 console.log(status);
+                unbindView();
                 $scope.getCard();
             })
     }
@@ -103,6 +105,17 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         return repInterval;
     }
 
+
+    function unbindView() {
+        $scope.CardId = -1;
+        $scope.FrontSide = "arwe";
+        $scope.BackSide = "zzz";
+        $scope.show = false;
+        $scope.EF = 0;
+        $scope.RepInterval = 0;
+        $scope.Reps = 0;
+        $scope.TotalReps = 0;
+    }
 
     function bindView(card) {
         console.log("binding view");
