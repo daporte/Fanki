@@ -139,10 +139,20 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         $scope.FrontSide = card.FrontSide;
         $scope.BackSide = card.BackSide;
         $scope.show = false;
-        $scope.EF = card.EF;
-        $scope.RepInterval = card.RepInterval;
-        $scope.Reps = card.Reps;
-        $scope.TotalReps = card.TotalReps;
+        if(card.EF){
+            $scope.EF = card.EF;
+        }
+        if(card.RepInterval){
+            $scope.RepInterval = card.RepInterval;
+        }
+        if(card.Reps){
+            $scope.Reps = card.Reps;
+        }
+        if(card.TotalReps){
+            $scope.TotalReps = card.TotalReps;
+        }
+
+
 
         /*
         $scope.FrontSide = card.product[0].FrontSide;
