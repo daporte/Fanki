@@ -330,12 +330,12 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
             productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
-                function (newCard) {
+                function (newCards) {
 
 
                     console.log("im here ")
                     //console.log(status);
-                    response.json(newCard);
+                    response.json(newCards);
 
                 });
         }

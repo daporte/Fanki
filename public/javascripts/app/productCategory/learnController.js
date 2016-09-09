@@ -30,9 +30,9 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
     $scope.addNewCard = function(){
         productCategoryService.addNewCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
-            .success(function(newCard){
-                console.log(newCard);
-                bindView(newCard);
+            .success(function(newCards){
+                console.log(newCards);
+                bindView(newCards[0]);
             })
     }
 
