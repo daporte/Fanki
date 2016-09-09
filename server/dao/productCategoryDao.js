@@ -358,7 +358,7 @@ var productCategoryDao = {
 
 
                 console.log("zzzzz");
-                console.log(rows)
+                console.log(rows);
                 callback(rows);
             });
 
@@ -368,9 +368,12 @@ var productCategoryDao = {
     ,
     logRep : function (request, callback) {
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        if(request.body.TotalReps == 1){
+        console.log("Dao hi");
+        console.log(request.body);
 
-            var queryStatement = "INSERT INTO bridge SET?"
+        if(request.body.TotalReps == 1){
+            console.log("inserting");
+            var queryStatement = "INSERT INTO bridge SET?";
             if (connection){
                 connection.query(queryStatement, request.body, function(err, rows, fields){
                     if (err) {throw err;}
@@ -385,7 +388,7 @@ var productCategoryDao = {
             }
 
         } else {
-
+            console.log("updating");
             var queryStatement = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
             if (connection){
                 connection.query(queryStatement, [request.body, request.body.UserId, request.body.CardId], function(err, rows, fields){
