@@ -103,9 +103,10 @@ function productService($http, $location){
         deleteCardById : function (cardId) {
             console.log("deleting in service")
             return $http['delete']("/deleteCardById/" + cardId)
-
-
         }
+
+        
+
 
     }
 }

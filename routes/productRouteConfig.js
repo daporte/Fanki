@@ -190,6 +190,7 @@ productRouteConfig.prototype.addRoutes = function() {
 
     });
 
+    
 }
 
 

@@ -331,7 +331,7 @@ var productCategoryDao = {
     getCardsFromDeck : function (deckId, UserId, callback) {
 
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM bridge LEFT JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ?"
+        var queryStatement = "SELECT * FROM bridge LEFT JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? ORDER BY Timestamp ASC"
 
         if (connection) {
             connection.query(queryStatement, UserId, function (err, rows, fields) {
@@ -340,6 +340,23 @@ var productCategoryDao = {
                 }
 
                 console.log("rows");
+                callback(rows);
+            });
+
+            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+        }
+    }
+    ,
+    addNewCard : function (request, callback) {
+        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+        var queryStatement = "SELECT * FROM Cards Ca WHERE Ca.id NOT IN (SELECT br.CardId FROM bridge br) LIMIT 1";
+        if (connection){
+            connection.query(queryStatement, request.UserId, function(err, rows, fields){
+                if (err) {throw err;}
+
+
+                console.log("zzzzz");
+                console.log(rows)
                 callback(rows);
             });
 

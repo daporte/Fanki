@@ -88,6 +88,15 @@ function productCategoryService($http, $location) {
                 UserId : UserId
             });
         }
+        ,
+
+        getNextCard : function (deckId, UserId) {
+
+            return $http.post("/getNextCard",  {
+                deckId : deckId,
+                UserId : UserId
+            });
+        }
     }
 
     

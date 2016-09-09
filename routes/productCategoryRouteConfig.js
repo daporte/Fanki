@@ -268,6 +268,36 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 });
         }
     });
+
+    self.routeTable.push({
+        requestType : "post",
+        requestUrl : "/getNextCard",
+        callbackFunction : function(request, response){
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
+            productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.UserId,
+                function (data) {
+                    var now = new Date().getTime();
+
+                    if(!data[0]) {
+
+                        productCategoryDao.productCategoryDao.addNewCard(request.UserId,
+                            function (newCard) {
+
+
+                                console.log("im here ")
+                                //console.log(status);
+                                response.json(newCard);
+                            });
+                    } else {
+                        response.json(data);
+                    }
+
+                });
+
+
+        }
+    });
     
     
 

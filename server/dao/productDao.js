@@ -180,6 +180,7 @@ var productDao = {
             connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
         }
     }
+    
 
 };
 
