@@ -48,8 +48,8 @@
       <file leaf-file-name="learnController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="146" column="36" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="36" />
+            <state relative-caret-position="544">
+              <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -78,7 +78,7 @@
       <file leaf-file-name="productCategoryRouteConfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="459">
               <caret line="293" column="43" selection-start-line="293" selection-start-column="43" selection-end-line="293" selection-end-column="43" />
               <folding />
             </state>
@@ -98,7 +98,7 @@
       <file leaf-file-name="productCategoryDao.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="670">
+            <state relative-caret-position="704">
               <caret line="370" column="51" selection-start-line="370" selection-start-column="51" selection-end-line="370" selection-end-column="51" />
               <folding />
             </state>
@@ -962,12 +962,12 @@
       <workItem from="1472585440815" duration="1433000" />
       <workItem from="1472640330585" duration="1825000" />
       <workItem from="1473325511652" duration="29200000" />
-      <workItem from="1473406178020" duration="20011000" />
+      <workItem from="1473406178020" duration="20645000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214551000" />
+    <option name="totallyTimeSpent" value="215185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
@@ -1384,26 +1384,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
+    <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="370" column="51" selection-start-line="370" selection-start-column="51" selection-end-line="370" selection-end-column="51" />
+        <state relative-caret-position="459">
+          <caret line="293" column="43" selection-start-line="293" selection-start-column="43" selection-end-line="293" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
+    <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="293" column="43" selection-start-line="293" selection-start-column="43" selection-end-line="293" selection-end-column="43" />
+        <state relative-caret-position="704">
+          <caret line="370" column="51" selection-start-line="370" selection-start-column="51" selection-end-line="370" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="146" column="36" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="36" />
+        <state relative-caret-position="544">
+          <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
           <folding />
         </state>
       </provider>

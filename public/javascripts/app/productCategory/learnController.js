@@ -100,7 +100,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
                 productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
                     .success(function (nextCards) {
                         console.log(nextCards);
-                        bindView(nextCards[0])
+                        bindView(nextCards)
                     });
             //bindView(chosenCard);
 
