@@ -23,6 +23,9 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     }
 
 
+    $scope.doRep = function (q) {
+        
+    }
 
     $scope.getCard = function () {
 
