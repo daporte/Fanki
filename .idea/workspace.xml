@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b28fec-d28b-4203-be9a-f9204902d5cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js" afterPath="$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/dao/productCategoryDao.js" afterPath="$PROJECT_DIR$/server/dao/productCategoryDao.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/learn.ejs" afterPath="$PROJECT_DIR$/views/learn.ejs" />
     </list>
     <ignored path="Fanki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,8 +108,8 @@
       <file leaf-file-name="productCategoryDao.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="335" column="55" selection-start-line="335" selection-start-column="51" selection-end-line="335" selection-end-column="55" />
+            <state relative-caret-position="568">
+              <caret line="335" column="56" selection-start-line="335" selection-start-column="56" selection-end-line="335" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -964,12 +962,12 @@
       <workItem from="1472585440815" duration="1433000" />
       <workItem from="1472640330585" duration="1825000" />
       <workItem from="1473325511652" duration="29200000" />
-      <workItem from="1473406178020" duration="6733000" />
+      <workItem from="1473406178020" duration="7128000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201273000" />
+    <option name="totallyTimeSpent" value="201668000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
@@ -1400,8 +1398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="335" column="55" selection-start-line="335" selection-start-column="51" selection-end-line="335" selection-end-column="55" />
+        <state relative-caret-position="568">
+          <caret line="335" column="56" selection-start-line="335" selection-start-column="56" selection-end-line="335" selection-end-column="56" />
           <folding />
         </state>
       </provider>

@@ -288,7 +288,7 @@ var productCategoryDao = {
         console.log("in dao m7");
         
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM userDecks RIGHT JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
+        var queryStatement = "SELECT * FROM userDecks INNER JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
         console.log(UserId)
         console.log(queryStatement)
         if (connection){
@@ -333,7 +333,7 @@ var productCategoryDao = {
         console.log("WTFD")
         console.log(UserId);
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM bridge LEFT JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? ORDER BY bridge.Timestamp ASC";
+        var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? ORDER BY bridge.Timestamp ASC";
 
         if (connection) {
             connection.query(queryStatement, UserId, function (err, rows, fields) {
