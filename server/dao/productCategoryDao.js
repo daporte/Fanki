@@ -349,11 +349,11 @@ var productCategoryDao = {
         }
     }
     ,
-    addNewCard : function (request, callback) {
+    addNewCard : function (UserId, callback) {
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         var queryStatement = "SELECT * FROM Cards Ca WHERE Ca.id NOT IN (SELECT br.CardId FROM bridge br) LIMIT 1";
         if (connection){
-            connection.query(queryStatement, request.UserId, function(err, rows, fields){
+            connection.query(queryStatement, UserId, function(err, rows, fields){
                 if (err) {throw err;}
 
 
