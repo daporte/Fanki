@@ -6,7 +6,7 @@ learnController.$inject = ["$scope", "$timeout", "loginService", "productCategor
 function learnController($scope, $timeout, loginService, productCategoryService, productService, requiredFieldValidationService_Login, $localStorage, $window) {
 
     $scope.FrontSide = "arwe";
-    $scope.BackSide = "";
+    $scope.BackSide = "zzz";
     $scope.show = false;
 
     $scope.showAnswer = function () {
@@ -56,7 +56,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
                 var chosenCard = data[0];
                 var now = new Date().getTime();
 
-                productCategoryService.getNextCard()
+                productCategoryService.getNextCard(loginService.storage.UserId)
                     .success(function (nextCards) {
                         console.log(nextCards);
                         bindView(nextCards[0])
