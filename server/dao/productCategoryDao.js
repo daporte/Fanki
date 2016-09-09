@@ -330,6 +330,8 @@ var productCategoryDao = {
     ,
     getCardsFromDeck : function (deckId, UserId, callback) {
 
+        console.log("WTFD")
+        console.log(UserId);
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         var queryStatement = "SELECT * FROM bridge LEFT JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? ORDER BY bridge.Timestamp ASC";
 
