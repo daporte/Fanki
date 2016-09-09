@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b28fec-d28b-4203-be9a-f9204902d5cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js" afterPath="$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js" afterPath="$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/app/productCategory/productService.js" afterPath="$PROJECT_DIR$/public/javascripts/app/productCategory/productService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" afterPath="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/productRouteConfig.js" afterPath="$PROJECT_DIR$/routes/productRouteConfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/dao/productCategoryDao.js" afterPath="$PROJECT_DIR$/server/dao/productCategoryDao.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/dao/productDao.js" afterPath="$PROJECT_DIR$/server/dao/productDao.js" />
     </list>
     <ignored path="Fanki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,7 +45,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="productCategoryRouteConfig.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="productCategoryRouteConfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="612">
@@ -102,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="productCategoryDao.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="productCategoryDao.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="358" column="33" selection-start-line="358" selection-start-column="33" selection-end-line="358" selection-end-column="33" />
+            <state relative-caret-position="425">
+              <caret line="333" column="128" selection-start-line="333" selection-start-column="128" selection-end-line="333" selection-end-column="128" />
               <folding />
             </state>
           </provider>
@@ -969,12 +962,12 @@
       <workItem from="1472585440815" duration="1433000" />
       <workItem from="1472640330585" duration="1825000" />
       <workItem from="1473325511652" duration="29200000" />
-      <workItem from="1473406178020" duration="3645000" />
+      <workItem from="1473406178020" duration="4002000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198185000" />
+    <option name="totallyTimeSpent" value="198542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
@@ -1394,18 +1387,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="358" column="33" selection-start-line="358" selection-start-column="33" selection-end-line="358" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="333" column="128" selection-start-line="333" selection-start-column="128" selection-end-line="333" selection-end-column="128" />
           <folding />
         </state>
       </provider>
