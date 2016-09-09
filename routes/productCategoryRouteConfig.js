@@ -327,6 +327,8 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         callbackFunction : function(request, response) {
             console.log("ADDING NEW CARD - route");
 
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
             productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
                 function (newCard) {
 
