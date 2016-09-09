@@ -37,6 +37,8 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     }
 
     $scope.doRep = function (q) {
+        console.log("CULPRIT");
+        console.log($scope.CardId);
         var EF =computeEF($scope.EF, q);
         var TotalReps = $scope.TotalReps + 1;
         var Reps = $scope.Reps;
@@ -75,7 +77,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
                 bindView(nextCards)
             });
 
-        
+
     }
 
     function computeEF(EF, q) {
