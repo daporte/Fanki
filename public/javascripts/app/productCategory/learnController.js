@@ -113,6 +113,9 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
     function computeEF(EF, q) {
         var newEaseFactor = EF + (0.1-(5-q) * (0.08+(5-q)*0.02));
+        if(newEaseFactor<1.3){
+            newEaseFactor = 1.3;
+        }
         return newEaseFactor;
     }
 
