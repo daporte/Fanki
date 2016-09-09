@@ -129,7 +129,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
             repInterval = 4*dayInMs;
         }
         else {
-            repInterval = lastinterval*EF*dayInMs;
+            repInterval = lastinterval*EF;
         }
         return repInterval;
     }
