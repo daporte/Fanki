@@ -282,7 +282,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                     //if(!data[0] || now - data[0].Timestamp < 10000) {
 
 
-
+                    /*
                     productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
                         function (newCard) {
 
@@ -291,7 +291,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                             //console.log(status);
                             response.json(newCard);
                         });
-
+*/                  response.json(data[0]);
 
                 });
 
