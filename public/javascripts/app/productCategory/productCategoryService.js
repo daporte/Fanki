@@ -97,6 +97,18 @@ function productCategoryService($http, $location) {
                 UserId : UserId
             });
         }
+        ,
+        logRep : function (UserId, DeckId, CardId, EF, RepInterval, Reps, TotalReps) {
+            return $http.post("/logCard",  {
+                UserId : UserId,
+                DeckId : DeckId,
+                CardId : CardId,
+                EF : EF,
+                RepInterval : RepInterval,
+                Reps : Reps,
+                TotalReps : TotalReps
+            });
+        }
     }
 
     

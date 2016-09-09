@@ -298,7 +298,27 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
         }
     });
-    
+
+    self.routeTable.push({
+        requestType : "post",
+        requestUrl : "/logRep",
+        callbackFunction : function(request, response){
+
+
+
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
+            productCategoryDao.productCategoryDao.logRep(request,
+                function (status) {
+
+
+
+                    console.log("im here ")
+                    console.log(status);
+                    response.json(status);
+                });
+        }
+    });
     
 
 };
