@@ -352,7 +352,7 @@ var productCategoryDao = {
     addNewCard : function (deckId, UserId, callback) {
         console.log("ADDING NEW CARD - DAO");
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM Cards Ca WHERE Decks_FK = ? AND Ca.Id NOT IN (SELECT CardId FROM bridge WHERE UserId = ? AND DeckId = ? )";
+        var queryStatement = "SELECT * FROM Cards Ca WHERE Decks_FK = ? AND Ca.Id NOT IN (SELECT CardId FROM bridge WHERE UserId = ? AND DeckId = ? ) LIMIT 1";
         //var queryStatement = "SELECT CardId FROM bridge WHERE UserId = ? AND DeckId = ? ";
         if (connection){
             connection.query(queryStatement, [deckId, UserId, deckId], function(err, rows, fields){
