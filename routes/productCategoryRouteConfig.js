@@ -279,7 +279,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 function (data) {
                     var now = new Date().getTime();
 
-                    if(!data[0]) {
+                    if(!data[0] || data[0].Timestamp + data[0].RepInterval < now+1000000000) {
 
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.UserId,
                             function (newCard) {

@@ -333,7 +333,7 @@ var productCategoryDao = {
         console.log("WTFD")
         console.log(UserId);
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? ORDER BY bridge.Timestamp ASC";
+        var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? ORDER BY (bridge.Timestamp + bridge.RepInterval) ASC";
 
         if (connection) {
             connection.query(queryStatement, UserId, function (err, rows, fields) {
