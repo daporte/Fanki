@@ -349,11 +349,11 @@ var productCategoryDao = {
         }
     }
     ,
-    addNewCard : function (UserId, callback) {
+    addNewCard : function (deckId, UserId, callback) {
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM Cards Ca WHERE Ca.id NOT IN (SELECT br.CardId FROM bridge br) LIMIT 1";
+        var queryStatement = "SELECT * FROM Cards Ca WHERE Decks_FK = ? AND Ca.id NOT IN (SELECT br.CardId FROM bridge br WHERE DeckId = ? ) LIMIT 1";
         if (connection){
-            connection.query(queryStatement, UserId, function(err, rows, fields){
+            connection.query(queryStatement, [deckId, UserId, deckId], function(err, rows, fields){
                 if (err) {throw err;}
 
 

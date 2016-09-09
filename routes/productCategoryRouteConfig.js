@@ -281,7 +281,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
                     if(!data[0]) {
 
-                        productCategoryDao.productCategoryDao.addNewCard(request.UserId,
+                        productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.UserId,
                             function (newCard) {
 
 
