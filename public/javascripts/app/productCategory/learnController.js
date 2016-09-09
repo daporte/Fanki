@@ -69,54 +69,13 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
 
         console.log("GETTING CARD");
-        productCategoryService.getCardsFromDeck(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
-            .success(function(data){
+        productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
+            .success(function (nextCards) {
+                console.log(nextCards);
+                bindView(nextCards)
+            });
 
-                console.log(data);
-                /*
-                var cards = []
-
-                for(var property in data[0]){
-
-                    if(property.startsWith("card")){
-                        console.log(data[0][property]);
-                        var cardId = property.split("_")[1];
-                        console.log(cardId)
-                        cards.push({
-                            cardId : cardId,
-                            data : data[0][property]
-                            })
-
-
-                    }
-                }
-                */
-                console.log("zdar")
-                //var idx = Math.floor(Math.random() * Object.keys(data).length)
-                //console.log(idx);
-                var chosenCard = data[0];
-                var now = new Date().getTime();
-
-                productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
-                    .success(function (nextCards) {
-                        console.log(nextCards);
-                        bindView(nextCards)
-                    });
-            //bindView(chosenCard);
-
-                /*
-                productService.getProductById(chosenCard.cardId)
-                    .success(function (data2) {
-                        console.log(data2)
-
-                        bindView(data2)
-
-
-
-                    })
-                */
-
-        })
+        
     }
 
     function computeEF(EF, q) {
