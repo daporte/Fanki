@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b28fec-d28b-4203-be9a-f9204902d5cc" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/dao/productCategoryDao.js" afterPath="$PROJECT_DIR$/server/dao/productCategoryDao.js" />
     </list>
     <ignored path="Fanki.iws" />
@@ -88,8 +89,8 @@
       <file leaf-file-name="productCategoryDao.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="354" column="24" selection-start-line="354" selection-start-column="24" selection-end-line="354" selection-end-column="24" />
+            <state relative-caret-position="619">
+              <caret line="353" column="149" selection-start-line="353" selection-start-column="149" selection-end-line="353" selection-end-column="149" />
               <folding />
             </state>
           </provider>
@@ -962,12 +963,12 @@
       <workItem from="1472585440815" duration="1433000" />
       <workItem from="1472640330585" duration="1825000" />
       <workItem from="1473325511652" duration="29200000" />
-      <workItem from="1473406178020" duration="16789000" />
+      <workItem from="1473406178020" duration="17140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211329000" />
+    <option name="totallyTimeSpent" value="211680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
@@ -1398,8 +1399,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="354" column="24" selection-start-line="354" selection-start-column="24" selection-end-line="354" selection-end-column="24" />
+        <state relative-caret-position="619">
+          <caret line="353" column="149" selection-start-line="353" selection-start-column="149" selection-end-line="353" selection-end-column="149" />
           <folding />
         </state>
       </provider>
