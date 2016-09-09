@@ -38,7 +38,17 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         else {
             Reps++;
         }
+        console.log("EF");
+        console.log(EF);
+        console.log("TotalReps");
+        console.log(TotalReps);
+        console.log("reps");
+        console.log(Reps);
+
         var RepInterval = computeRepInterval(Reps, EF, $scope.RepInterval);
+
+        console.log("RepInterval");
+        console.log(RepInterval);
 
         productCategoryService.logRep(loginService.storage.UserId, productCategoryService.getIdFromEndPoint(), $scope.CardId, EF, RepInterval, Reps, TotalReps)
             .success(function(status){
