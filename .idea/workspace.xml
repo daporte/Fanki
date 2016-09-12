@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="35b28fec-d28b-4203-be9a-f9204902d5cc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/app/productCategory/myDecksController.js" afterPath="$PROJECT_DIR$/public/javascripts/app/productCategory/myDecksController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js" afterPath="$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" afterPath="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/dao/productCategoryDao.js" afterPath="$PROJECT_DIR$/server/dao/productCategoryDao.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/myDecks.ejs" afterPath="$PROJECT_DIR$/views/myDecks.ejs" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
     </list>
     <ignored path="Fanki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,81 +33,136 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="productCategoryService.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="103" column="32" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="learnController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+            <state relative-caret-position="362">
+              <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="85" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="productCategoryDao.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="productCategoryService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="1309">
+              <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+=======
+            <state relative-caret-position="459">
+              <caret line="101" column="53" selection-start-line="101" selection-start-column="53" selection-end-line="101" selection-end-column="53" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="productCategoryDao.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="566">
+<<<<<<< HEAD
               <caret line="403" column="0" selection-start-line="403" selection-start-column="0" selection-end-line="403" selection-end-column="0" />
+=======
+              <caret line="351" column="0" selection-start-line="351" selection-start-column="0" selection-end-line="351" selection-end-column="0" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myDecks.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/myDecks.ejs">
+      <file leaf-file-name="productDao.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/dao/productDao.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="408">
               <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+=======
+            <state relative-caret-position="0">
+              <caret line="0" column="37" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="37" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="productCategoryRouteConfig.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="211">
               <caret line="279" column="50" selection-start-line="279" selection-start-column="50" selection-end-line="279" selection-end-column="50" />
+=======
+      <file leaf-file-name="myDecks.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/myDecks.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <file leaf-file-name="myDecksController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/myDecksController.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1496">
               <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+=======
+            <state relative-caret-position="442">
+              <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file leaf-file-name="productCategoryRouteConfig.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="442">
               <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+=======
+            <state relative-caret-position="789">
+              <caret line="307" column="47" selection-start-line="307" selection-start-column="47" selection-end-line="307" selection-end-column="47" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/layout.ejs">
+      <file leaf-file-name="loginRouteConfig.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/loginRouteConfig.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1241">
               <caret line="73" column="28" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="28" />
+=======
+            <state relative-caret-position="668">
+              <caret line="129" column="7" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="7" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file leaf-file-name="learn.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/learn.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+=======
+      <file leaf-file-name="productRouteConfig.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/productRouteConfig.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="583">
+              <caret line="184" column="23" selection-start-line="184" selection-start-column="22" selection-end-line="184" selection-end-column="23" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
               <folding />
             </state>
           </provider>
@@ -110,16 +173,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="246">
               <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="error.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/error.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -164,7 +217,6 @@
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/registerController.js" />
         <option value="$PROJECT_DIR$/views/chooseDecks.ejs" />
         <option value="$PROJECT_DIR$/routes/ProductRouteConfig.js" />
-        <option value="$PROJECT_DIR$/views/myDecks.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryController.js" />
         <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/server/mysqlConnectionString.js" />
@@ -188,15 +240,24 @@
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/loginController.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/viewProductCategoryController.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/myDecksController.js" />
         <option value="$PROJECT_DIR$/server/dao/productDao.js" />
         <option value="$PROJECT_DIR$/routes/productRouteConfig.js" />
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/productService.js" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js" />
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js" />
         <option value="$PROJECT_DIR$/views/learn.ejs" />
         <option value="$PROJECT_DIR$/server/dao/productCategoryDao.js" />
         <option value="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" />
+=======
+        <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js" />
+        <option value="$PROJECT_DIR$/views/learn.ejs" />
+        <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/myDecksController.js" />
+        <option value="$PROJECT_DIR$/views/myDecks.ejs" />
+        <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js" />
+        <option value="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" />
+        <option value="$PROJECT_DIR$/server/dao/productCategoryDao.js" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
       </list>
     </option>
   </component>
@@ -963,13 +1024,21 @@
       <workItem from="1472640330585" duration="1825000" />
       <workItem from="1473325511652" duration="29200000" />
       <workItem from="1473406178020" duration="25495000" />
+<<<<<<< HEAD
       <workItem from="1473662483411" duration="9878000" />
       <workItem from="1473694735248" duration="1460000" />
+=======
+      <workItem from="1473662483411" duration="13154000" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="231373000" />
+=======
+    <option name="totallyTimeSpent" value="233189000" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
@@ -1195,26 +1264,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/myDecksController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/registerController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/productRouteConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="192" column="4" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1229,14 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/loginRouteConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="110" column="37" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,6 +1344,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/loginService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1306,18 +1352,12 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
     <entry file="file://$PROJECT_DIR$/server/dao/loginDao.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="45" column="23" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dao/productDao.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="182" column="4" selection-start-line="182" selection-start-column="4" selection-end-line="182" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1345,26 +1385,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/myDecks.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
+        <state relative-caret-position="1428">
           <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/loginService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/myDecksController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/myDecks.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="408">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+=======
+        <state relative-caret-position="170">
+          <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dao/productDao.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1496">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="37" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="37" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
           <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+=======
+    <entry file="file://$PROJECT_DIR$/routes/productRouteConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="184" column="23" selection-start-line="184" selection-start-column="22" selection-end-line="184" selection-end-column="23" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
           <folding />
         </state>
       </provider>
@@ -1379,24 +1460,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="476">
           <caret line="103" column="32" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
+=======
+        <state relative-caret-position="362">
+          <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="101" column="53" selection-start-line="101" selection-start-column="53" selection-end-line="101" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/loginRouteConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="129" column="7" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="7" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="566">
           <caret line="403" column="0" selection-start-line="403" selection-start-column="0" selection-end-line="403" selection-end-column="0" />
+=======
+        <state relative-caret-position="789">
+          <caret line="307" column="47" selection-start-line="307" selection-start-column="47" selection-end-line="307" selection-end-column="47" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
           <caret line="279" column="50" selection-start-line="279" selection-start-column="50" selection-end-line="279" selection-end-column="50" />
+=======
+    <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="351" column="0" selection-start-line="351" selection-start-column="0" selection-end-line="351" selection-end-column="0" />
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
           <folding />
         </state>
       </provider>

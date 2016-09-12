@@ -40,6 +40,7 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
             })
     }
 
+   
 
     $scope.deleteProductCategory = function(){
         console.log("HHHHHHHAIII");

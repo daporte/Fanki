@@ -277,7 +277,10 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
             productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.UserId,
                 function (data) {
+<<<<<<< HEAD
                     console.log("CALLING BACK ROUTE");
+=======
+>>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
 
                     if(!data[0]) {
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
@@ -308,20 +311,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                         console.log("Case 3");
                         response.json(data[0]);
                     }
-
-                    //if(!data[0] || now - data[0].Timestamp < 10000) {
-
-
-                    /*
-                    productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
-                        function (newCard) {
-
-
-                            console.log("im here ")
-                            //console.log(status);
-                            response.json(newCard);
-                        });
-*/
+                    
 
                 });
 
