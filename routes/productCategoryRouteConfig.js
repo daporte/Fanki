@@ -289,7 +289,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                                 response.json(newCards[0]);
 
                             })
-                    } else if(new Date(data[0]["Timestamp"] + data[0]["RepInterval"]).getTime() > new Date().getTime()){
+                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] > new Date().getTime()){
 
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
                             function (newCards) {
@@ -302,7 +302,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                             })
                     } else {
                         console.log(data[0]["RepInterval"]);
-                        console.log(new Date(data[0]["Timestamp"] + data[0]["RepInterval"]).getTime())
+                        console.log(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"]);
                         console.log(">");
                         console.log(new Date().getTime());
                         console.log("Case 3");
