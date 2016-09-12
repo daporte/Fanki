@@ -336,6 +336,7 @@ var productCategoryDao = {
         var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? AND DeckId = ? ORDER BY (bridge.Timestamp + bridge.RepInterval) ASC LIMIT 1";
 
         if (connection) {
+            console.log("connection happened");
             connection.query(queryStatement, [UserId, deckId], function (err, rows, fields) {
                 if (err) {
                     throw err;
