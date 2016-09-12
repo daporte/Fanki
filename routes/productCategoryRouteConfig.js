@@ -279,12 +279,23 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 function (data) {
 
 
-                    if(!data || data[0]["Timestamp"] + data[0]["RepInterval"] > new Date().getTime()){
+                    if(!data) {
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
                             function (newCard) {
 
 
                                 console.log("im here ")
+                                //console.log(status);
+                                response.json(newCard);
+
+                            })
+                    } else if(data[0]["Timestamp"] + data[0]["RepInterval"] > new Date().getTime()){
+                        
+                        productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
+                            function (newCard) {
+
+
+                                console.log("im here2 ")
                                 //console.log(status);
                                 response.json(newCard);
 
