@@ -100,6 +100,7 @@ function productCategoryService($http, $location) {
         ,
         addNewCard : function (deckId, UserId) {
             console.log("ADDING NEW CARD - service");
+
             return $http.post("/addNewCard",  {
                 deckId : deckId,
                 UserId : UserId
