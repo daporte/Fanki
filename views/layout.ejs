@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <link href="../../stylesheets/bootstrap.min.css" rel="stylesheet"/>
+  <link href="../../stylesheets/style.css" rel="stylesheet"/>
   <script src="../../javascripts/jquery.min.js"></script>
   <script src="../../javascripts/bootstrap.min.js"></script>
   <script src="../../javascripts/angular.min.js"></script>
@@ -29,28 +30,20 @@
        data-ng-controller="loginController">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" rel="home" href="#" title="Oktavian">
+        <img alt ="logo" class="logo" src="http://res.cloudinary.com/oktavian/image/upload/v1473669451/source_images/Oktavian_logo_nearwhite.png">
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav"  ng-hide=$storage.Username !="">
         <li><a href="/">Log In</a></li>
         <li><a href="/registration">Register</a></li>
-
+        <li><a href="#jaktofunguje" class="smoothScroll">Jak to funguje</a></li>
+        <li><a href="#veda" class="smoothScroll">Věda</a></li>
+        <li><a href="#">Page 3</a></li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
 
     <div ng-show=$storage.Username !="">
           <ul class="nav navbar-nav navbar-right">
@@ -62,7 +55,7 @@
                         type="button"
                         class="btn btn primary"
                         data-categoryId="{{productCategory.Id}}"
-                        data-ng-click="logout()">Log Out</button></li>
+                        data-ng-click="logout()">Log Out</button>
 
               </ul>
             </li>
