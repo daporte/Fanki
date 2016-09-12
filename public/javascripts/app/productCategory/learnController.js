@@ -133,7 +133,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         $scope.CardId = card.Id;
         $scope.FrontSide = card.FrontSide;
         $scope.BackSide = card.BackSide;
-        $scope.DeckId = card.DeckId;
+        $scope.DeckId = card.Decks_FK;
         $scope.show = false;
         if(card.EF){
             $scope.EF = card.EF;
