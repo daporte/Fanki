@@ -379,11 +379,11 @@ var productCategoryDao = {
 
                     connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
                 }
-            }
-
-
         }
+
+
     }
+
     ,
     addNewCard : function (deckId, UserId, callback) {
         console.log("ADDING NEW CARD - DAO");
@@ -426,10 +426,10 @@ var productCategoryDao = {
             }
 
 
+
         }
 
     }
-
 
 
     ,
