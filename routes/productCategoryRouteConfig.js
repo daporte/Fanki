@@ -277,7 +277,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
             productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.UserId,
                 function (data) {
-
+                    console.log("CALLING BACK ROUTE");
 
                     if(!data[0]) {
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,

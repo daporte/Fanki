@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b28fec-d28b-4203-be9a-f9204902d5cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/dao/productCategoryDao.js" afterPath="$PROJECT_DIR$/server/dao/productCategoryDao.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" afterPath="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" />
     </list>
     <ignored path="Fanki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="productCategoryDao.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="productCategoryDao.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="338" column="44" selection-start-line="338" selection-start-column="44" selection-end-line="338" selection-end-column="44" />
+            <state relative-caret-position="566">
+              <caret line="403" column="0" selection-start-line="403" selection-start-column="0" selection-end-line="403" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="productCategoryRouteConfig.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="productCategoryRouteConfig.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="276" column="0" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+            <state relative-caret-position="211">
+              <caret line="279" column="50" selection-start-line="279" selection-start-column="50" selection-end-line="279" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -195,9 +194,9 @@
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/productService.js" />
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/productCategoryService.js" />
         <option value="$PROJECT_DIR$/public/javascripts/app/productCategory/learnController.js" />
-        <option value="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" />
         <option value="$PROJECT_DIR$/views/learn.ejs" />
         <option value="$PROJECT_DIR$/server/dao/productCategoryDao.js" />
+        <option value="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" />
       </list>
     </option>
   </component>
@@ -965,12 +964,12 @@
       <workItem from="1473325511652" duration="29200000" />
       <workItem from="1473406178020" duration="25495000" />
       <workItem from="1473662483411" duration="9878000" />
-      <workItem from="1473694735248" duration="911000" />
+      <workItem from="1473694735248" duration="1426000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230824000" />
+    <option name="totallyTimeSpent" value="231339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
@@ -984,6 +983,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28118393" sideWeight="0.879979" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -993,14 +993,13 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.9198113" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.9198113" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28118393" sideWeight="0.879979" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.49580714" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1386,18 +1385,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
+    <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="276" column="0" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+        <state relative-caret-position="566">
+          <caret line="403" column="0" selection-start-line="403" selection-start-column="0" selection-end-line="403" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/dao/productCategoryDao.js">
+    <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="338" column="44" selection-start-line="338" selection-start-column="44" selection-end-line="338" selection-end-column="44" />
+        <state relative-caret-position="211">
+          <caret line="279" column="50" selection-start-line="279" selection-start-column="50" selection-end-line="279" selection-end-column="50" />
           <folding />
         </state>
       </provider>
