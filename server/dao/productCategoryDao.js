@@ -343,7 +343,11 @@ var productCategoryDao = {
 
                 console.log("rows");
                 console.log(rows);
+                
+
                 callback(rows);
+
+
             });
 
             connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);

@@ -279,6 +279,20 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 function (data) {
 
 
+                    if(data[0]["Timestamp"] + data[0]["RepInterval"] > new Date().getTime()){
+                        productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
+                            function (newCard) {
+
+
+                                console.log("im here ")
+                                //console.log(status);
+                                response.json(newCard);
+
+                            })
+                    } else {
+                        response.json(data[0]);
+                    }
+
                     //if(!data[0] || now - data[0].Timestamp < 10000) {
 
 
@@ -291,7 +305,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                             //console.log(status);
                             response.json(newCard);
                         });
-*/                  response.json(data[0]);
+*/
 
                 });
 

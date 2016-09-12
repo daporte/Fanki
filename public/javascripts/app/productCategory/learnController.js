@@ -92,7 +92,8 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
     function computeRepInterval(rep, EF, lastinterval) {
         var repInterval;
-        var dayInMs = 86400000;
+        //var dayInMs = 86400000;
+        var dayInMs = 10000;
         if (rep === 1) {
             repInterval = dayInMs;
         }
