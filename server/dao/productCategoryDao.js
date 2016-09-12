@@ -356,8 +356,9 @@ var productCategoryDao = {
                 });
 
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+            }
 
-            } else {
+        } else {
                 var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
                 var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? AND DeckId = ? ORDER BY (bridge.Timestamp + bridge.RepInterval) ASC LIMIT 1";
 
