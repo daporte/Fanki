@@ -68,7 +68,7 @@
       <file leaf-file-name="productCategoryRouteConfig.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="357">
               <caret line="281" column="31" selection-start-line="281" selection-start-column="31" selection-end-line="281" selection-end-column="31" />
               <folding />
             </state>
@@ -963,12 +963,12 @@
       <workItem from="1472640330585" duration="1825000" />
       <workItem from="1473325511652" duration="29200000" />
       <workItem from="1473406178020" duration="25495000" />
-      <workItem from="1473662483411" duration="4833000" />
+      <workItem from="1473662483411" duration="4908000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224868000" />
+    <option name="totallyTimeSpent" value="224943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
@@ -1404,7 +1404,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/productCategoryRouteConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="357">
           <caret line="281" column="31" selection-start-line="281" selection-start-column="31" selection-end-line="281" selection-end-column="31" />
           <folding />
         </state>
