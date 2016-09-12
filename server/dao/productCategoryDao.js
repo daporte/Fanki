@@ -333,18 +333,11 @@ var productCategoryDao = {
         console.log("WTFD")
         console.log(UserId);
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+        
 
-<<<<<<< HEAD
-        if (connection) {
-            console.log("connection happened");
-            connection.query(queryStatement, [UserId, deckId], function (err, rows, fields) {
-                if (err) {
-                    throw err;
-                }
-=======
-        if(deckId == "all"){
+        if(deckId == "all") {
             var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? ORDER BY (bridge.Timestamp + bridge.RepInterval) ASC LIMIT 1";
->>>>>>> 06a979fe08738f3355efec868bf4c716d316c4a3
+
 
             if (connection) {
                 connection.query(queryStatement, UserId, function (err, rows, fields) {
@@ -363,27 +356,27 @@ var productCategoryDao = {
 
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
 
-        } else {
-            var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? AND DeckId = ? ORDER BY (bridge.Timestamp + bridge.RepInterval) ASC LIMIT 1";
+            } else {
+                var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? AND DeckId = ? ORDER BY (bridge.Timestamp + bridge.RepInterval) ASC LIMIT 1";
 
-            if (connection) {
-                connection.query(queryStatement, [UserId, deckId], function (err, rows, fields) {
-                    if (err) {
-                        throw err;
-                    }
+                if (connection) {
+                    connection.query(queryStatement, [UserId, deckId], function (err, rows, fields) {
+                        if (err) {
+                            throw err;
+                        }
 
-                    console.log("rows");
-                    console.log(rows);
-
-
-                    callback(rows);
+                        console.log("rows");
+                        console.log(rows);
 
 
-                });
+                        callback(rows);
 
-                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+
+                    });
+
+                    connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+                }
             }
-        }
 
 
         }
