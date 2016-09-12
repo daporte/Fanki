@@ -29,14 +29,14 @@ function loginService($http, $location, $localStorage) {
                     Username: user.Username,
                     Password: user.Password,
 
-
                 })
         }
         ,
         storage : $localStorage.$default({
             x : 55,
-            Username : "",
-            decks : {}
+            Username : "DEFAULT",
+            decks : {},
+            UserId : "auth0|57d5547c014b855809ec16ad"
         })
 
 
