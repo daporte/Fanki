@@ -303,7 +303,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                     } else {
                         console.log(data[0]["Timestamp"] + data[0]["RepInterval"])
                         console.log(">");
-                        console.log(new Date().getTime()
+                        console.log(new Date().getTime());
                         console.log("Case 3");
                         response.json(data[0]);
                     }
