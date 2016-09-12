@@ -67,6 +67,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
                 .success(function(status){
                     console.log(status);
                     unbindView();
+                    $scope.getCard();
 
                 })
         } else {
