@@ -75,8 +75,8 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         console.log("GETTING CARD");
         productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function (nextCards) {
-                console.log(nextCards);
-                bindView(nextCards)
+                console.log(nextCards[0]);
+                bindView(nextCards[0])
             });
 
 
