@@ -301,6 +301,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
                             })
                     } else {
+                        console.log(data[0]["RepInterval"]);
                         console.log(new Date(data[0]["Timestamp"] + data[0]["RepInterval"]).getTime())
                         console.log(">");
                         console.log(new Date().getTime());
