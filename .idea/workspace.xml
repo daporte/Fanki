@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b28fec-d28b-4203-be9a-f9204902d5cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" afterPath="$PROJECT_DIR$/routes/productCategoryRouteConfig.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Fanki.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -964,12 +964,12 @@
       <workItem from="1473325511652" duration="29200000" />
       <workItem from="1473406178020" duration="25495000" />
       <workItem from="1473662483411" duration="9878000" />
-      <workItem from="1473694735248" duration="1426000" />
+      <workItem from="1473694735248" duration="1460000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231339000" />
+    <option name="totallyTimeSpent" value="231373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
