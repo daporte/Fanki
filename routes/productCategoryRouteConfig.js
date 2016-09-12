@@ -284,7 +284,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                             function (newCards) {
 
 
-                                console.log("im here ")
+                                console.log("Case 1");
                                 //console.log(status);
                                 response.json(newCards[0]);
 
@@ -295,12 +295,13 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                             function (newCards) {
 
 
-                                console.log("im here2 ")
+                                console.log("Case 2");
                                 //console.log(status);
                                 response.json(newCards[0]);
 
                             })
                     } else {
+                        console.log("Case 3");
                         response.json(data[0]);
                     }
 
