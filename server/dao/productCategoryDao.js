@@ -337,11 +337,11 @@ var productCategoryDao = {
 
         if(deckId == "all") {
             var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-            var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? ORDER BY (bridge.Timestamp + bridge.RepInterval) ASC LIMIT 1";
+            var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? AND DeckId IN (SELECT DeckId FROM userDecks WHERE UserId = ?)  ORDER BY (bridge.Timestamp + bridge.RepInterval) ASC LIMIT 1";
 
 
             if (connection) {
-                connection.query(queryStatement, UserId, function (err, rows, fields) {
+                connection.query(queryStatement, [UserId, UserId], function (err, rows, fields) {
                     if (err) {
                         throw err;
                     }
@@ -392,9 +392,9 @@ var productCategoryDao = {
 
         if(deckId == "all") {
             var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-            var queryStatement = "SELECT * FROM Cards Ca WHERE Ca.Id NOT IN (SELECT CardId FROM bridge WHERE UserId = ? ) LIMIT 1";
+            var queryStatement = "SELECT * FROM Cards Ca WHERE Decks_FK IN (SELECT DeckId FROM userDecks WHERE UserId = ?) AND Ca.Id NOT IN (SELECT CardId FROM bridge WHERE UserId = ? ) LIMIT 1";
             if (connection) {
-                connection.query(queryStatement, UserId, function (err, rows, fields) {
+                connection.query(queryStatement, [UserId, UserId], function (err, rows, fields) {
                     if (err) {
                         throw err;
                     }

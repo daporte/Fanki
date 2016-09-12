@@ -9,7 +9,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     $scope.FrontSide = "NO MORE";
     $scope.BackSide = "";
     $scope.show = false;
-    $scope.EF = 0;
+    $scope.EF = 2.5;
     $scope.RepInterval = 0;
     $scope.Reps = 0;
     $scope.TotalReps = 0;
