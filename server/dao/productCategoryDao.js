@@ -332,10 +332,11 @@ var productCategoryDao = {
 
         console.log("WTFD")
         console.log(UserId);
-        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        
+
+
 
         if(deckId == "all") {
+            var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
             var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? ORDER BY (bridge.Timestamp + bridge.RepInterval) ASC LIMIT 1";
 
 
@@ -357,6 +358,7 @@ var productCategoryDao = {
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
 
             } else {
+                var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
                 var queryStatement = "SELECT * FROM bridge INNER JOIN Cards ON bridge.CardId = Cards.Id WHERE UserId = ? AND DeckId = ? ORDER BY (bridge.Timestamp + bridge.RepInterval) ASC LIMIT 1";
 
                 if (connection) {
@@ -384,9 +386,11 @@ var productCategoryDao = {
     ,
     addNewCard : function (deckId, UserId, callback) {
         console.log("ADDING NEW CARD - DAO");
-        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+
+
 
         if(deckId == "all") {
+            var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
             var queryStatement = "SELECT * FROM Cards Ca WHERE Ca.Id NOT IN (SELECT CardId FROM bridge WHERE UserId = ? ) LIMIT 1";
             if (connection) {
                 connection.query(queryStatement, UserId, function (err, rows, fields) {
@@ -403,6 +407,7 @@ var productCategoryDao = {
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
             }
         } else {
+            var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
             var queryStatement = "SELECT * FROM Cards Ca WHERE Decks_FK = ? AND Ca.Id NOT IN (SELECT CardId FROM bridge WHERE UserId = ? AND DeckId = ? ) LIMIT 1";
             if (connection) {
                 connection.query(queryStatement, [deckId, UserId, deckId], function (err, rows, fields) {
