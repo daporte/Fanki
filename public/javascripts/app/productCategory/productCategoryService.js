@@ -109,6 +109,8 @@ function productCategoryService($http, $location) {
         ,
         logRep : function (UserId, DeckId, CardId, EF, RepInterval, Reps, TotalReps) {
             return $http.post("/logRep",  {
+                
+                
                 UserId : UserId,
                 DeckId : DeckId,
                 CardId : CardId,
