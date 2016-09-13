@@ -278,20 +278,39 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
             productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.UserId,
                 function (data) {
 
-
-                    //if(!data[0] || now - data[0].Timestamp < 10000) {
-
-
-                    /*
-                    productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
-                        function (newCard) {
+                    console.log("CALLING BACK ROUTE");
 
 
-                            console.log("im here ")
-                            //console.log(status);
-                            response.json(newCard);
-                        });
-*/                  response.json(data[0]);
+                    if(!data[0]) {
+                        productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
+                            function (newCards) {
+
+
+                                console.log("Case 1");
+                                //console.log(status);
+                                response.json(newCards[0]);
+
+                            })
+                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] > new Date().getTime()){
+
+                        productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
+                            function (newCards) {
+
+
+                                console.log("Case 2");
+                                //console.log(status);
+                                response.json(newCards[0]);
+
+                            })
+                    } else {
+                        console.log(data[0]["RepInterval"]);
+                        console.log(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"]);
+                        console.log(">");
+                        console.log(new Date().getTime());
+                        console.log("Case 3");
+                        response.json(data[0]);
+                    }
+                    
 
                 });
 

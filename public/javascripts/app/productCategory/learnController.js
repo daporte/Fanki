@@ -8,8 +8,9 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     $scope.CardId = -1;
     $scope.FrontSide = "NO MORE";
     $scope.BackSide = "";
+    $scope.DeckId = -1;
     $scope.show = false;
-    $scope.EF = 0;
+    $scope.EF = 2.5;
     $scope.RepInterval = 0;
     $scope.Reps = 0;
     $scope.TotalReps = 0;
@@ -61,12 +62,20 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         console.log("RepInterval");
         console.log(RepInterval);
 
-        productCategoryService.logRep(loginService.storage.UserId, productCategoryService.getIdFromEndPoint(), $scope.CardId, EF, RepInterval, Reps, TotalReps)
-            .success(function(status){
-                console.log(status);
-                unbindView();
-                $scope.getCard();
-            })
+        if($scope.CardId){
+            productCategoryService.logRep(loginService.storage.UserId, $scope.DeckId, $scope.CardId, EF, RepInterval, Reps, TotalReps)
+                .success(function(status){
+                    console.log(status);
+                    unbindView();
+                    $scope.getCard();
+
+                })
+        } else {
+            $scope.getCard();
+        }
+
+
+
     }
 
     $scope.getCard = function () {
@@ -92,7 +101,8 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
     function computeRepInterval(rep, EF, lastinterval) {
         var repInterval;
-        var dayInMs = 86400000;
+        //var dayInMs = 86400000;
+        var dayInMs = 10000;
         if (rep === 1) {
             repInterval = dayInMs;
         }
@@ -110,8 +120,9 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         $scope.CardId = -1;
         $scope.FrontSide = "NO MORE";
         $scope.BackSide = "";
+        $scope.DeckId = -1;
         $scope.show = false;
-        $scope.EF = 0;
+        $scope.EF = 2.5;
         $scope.RepInterval = 0;
         $scope.Reps = 0;
         $scope.TotalReps = 0;
@@ -123,6 +134,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         $scope.CardId = card.Id;
         $scope.FrontSide = card.FrontSide;
         $scope.BackSide = card.BackSide;
+        $scope.DeckId = card.Decks_FK;
         $scope.show = false;
         if(card.EF){
             $scope.EF = card.EF;

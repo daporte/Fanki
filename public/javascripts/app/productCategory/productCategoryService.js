@@ -100,6 +100,7 @@ function productCategoryService($http, $location) {
         ,
         addNewCard : function (deckId, UserId) {
             console.log("ADDING NEW CARD - service");
+
             return $http.post("/addNewCard",  {
                 deckId : deckId,
                 UserId : UserId
@@ -108,6 +109,8 @@ function productCategoryService($http, $location) {
         ,
         logRep : function (UserId, DeckId, CardId, EF, RepInterval, Reps, TotalReps) {
             return $http.post("/logRep",  {
+                
+                
                 UserId : UserId,
                 DeckId : DeckId,
                 CardId : CardId,

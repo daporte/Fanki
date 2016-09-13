@@ -5,18 +5,14 @@ loginController.$inject = ["$scope", "$timeout", "loginService", "requiredFieldV
 
 function loginController($scope, $timeout, loginService, requiredFieldValidationService_Login, $localStorage) {
 
-    /*
-    $scope.$storage = $localStorage.$default({
-        x : 55,
-        Username : "lll"
-    })
 
 
-*/
+
+
 
 
     $scope.$storage = loginService.storage;
-
+    console.log(loginService.storage);
         
     $scope.user = {
 
