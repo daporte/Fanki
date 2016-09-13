@@ -1,52 +1,88 @@
 <% include layout%>
+<script src="../../javascripts/keystrokes.js"></script>
 
 <div class="container"
      data-ng-cloak
      data-ng-modules="productCategoryModule, productModule"
-         data-ng-controller="learnController">
-    <div class="well">{{FrontSide}}</div>
-    <div class="well" ng-show="show">{{BackSide}}</div>
-    <button type="button"
-            class="btn btn-primary"
-            ng-show="!show"
-            data-ng-click="showAnswer()">
-        Show
-    </button>
-    <!--button type="button"
-            class="btn btn-primary"
-            ng-show="!show"
-            data-ng-click="addNewCard()">
-        New Card
-    </--button-->
-    <button type="button"
-            class="btn btn-primary"
-            ng-show="show"
-            data-ng-click="doRep(6)">
-        EZ
-    </button>
-    <button type="button"
-            class="btn btn-primary"
-            ng-show="show"
-            data-ng-click="doRep(4)">
-        Gut
-    </button>
-    <button type="button"
-            class="btn btn-primary"
-            ng-show="show"
-            data-ng-click="doRep(2)">
-        HC
-    </button>
-    <!--button type="button"
-            class="btn btn-primary"
-            ng-show="show"
-            data-ng-click="doRep(0)">
-        WRONG
-    </button-->
-    <br>
+     data-ng-controller="learnController">
+
+    <div class="container padding-top-lg">
+            <div class="card-text" ng-class="{'hide-navbar': hide}" ng-style="hideFooter">
+                {{FrontSide}}
+            </div>
+    </div>
+
+    <hr ng-show="show">
+
+    <div class="container" ng-show="show">
+        <div class="card-text">
+            {{BackSide}}
+        </div>
+    </div>
+
+    <div class="container" ng-show="show">
+        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
+    </div>
+    <div class="container" ng-show="show">
+        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
+    </div>
+    <div class="container" ng-show="show">
+        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
+    </div>
+    <div class="container" ng-show="show">
+        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
+    </div>
+    <div class="container" ng-show="show">
+        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
+    </div>
+    <div class="container" ng-show="show">
+        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
+    </div>
+
+        <button type="button"
+                class="btn btn-primary btn-lg card-button"
+                id="show"
+                ng-show="!show"
+                data-ng-click="showAnswer();showFooter={display:'unset'}"">
+            Show
+        </button>
+        <!--button type="button"
+                class="btn btn-primary"
+                ng-show="!show"
+                data-ng-click="addNewCard()">
+            New Card
+        </--button-->
+
+
+<div ng-style="showFooter" class="navbar-hidden">
+<div class="navbar-fixed-bottom navbar navbar-default">
+    <div class="container text-center">
+        <div class="btn-group">
+            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(0)">
+                <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/delete.png">
+                <p class="text-muted">Jednoduche</p>
+            </a>
+            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(2)">
+                <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/minus-sign-inside-a-black-circle.png">
+                <p style="padding-top: 10px; margin-bottom: -5px">Tezke</p>
+            </a>
+            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(4)">
+                <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/correct-symbol.png">
+            </a>
+            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(6)">
+                <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/star.png">
+            </a>
+        </div>
+        <div class="container">
+            <button class="btn btn-default">Wiki</button>
+        </div>
+    </div>
+</div>
+</div>
 
 
 </div>
 
-<script src="../../javascripts/app/productCategory/learnController.js"></script>
-<script src="../../javascripts/app/productCategory/productCategoryService.js"></script>
-<script src="../../javascripts/app/productCategory/productService.js"></script>
+    <script src="../../javascripts/app/productCategory/learnController.js"></script>
+    <script src="../../javascripts/app/productCategory/productCategoryService.js"></script>
+    <script src="../../javascripts/app/productCategory/productService.js"></script>
