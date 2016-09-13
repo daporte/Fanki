@@ -691,3 +691,13 @@ ol li:nth-child(2n+0):before {
 	font-weight: bold;
 	float: right;
 }
+
+.icon-predmety {
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+.col-predmety {
+    padding-left: 20px;
+    padding-right: 20px;
+}
