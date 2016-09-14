@@ -48,7 +48,7 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
                     loginService.storage.decks[data[i]["DeckId"]][0]=1;
                     loginService.storage.decks[data[i]["DeckId"]][1]=data[i]["Details"];
                 }
-                bindView(data)
+               
 
                 $scope.$apply();
                 //window.location.href = "/myDecks";
