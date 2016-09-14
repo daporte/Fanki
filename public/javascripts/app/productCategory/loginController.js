@@ -59,7 +59,9 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
                 delete loginService.storage[property];
             }
         }
-*/      console.log("alter this");
+
+*/      console.log(user);
+        console.log("alter this");
         console.log(loginService.storage);
 
 
