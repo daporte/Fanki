@@ -309,7 +309,28 @@ var productCategoryDao = {
         console.log("in dao m7");
         
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT DeckId, Details FROM userDecks INNER JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
+        var queryStatement = "SELECT * FROM userDecks INNER JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
+        console.log(UserId)
+        console.log(queryStatement)
+        if (connection){
+            connection.query(queryStatement, UserId, function(err, rows, fields){
+                if (err) {throw err;}
+
+                //console.log(rows);
+                console.log("zzzzzaaa");
+                console.log(rows);
+                callback(rows);
+            });
+
+            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+        }
+    }
+    ,
+    getUserDeckInfo : function(UserId, callback){
+        console.log("in dao m7");
+
+        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+        var queryStatement = "SELECT DeckId, Details FROM userDecks WHERE UserId = ?";
         console.log(UserId)
         console.log(queryStatement)
         if (connection){
