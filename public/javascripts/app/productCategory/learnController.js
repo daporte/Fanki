@@ -5,6 +5,12 @@ learnController.$inject = ["$scope", "$timeout", "loginService", "productCategor
 
 function learnController($scope, $timeout, loginService, productCategoryService, productService, requiredFieldValidationService_Login, $localStorage, $window) {
 
+    $scope.Card={};
+    setDefault();
+
+
+
+    /*
     $scope.CardId = -1;
     $scope.FrontSide = "NO MORE";
     $scope.BackSide = "";
@@ -15,6 +21,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     $scope.Reps = 0;
     $scope.TotalReps = 0;
 
+*/
     $scope.showAnswer = function () {
 
         $timeout(function () {
@@ -33,17 +40,20 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         productCategoryService.addNewCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function(newCards){
                 console.log(newCards);
-                unbindView();
+                setDefault();
                 bindView(newCards[0]);
             })
     }
 
     $scope.doRep = function (q) {
+
+        console.log("CARD");
+        console.log($scope.Card);
         console.log("CULPRIT");
-        console.log($scope.CardId);
-        var EF =computeEF($scope.EF, q);
-        var TotalReps = $scope.TotalReps + 1;
-        var Reps = $scope.Reps;
+        console.log($scope.Card.CardId);
+        var EF =computeEF($scope.Card.EF, q);
+        var TotalReps = $scope.Card.TotalReps + 1;
+        var Reps = $scope.Card.Reps;
         if (q == 0) {
             Reps=1;
         }
@@ -57,20 +67,22 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         console.log("reps");
         console.log(Reps);
 
-        var RepInterval = computeRepInterval(Reps, EF, $scope.RepInterval);
+        var RepInterval = computeRepInterval(Reps, EF, $scope.Card.RepInterval);
 
         console.log("RepInterval");
         console.log(RepInterval);
 
-        if($scope.CardId){
-            productCategoryService.logRep(loginService.storage.UserId, $scope.DeckId, $scope.CardId, EF, RepInterval, Reps, TotalReps)
+        if($scope.Card.CardId){
+            productCategoryService.logRep(loginService.storage.UserId, $scope.Card.DeckId, $scope.Card.CardId, EF, RepInterval, Reps, TotalReps)
                 .success(function(status){
                     console.log(status);
-                    unbindView();
+                    setDefault();
+                    $scope.show = false;
                     $scope.getCard();
 
                 })
         } else {
+            $scope.show = false;
             $scope.getCard();
         }
 
@@ -85,11 +97,14 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function (nextCards) {
                 console.log(nextCards);
+
                 bindView(nextCards)
             });
 
 
     }
+
+
 
     function computeEF(EF, q) {
         var newEaseFactor = EF + (0.1-(5-q) * (0.08+(5-q)*0.02));
@@ -116,7 +131,26 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     }
 
 
-    function unbindView() {
+    function setDefault() {
+        $scope.Card.CardId = -1;
+        $scope.Card.FrontSide = "NO MORE";
+        $scope.Card.BackSide = "";
+        $scope.Card.DeckId = -1;
+        $scope.Card.EF = 2.5;
+        $scope.Card.show = false;
+        $scope.Card.RepInterval = 0;
+        $scope.Card.Reps = 0;
+        $scope.Card.TotalReps = 0;
+
+        $scope.Card.Image = "";
+        $scope.Card.Literature = "";
+        $scope.Card.Wikipedia = "";
+        $scope.Card.Wikiskripta = "";
+        $scope.Card.Youtube = "";
+        $scope.Card.ExtraLink = "";
+        $scope.Card.Tag = "";
+        $scope.Card.Detail = false;
+        /*
         $scope.CardId = -1;
         $scope.FrontSide = "NO MORE";
         $scope.BackSide = "";
@@ -126,11 +160,39 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         $scope.RepInterval = 0;
         $scope.Reps = 0;
         $scope.TotalReps = 0;
+        */
     }
 
     function bindView(card) {
         console.log("binding view");
         console.log(card)
+        $scope.Card.FrontSide = card.FrontSide;
+        $scope.Card.BackSide = card.BackSide;
+        $scope.Card.DeckId = card.Decks_FK;
+        $scope.Card.CardId = card.Id;
+        if(card.EF){
+            $scope.Card.EF = card.EF;
+        }
+        if(card.RepInterval){
+            $scope.Card.RepInterval = card.RepInterval;
+        }
+        if(card.Reps){
+            $scope.Card.Reps = card.Reps;
+        }
+        if(card.TotalReps){
+            $scope.Card.TotalReps = card.TotalReps;
+        }
+
+        $scope.Card.Image = card.Image;
+        $scope.Card.Literature = card.Literature;
+        $scope.Card.Wikipedia = card.Wikipedia;
+        $scope.Card.Wikiskripta = card.Wikiskripta;
+        $scope.Card.Youtube = card.Youtube;
+        $scope.Card.ExtraLink = card.ExtraLink;
+        $scope.Card.Tag = card.Tag;
+        $scope.Card.Detail = card.Detail;
+
+        /*
         $scope.CardId = card.Id;
         $scope.FrontSide = card.FrontSide;
         $scope.BackSide = card.BackSide;
@@ -148,7 +210,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         if(card.TotalReps){
             $scope.TotalReps = card.TotalReps;
         }
-
+*/
 
 
         /*
@@ -168,7 +230,6 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
 
     $scope.getCard();
-
 
 
 }

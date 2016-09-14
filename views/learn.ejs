@@ -4,6 +4,7 @@
 <div class="container"
      data-ng-cloak
      data-ng-modules="productCategoryModule, productModule"
+<<<<<<< HEAD
      data-ng-controller="learnController">
 
     <div class="container padding-top-lg">
@@ -43,7 +44,7 @@
                 class="btn btn-primary btn-lg card-button"
                 id="show"
                 ng-show="!show"
-                data-ng-click="showAnswer();showFooter={display:'unset'}"">
+                data-ng-click="showAnswer();showFooter={display:'unset'}">
             Show
         </button>
         <!--button type="button"
@@ -78,6 +79,53 @@
     </div>
 </div>
 </div>
+=======
+         data-ng-controller="learnController">
+    <div class="well">{{Card.FrontSide}}</div>
+    <div class="well" ng-show="show">{{Card.BackSide}}</div>
+    <div class="well" ng-show="show">{{Card.Image}}</div>
+    <div class="well" ng-show="show">{{Card.Literature}}</div>
+    <div class="well" ng-show="show">{{Card.Wikipedia}}</div>
+    <div class="well" ng-show="show">{{Card.Wikiskripta}}</div>
+    <div class="well" ng-show="show">{{Card.Youtube}}</div>
+    <div class="well" ng-show="show">{{Card.ExtraLink}}</div>
+    <div class="well" ng-show="show">{{Card.Tag}}</div>
+    <div class="well" ng-show="show">{{Card.Detail}}</div>
+
+
+    <button type="button"
+            class="btn btn-primary"
+            ng-show="!show"
+            data-ng-click="showAnswer()">
+        Show
+    </button>
+
+    <button type="button"
+            class="btn btn-primary"
+            ng-show="show"
+            data-ng-click="doRep(6)">
+        EZ
+    </button>
+    <button type="button"
+            class="btn btn-primary"
+            ng-show="show"
+            data-ng-click="doRep(4)">
+        Gut
+    </button>
+    <button type="button"
+            class="btn btn-primary"
+            ng-show="show"
+            data-ng-click="doRep(2)">
+        HC
+    </button>
+    <!--button type="button"
+            class="btn btn-primary"
+            ng-show="show"
+            data-ng-click="doRep(0)">
+        WRONG
+    </button-->
+    <br>
+>>>>>>> master
 
 
 </div>

@@ -8,11 +8,14 @@ function editProductCategoryController($scope, $timeout, productCategoryService,
 
         DeckName : "",
         Description : "",
-        AddedBy : ""
+        AddedBy : "",
+        CategoryId : 0
 
     };
 
-   
+    $scope.Categories = [];
+
+    getCategories();
 
     $scope.validationResult = {
 
@@ -37,6 +40,7 @@ function editProductCategoryController($scope, $timeout, productCategoryService,
         $scope.productCategory.DeckName = productCategory.DeckName;
         $scope.productCategory.Description = productCategory.Description;
         $scope.productCategory.AddedBy = productCategory.AddedBy;
+        $scope.productCategory.CategoryId = productCategory.CategoryId;
         $scope.oldDeckName = "";
     }
     
@@ -91,6 +95,21 @@ function editProductCategoryController($scope, $timeout, productCategoryService,
         }
 
 
+    }
+
+    function getCategories(){
+        console.log("do you even");
+        productCategoryService.getCategories()
+            .success(function (data){
+
+                if(data){
+
+                    $scope.Categories = data;
+                    console.log("CCCCCCCCCCCCCCCc");
+                    console.log($scope.Categories);
+                }
+
+            })
     }
 
 };

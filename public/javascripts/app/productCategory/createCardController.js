@@ -7,14 +7,9 @@ function createCardController($scope, $timeout, productService, requiredFieldVal
 
 
     $scope.product = {
-        productId: 0,
-        productCategoryId : "",
-        categoryDetails : "",
-        cost : 0.00,
-        name : "",
-        description : "",
+
         createdDt : new Date(),
-        productPrice :0.00
+
     };
 
 

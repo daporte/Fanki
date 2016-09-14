@@ -8,9 +8,14 @@ function productCategoryController($scope, $timeout, productCategoryService, req
 
         DeckName : "",
         Description : "",
-        AddedBy : ""
+        AddedBy : "",
+        CategoryId : 0
 
     };
+
+    $scope.Categories = [];
+
+    getCategories();
 
     $scope.validationResult = {
 
@@ -55,6 +60,21 @@ function productCategoryController($scope, $timeout, productCategoryService, req
                 })
 
         }
+    }
+
+    function getCategories(){
+        console.log("do you even");
+        productCategoryService.getCategories()
+            .success(function (data){
+
+                if(data){
+
+                    $scope.Categories = data;
+                    console.log("CCCCCCCCCCCCCCCc");
+                    console.log($scope.Categories);
+                }
+
+            })
     }
 }
 

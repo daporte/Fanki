@@ -4,13 +4,29 @@ viewProductCategoryController.$inject = ["$scope", "$timeout", "productCategoryS
 
 function viewProductCategoryController($scope, $timeout, productCategoryService, loginService){
 
-    $scope.productCategories = [];
+    $scope.Hierarchy = {};
 
-    getAllProductCategories();
+    getHierarchy();
 
+    $scope.showTest = false;
 
     $scope.$storage = loginService.storage;
 
+
+    function getHierarchy(){
+        productCategoryService.getHierarchy()
+            .success(function (data){
+                console.log("zzzzzzzzzzzzzzzzzzzzz");
+
+                if(data){
+                    console.log(data);
+                    $scope.Hierarchy = data;
+                    console.log("CCCCCCCCCCCCCCCc");
+                }
+
+            })
+    }
+    /*
     function getAllProductCategories(){
         console.log("do you even");
         productCategoryService.getAllProductCategories()
@@ -30,6 +46,8 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
             })
     }
 
+    */
+
     $scope.currentProductCategoryId = 0;
 
     $scope.setCurrentProductCategoryId = function (productCategoryId){
@@ -37,13 +55,39 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
         $scope.currentProductCategoryId = productCategoryId;
     };
 
-    $scope.addDeck = function (deck, on) {
+    $scope.addDetails = function(deck, on){
+        loginService.storage.decks[deck.Id][1]= on ? 1:0;
+    }
+
+
+    $scope.addDeck = function (deck, category, on) {
         console.log(deck)
         productCategoryService.addDeckToUser(deck, loginService.storage.UserId, on)
             .success(function (data) {
                 console.log(deck.Id)
                 console.log(on)
-                loginService.storage.decks[deck.Id] = on ? 1: 0;
+                console.log(deck);
+
+                if(on){
+                    if(!loginService.storage.decks[deck.Id]){
+                        loginService.storage.decks[deck.Id] = [2];
+                    }
+                    loginService.storage.decks[deck.Id][0]= 1;
+
+                    if(loginService.storage.Categories[category.CategoryId]){
+                        loginService.storage.Categories[category.CategoryId] ++;
+                    }
+                    else{
+                        loginService.storage.Categories[category.CategoryId] = 1;
+                    }
+                } else {
+                    loginService.storage.decks[deck.Id][0]= 0;
+                    loginService.storage.decks[deck.Id][1]= 0;
+
+                    loginService.storage.Categories[category.CategoryId] --;
+
+
+                }
             })
     }
 

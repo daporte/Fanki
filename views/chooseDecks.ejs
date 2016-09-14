@@ -14,12 +14,28 @@
     </div>
 
     <div class="container">
+        <li ng-repeat="Category in Hierarchy">
+            <ul><input type="checkbox" ng-model="checkCat" ng-init="checkCat = $storage.Categories[Category.CategoryId] > 0"> {{Category.CategoryName}}</ul>
+
+
+
+            <!--input type="checkbox" ng-model="check" ng-click="addDeck(productCategory, check)" ng-checked="false"-->
+            <ul ng-show="checkCat" ng-repeat="Deck in Category.Decks">
+
+                <input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-checked="$storage.decks[Deck.Id][0]==1"> {{Deck.DeckName}}
+                <input type="checkbox" ng-model="checkDet" ng-click="addDetails(Deck, Category, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1">
+            </ul>
+        </li>
         <table
-                data-ng-show="productCategories.length > 0"
+                data-ng-show="Hierarchy.length > 0"
 
                 class="table table-striped table-hover"
 
         >
+
+
+
+
             <tr class="success">
                 <td>Deck Name</td>
                 <td>Description</td>
@@ -29,8 +45,7 @@
                 <td>Add</td>
 
             </tr>
-
-            <tr data-ng-repeat="productCategory in productCategories">
+            <!--tr data-ng-repeat="productCategory in productCategories">
                 <td>{{productCategory.DeckName}}</td>
                 <td><button
                             type="button"
@@ -47,7 +62,7 @@
                     <input type="checkbox" ng-model="check" ng-click="addDeck(productCategory, check)" ng-checked="$storage.decks[productCategory.Id]==1">
                 </td>
 
-            </tr>
+            </tr-->
         </table>
     </div>
 

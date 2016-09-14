@@ -35,6 +35,15 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
         console.log(id);
         loginService.storage.Username = nickname;
         loginService.storage.UserId = id;
+        /*
+        loginService.login(id)
+            .success(function (data) {
+
+                bindView(data)
+                //window.location.href = "/myDecks";
+
+            })
+        */
     }
 
     bindView = function (user) {
@@ -52,8 +61,8 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
         }
 */      console.log("alter this");
         console.log(loginService.storage);
-        console.log(user.Username)
-        loginService.storage.Username = user.Username
+
+
         for (var property in user) {
             split = property.split("_")
             if(split[0] == "deck"){
@@ -70,11 +79,11 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
     $scope.logout = function () {
         loginService.storage.Username = "";
         loginService.storage.UserId = "";
-        /*
+
         for(var i =0; i <loginService.decks.length; i++){
-            loginService.decks[i] = 0;
+            loginService.decks[i] = [];
         }
-        */
+
         window.location.href = "/";
     }
 
