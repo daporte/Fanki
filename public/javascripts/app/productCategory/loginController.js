@@ -40,7 +40,7 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
                 console.log("data")
                 console.log(data)
                 bindView(data)
-                window.location.href = "/myDecks";
+                //window.location.href = "/myDecks";
 
             })
 
