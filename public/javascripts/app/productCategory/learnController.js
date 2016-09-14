@@ -155,6 +155,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         console.log("binding view");
         console.log(card)
         $scope.Card = card;
+        $scope.Card.CardId = card.Id;
         /*
         $scope.CardId = card.Id;
         $scope.FrontSide = card.FrontSide;
