@@ -55,9 +55,8 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
         $scope.currentProductCategoryId = productCategoryId;
     };
 
-    $scope.addCategory = function(category, on){
-        console.log(category.CategoryId);
-        loginService.storage.Categories[category.CategoryId] = on ? 1: 0;
+    $scope.addDetails = function(deck, on){
+        loginService.storage.decks[deck.Id][1]= on ? 1:0;
     }
 
 
@@ -68,8 +67,10 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
                 console.log(deck.Id)
                 console.log(on)
                 console.log(deck);
-                loginService.storage.decks[deck.Id] = on ? 1: 0;
+
                 if(on){
+                    loginService.storage.decks[deck.Id][0]= 1;
+
                     if(loginService.storage.Categories[category.CategoryId]){
                         loginService.storage.Categories[category.CategoryId] ++;
                     }
@@ -77,6 +78,8 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
                         loginService.storage.Categories[category.CategoryId] = 1;
                     }
                 } else {
+                    loginService.storage.decks[deck.Id][0]= 0;
+                    loginService.storage.decks[deck.Id][1]= 0;
 
                     loginService.storage.Categories[category.CategoryId] --;
 

@@ -81,9 +81,9 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
         loginService.storage.UserId = "";
 
         for(var i =0; i <loginService.decks.length; i++){
-            loginService.decks[i] = 0;
+            loginService.decks[i] = [];
         }
-        
+
         window.location.href = "/";
     }
 
