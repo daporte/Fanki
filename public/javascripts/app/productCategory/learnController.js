@@ -5,7 +5,7 @@ learnController.$inject = ["$scope", "$timeout", "loginService", "productCategor
 
 function learnController($scope, $timeout, loginService, productCategoryService, productService, requiredFieldValidationService_Login, $localStorage, $window) {
 
-    $scope.Card ={};
+
     $scope.Card.FrontSide = "NO MORE";
     $scope.Card.BackSide = "";
     $scope.Card.EF = 2.5;
@@ -14,6 +14,14 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     $scope.Card.Reps = 0;
     $scope.Card.TotalReps = 0;
 
+    $scope.Card.Image = "";
+    $scope.Card.Literature = "";
+    $scope.Card.Wikipedia = "";
+    $scope.Card.Wikiskripta = "";
+    $scope.Card.Youtube = "";
+    $scope.Card.ExtraLink = "";
+    $scope.Card.Tag = "";
+    $scope.Card.Detail = false;
 
     /*
     $scope.CardId = -1;
@@ -137,7 +145,24 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
 
     function unbindView() {
-        $scope.Card = {};
+        $scope.Card.CardId = -1;
+        $scope.Card.FrontSide = "NO MORE";
+        $scope.Card.BackSide = "";
+        $scope.Card.DeckId = -1;
+        $scope.Card.EF = 2.5;
+        $scope.Card.show = false;
+        $scope.Card.RepInterval = 0;
+        $scope.Card.Reps = 0;
+        $scope.Card.TotalReps = 0;
+
+        $scope.Card.Image = "";
+        $scope.Card.Literature = "";
+        $scope.Card.Wikipedia = "";
+        $scope.Card.Wikiskripta = "";
+        $scope.Card.Youtube = "";
+        $scope.Card.ExtraLink = "";
+        $scope.Card.Tag = "";
+        $scope.Card.Detail = false;
         /*
         $scope.CardId = -1;
         $scope.FrontSide = "NO MORE";
@@ -154,8 +179,32 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     function bindView(card) {
         console.log("binding view");
         console.log(card)
-        $scope.Card = card;
+        $scope.Card.FrontSide = card.FrontSide;
+        $scope.Card.BackSide = card.BackSide;
+        $scope.Card.DeckId = card.Decks_FK;
         $scope.Card.CardId = card.Id;
+        if(card.EF){
+            $scope.Card.EF = card.EF;
+        }
+        if(card.RepInterval){
+            $scope.Card.RepInterval = card.RepInterval;
+        }
+        if(card.Reps){
+            $scope.Card.Reps = card.Reps;
+        }
+        if(card.TotalReps){
+            $scope.Card.TotalReps = card.TotalReps;
+        }
+
+        $scope.Card.Image = card.Image;
+        $scope.Card.Literature = card.Literature;
+        $scope.Card.Wikipedia = card.Wikipedia;
+        $scope.Card.Wikiskripta = card.Wikiskripta;
+        $scope.Card.Youtube = card.Youtube;
+        $scope.Card.ExtraLink = card.ExtraLink;
+        $scope.Card.Tag = card.Tag;
+        $scope.Card.Detail = card.Detail;
+
         /*
         $scope.CardId = card.Id;
         $scope.FrontSide = card.FrontSide;
