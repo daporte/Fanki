@@ -254,7 +254,27 @@ var productCategoryDao = {
 
     }
     ,
-    
+    addDetails : function(DeckId, UserId, on, callback){
+        var tinyInt = on ? 1:0;
+        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+        var queryStatement = "UPDATE userDecks SET Details = ? WHERE UserId = ? AND DeckId = ?";
+        if (connection){
+            connection.query(queryStatement, [tinyInt, UserId, DeckId],function(err, rows, fields){
+                if (err) {throw err;}
+
+
+
+                console.log("calling back")
+
+                callback({status : "successful"});
+
+
+            });
+
+            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+        }
+    }
+    ,
     addUserToDecksTable : function (DeckId, UserId, callback) {
         console.log("in dao m8");
         var insertObject = {

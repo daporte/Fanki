@@ -33,17 +33,17 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
         console.log("HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
         console.log(nickname);
         console.log(id);
-        loginService.storage.Username = nickname;
-        loginService.storage.UserId = id;
-        /*
+
+
         loginService.login(id)
             .success(function (data) {
-
+                loginService.storage.Username = nickname;
+                loginService.storage.UserId = id;
                 bindView(data)
                 //window.location.href = "/myDecks";
 
             })
-        */
+
     }
 
     bindView = function (user) {

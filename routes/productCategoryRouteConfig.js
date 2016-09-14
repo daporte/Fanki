@@ -244,6 +244,36 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
     });
 
     self.routeTable.push({
+        requestType : "post",
+        requestUrl : "/addDetails",
+        callbackFunction : function(request, response){
+
+            console.log(request.body.Id);
+            console.log(request.body.UserId);
+            console.log(request.body.On);
+
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
+            productCategoryDao.productCategoryDao.addDetails(request.body.Id, request.body.UserId, request.body.On,
+                function (status) {
+                    response.json(status);
+                    /*
+                     if(request.body.On){
+                     productCategoryDao.productCategoryDao.addUserToDecksTable(request.body.Id, request.body.UserId, function (result) {
+
+                     })
+                     }
+
+                     console.log("im here ")
+                     console.log(status);
+                     response.json(status);
+                     */
+                });
+        }
+    });
+
+
+    self.routeTable.push({
         requestType : "get",
         requestUrl : "/getAllUserDecks/:UserId",
         callbackFunction : function(request, response){
