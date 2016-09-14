@@ -315,7 +315,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 function (data) {
 
                     console.log("CALLING BACK ROUTE");
-
+                    var dayInMs = 86400000;
 
                     if(!data[0]) {
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
@@ -327,7 +327,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                                 response.json(newCards[0]);
 
                             })
-                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] > new Date().getTime()){
+                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] > new Date().getTime() + dayInMs){
 
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
                             function (newCards) {
@@ -342,7 +342,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                         console.log(data[0]["RepInterval"]);
                         console.log(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"]);
                         console.log(">");
-                        console.log(new Date().getTime());
+                        console.log(new Date().getTime() + dayInMs);
                         console.log("Case 3");
                         response.json(data[0]);
                     }
