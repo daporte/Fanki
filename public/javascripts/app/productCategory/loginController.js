@@ -37,8 +37,7 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
         loginService.storage.UserId = id;
         loginService.login(id)
             .success(function (data) {
-                console.log("data")
-                console.log(data)
+
                 bindView(data)
                 //window.location.href = "/myDecks";
 
@@ -61,8 +60,8 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
         }
 */      console.log("alter this");
         console.log(loginService.storage);
-        console.log(user.Username)
-        loginService.storage.Username = user.Username
+
+
         for (var property in user) {
             split = property.split("_")
             if(split[0] == "deck"){
