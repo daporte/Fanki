@@ -6,22 +6,9 @@ learnController.$inject = ["$scope", "$timeout", "loginService", "productCategor
 function learnController($scope, $timeout, loginService, productCategoryService, productService, requiredFieldValidationService_Login, $localStorage, $window) {
 
     $scope.Card={};
-    $scope.Card.FrontSide = "NO MORE";
-    $scope.Card.BackSide = "";
-    $scope.Card.EF = 2.5;
-    $scope.Card.show = false;
-    $scope.Card.RepInterval = 0;
-    $scope.Card.Reps = 0;
-    $scope.Card.TotalReps = 0;
+    setDefault();
 
-    $scope.Card.Image = "";
-    $scope.Card.Literature = "";
-    $scope.Card.Wikipedia = "";
-    $scope.Card.Wikiskripta = "";
-    $scope.Card.Youtube = "";
-    $scope.Card.ExtraLink = "";
-    $scope.Card.Tag = "";
-    $scope.Card.Detail = false;
+
 
     /*
     $scope.CardId = -1;
@@ -53,7 +40,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         productCategoryService.addNewCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function(newCards){
                 console.log(newCards);
-                unbindView();
+                setDefault();
                 bindView(newCards[0]);
             })
     }
@@ -89,7 +76,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
             productCategoryService.logRep(loginService.storage.UserId, $scope.Card.DeckId, $scope.Card.CardId, EF, RepInterval, Reps, TotalReps)
                 .success(function(status){
                     console.log(status);
-                    unbindView();
+                    setDefault();
                     $scope.show = false;
                     $scope.getCard();
 
@@ -144,7 +131,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     }
 
 
-    function unbindView() {
+    function setDefault() {
         $scope.Card.CardId = -1;
         $scope.Card.FrontSide = "NO MORE";
         $scope.Card.BackSide = "";
