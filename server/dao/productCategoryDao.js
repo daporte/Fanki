@@ -318,6 +318,7 @@ var productCategoryDao = {
 
                 //console.log(rows);
                 console.log("zzzzzaaa");
+                console.log(rows);
                 callback(rows);
             });
 
