@@ -70,7 +70,7 @@ var loginDao = {
                 else {
                     OnSuccessfulCallback({status : "FAIL"})
                 }
-
+//
             });
 
             connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
