@@ -69,6 +69,9 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
                 console.log(deck);
 
                 if(on){
+                    if(!loginService.storage.decks[deck.Id]){
+                        loginService.storage.decks[deck.Id] = [2];
+                    }
                     loginService.storage.decks[deck.Id][0]= 1;
 
                     if(loginService.storage.Categories[category.CategoryId]){
