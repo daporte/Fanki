@@ -330,7 +330,7 @@ var productCategoryDao = {
         console.log("in dao m7");
 
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT DeckId, Details FROM userDecks WHERE UserId = ?";
+        var queryStatement = "SELECT DeckId, Details, CategoryId FROM userDecks INNER JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
         console.log(UserId)
         console.log(queryStatement)
         if (connection){

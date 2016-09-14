@@ -45,12 +45,21 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
                     if(!loginService.storage.decks[data[i]["DeckId"]]){
                         loginService.storage.decks[data[i]["DeckId"]] = [2];
                     }
+
                     loginService.storage.decks[data[i]["DeckId"]][0]=1;
                     loginService.storage.decks[data[i]["DeckId"]][1]=data[i]["Details"];
-                }
-               
+                    if(!loginService.storage.Categories[data[i]["CategoryId"]]){
+                        loginService.storage.Categories[data[i]["CategoryId"]] = 1;
+                    } else {
+                        loginService.storage.Categories[data[i]["CategoryId"]]++;
+                    }
 
-                $scope.$apply();
+                }
+
+
+
+
+                //$scope.$apply();
                 //window.location.href = "/myDecks";
 
             })
@@ -64,6 +73,10 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
 
         for(var i =0; i <loginService.decks.length; i++){
             loginService.decks[i] = [];
+        }
+
+        for(var i =0; i <loginService.Categories.length; i++){
+            loginService.Categories[i] = 0;
         }
 
         window.location.href = "/";
