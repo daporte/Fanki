@@ -7,7 +7,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
     $scope.Card ={};
     $scope.Card.EF = 2.5;
-
+    $scope.show = false;
 
 
     /*
@@ -46,6 +46,9 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     }
 
     $scope.doRep = function (q) {
+
+        console.log("CARD");
+        console.log($scope.Card);
         console.log("CULPRIT");
         console.log($scope.Card.CardId);
         var EF =computeEF($scope.Card.EF, q);
@@ -69,15 +72,17 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         console.log("RepInterval");
         console.log(RepInterval);
 
-        if($scope.CardId){
+        if($scope.Card.CardId){
             productCategoryService.logRep(loginService.storage.UserId, $scope.Card.DeckId, $scope.Card.CardId, EF, RepInterval, Reps, TotalReps)
                 .success(function(status){
                     console.log(status);
                     unbindView();
+                    $scope.show = false;
                     $scope.getCard();
 
                 })
         } else {
+            $scope.show = false;
             $scope.getCard();
         }
 
@@ -92,6 +97,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function (nextCards) {
                 console.log(nextCards);
+
                 bindView(nextCards)
             });
 
