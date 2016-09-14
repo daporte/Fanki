@@ -22,8 +22,8 @@
             <!--input type="checkbox" ng-model="check" ng-click="addDeck(productCategory, check)" ng-checked="false"-->
             <ul ng-show="checkCat" ng-repeat="Deck in Category.Decks">
 
-                <input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-checked="$storage.decks[Deck.Id][0]==1"> {{Deck.DeckName}}
-                <input type="checkbox" ng-model="checkDet" ng-click="addDetails(Deck, Category, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1">
+                <input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-init="check = $storage.decks[Deck.Id][0]==1"> {{Deck.DeckName}}
+                <input type="checkbox" ng-show="check" ng-model="checkDet" ng-click="addDetails(Deck, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1"> <span ng-show="check">Details</span>
             </ul>
         </li>
         <table

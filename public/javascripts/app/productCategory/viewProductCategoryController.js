@@ -58,11 +58,12 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
     $scope.addDetails = function(deck, on){
         console.log(on);
         loginService.storage.decks[deck.Id][1]= on ? 1:0;
-    }
+    };
 
 
     $scope.addDeck = function (deck, category, on) {
-        console.log(deck)
+        console.log(deck);
+        console.log(on);
         productCategoryService.addDeckToUser(deck, loginService.storage.UserId, on)
             .success(function (data) {
                 console.log(deck.Id)
