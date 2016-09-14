@@ -42,11 +42,11 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
                 console.log("LOGIN")
                 console.log(data)
                 for(var i=0;i<data.length;i++){
-                    if(!loginService.storage.Decks[data[i]["DeckId"]]){
-                        loginService.storage.Decks[data[i]["DeckId"]] = [2];
+                    if(!loginService.storage.decks[data[i]["DeckId"]]){
+                        loginService.storage.decks[data[i]["DeckId"]] = [2];
                     }
-                    loginService.storage.Decks[data[i]["DeckId"]][0]=1;
-                    loginService.storage.Decks[data[i]["DeckId"]][1]=data[i]["Details"];
+                    loginService.storage.decks[data[i]["DeckId"]][0]=1;
+                    loginService.storage.decks[data[i]["DeckId"]][1]=data[i]["Details"];
                 }
                 bindView(data)
 
