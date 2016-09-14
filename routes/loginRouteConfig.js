@@ -68,7 +68,7 @@ loginRouteConfig.prototype.addRoutes = function () {
             var loginDao = require("../server/dao/loginDao.js");
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
-            productCategoryDao.productCategoryDao.getAllUserDecks(request.bodyUserId, function(userData){
+            productCategoryDao.productCategoryDao.getAllUserDecks(request.body.UserId, function(userData){
                 response.json(userData[0]);
                 console.log(userData[0]);
             });
