@@ -6,8 +6,13 @@ learnController.$inject = ["$scope", "$timeout", "loginService", "productCategor
 function learnController($scope, $timeout, loginService, productCategoryService, productService, requiredFieldValidationService_Login, $localStorage, $window) {
 
     $scope.Card ={};
+    $scope.Card.FrontSide = "NO MORE";
+    $scope.Card.BackSide = "";
     $scope.Card.EF = 2.5;
-    $scope.show = false;
+    $scope.Card.show = false;
+    $scope.Card.RepInterval = 0;
+    $scope.Card.Reps = 0;
+    $scope.Card.TotalReps = 0;
 
 
     /*
