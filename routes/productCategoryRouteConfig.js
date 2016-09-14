@@ -86,6 +86,19 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         }
     });
 
+    self.routeTable.push({
+        requestType : "get",
+        requestUrl : "/getHierarchy",
+        callbackFunction : function(request, response){
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+            productCategoryDao.productCategoryDao.getHierarchy(
+                function (hierarchy) {
+                    //console.log(productCategories);
+                    response.json(hierarchy);
+                });
+
+        }
+    });
 
 
     self.routeTable.push({

@@ -28,6 +28,13 @@ function productCategoryService($http, $location) {
 
         ,
 
+        getHierarchy : function (){
+            console.log("calling getall")
+            return $http.get("/getHierarchy");
+        }
+
+        ,
+
         getIdFromEndPoint: function(){
 
             var absoluteUrl = $location.absUrl();

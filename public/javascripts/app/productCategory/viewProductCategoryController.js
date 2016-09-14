@@ -4,13 +4,29 @@ viewProductCategoryController.$inject = ["$scope", "$timeout", "productCategoryS
 
 function viewProductCategoryController($scope, $timeout, productCategoryService, loginService){
 
-    $scope.productCategories = [];
+    $scope.Hierarchy = {};
 
-    getAllProductCategories();
+    getHierarchy();
 
+    
 
     $scope.$storage = loginService.storage;
 
+
+    function getHierarchy(){
+        productCategoryService.getHierarchy()
+            .success(function (data){
+                console.log("zzzzzzzzzzzzzzzzzzzzz");
+
+                if(data){
+                    console.log(data);
+                    $scope.Hierarchy = data;
+                    console.log("CCCCCCCCCCCCCCCc");
+                }
+
+            })
+    }
+    /*
     function getAllProductCategories(){
         console.log("do you even");
         productCategoryService.getAllProductCategories()
@@ -30,7 +46,7 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
             })
     }
 
-    
+    */
 
     $scope.currentProductCategoryId = 0;
 

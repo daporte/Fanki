@@ -21,13 +21,12 @@ function loginService($http, $location, $localStorage) {
         ,
 
 
-        login: function (user) {
+        login: function (id) {
             console.log("in service")
             return $http.post("/login",
 
                 {
-                    Username: user.Username,
-                    Password: user.Password,
+                    UserId : id
 
                 })
         }

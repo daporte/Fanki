@@ -15,11 +15,20 @@
 
     <div class="container">
         <table
-                data-ng-show="productCategories.length > 0"
+                data-ng-show="Hierarchy.length > 0"
 
                 class="table table-striped table-hover"
 
         >
+
+
+
+            <tr data-ng-repeat="Category in Hierarchy">
+                <td>{{Category.CategoryId}}</td>
+                <input type="checkbox" ng-model="check" ng-click="addDeck(productCategory, check)" ng-checked="$storage.decks[productCategory.Id]==1">
+
+
+                </tr>
             <tr class="success">
                 <td>Deck Name</td>
                 <td>Description</td>
@@ -29,8 +38,7 @@
                 <td>Add</td>
 
             </tr>
-
-            <tr data-ng-repeat="productCategory in productCategories">
+            <!--tr data-ng-repeat="productCategory in productCategories">
                 <td>{{productCategory.DeckName}}</td>
                 <td><button
                             type="button"
@@ -47,7 +55,7 @@
                     <input type="checkbox" ng-model="check" ng-click="addDeck(productCategory, check)" ng-checked="$storage.decks[productCategory.Id]==1">
                 </td>
 
-            </tr>
+            </tr-->
         </table>
     </div>
 
