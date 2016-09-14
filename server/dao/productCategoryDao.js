@@ -436,9 +436,10 @@ var productCategoryDao = {
     getHierarchy : function(callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         //var queryStatement = "SELECT Decks.Id, DeckName, Description, AddedBy, IsValid, CreatedDate, ModifiedDate, CategoryId, CategoryName FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY Decks.CategoryId ";
-        var queryStatement = "SELECT CategoryId, GROUP_CONCAT(CONCAT('{DeckName:', DeckName, ', Description : ', Description, " +
-            "', AddedBy : ', AddedBy, ', IsValid : ', IsValid, ', CreatedDate : ', CreatedDate, ', ModifiedDate : ', IFNULL(ModifiedDate, 'NULL'), ', CategoryName : ', IFNULL(CategoryName, 'NULL'), '}')) as DeckName " +
-            " FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY CategoryId;"
+        var queryStatement = "SELECT CategoryId, CategoryName, GROUP_CONCAT(CONCAT('{\"Id\":\"', Decks.Id, '\", \"DeckName\":\"', DeckName, '\", \"Description\" : \"',Description, " +
+            "'\" , \"AddedBy\" : \"', AddedBy, '\", \"IsValid\" : \"', IsValid, '\", \"CreatedDate\" : \"', CreatedDate, '\", \"ModifiedDate\" : \"', IFNULL(ModifiedDate, 'NULL'), '\", \"CategoryName\" : \"', IFNULL(CategoryName, 'NULL'), '\"," +
+            "\"CategoryId\" : \"', IFNULL(CategoryId, 'NULL'), '\"}') SEPARATOR '|') as DeckList " +
+            " FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY CategoryId, CategoryName;"
 
 
         if (connection){

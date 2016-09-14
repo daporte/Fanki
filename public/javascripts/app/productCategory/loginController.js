@@ -79,11 +79,11 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
     $scope.logout = function () {
         loginService.storage.Username = "";
         loginService.storage.UserId = "";
-        /*
+
         for(var i =0; i <loginService.decks.length; i++){
             loginService.decks[i] = 0;
         }
-        */
+        
         window.location.href = "/";
     }
 

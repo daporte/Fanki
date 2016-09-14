@@ -94,6 +94,29 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
             productCategoryDao.productCategoryDao.getHierarchy(
                 function (hierarchy) {
                     //console.log(productCategories);
+
+                    for(var i=0;i<Object.keys(hierarchy).length;i++){
+
+                        //console.log(hierarchy[i]["DeckList"]);
+
+                        var string = hierarchy[i]["DeckList"];
+                        var splitString = string.split("|");
+                        hierarchy[i]["Decks"] = [];
+
+                        for(var z=0;z<splitString.length;z++){
+                            //console.log(splitString[z]);
+                            var deckJson = JSON.parse(splitString[z]);
+                            hierarchy[i]["Decks"].push(deckJson);
+                        }
+                        //console.log(splitString[0]);
+                       // console.log("ITERATE HIERARCHY");
+                        //console.log(splitString.length)
+                        console.log(hierarchy[i]["Decks"]);
+
+                       //JSON.parse(hierarchy[i]["DeckName"]);
+                    }
+
+
                     response.json(hierarchy);
                 });
 

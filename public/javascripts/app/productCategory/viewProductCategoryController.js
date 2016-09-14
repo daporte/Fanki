@@ -8,7 +8,7 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
 
     getHierarchy();
 
-    
+    $scope.showTest = false;
 
     $scope.$storage = loginService.storage;
 
@@ -55,13 +55,33 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
         $scope.currentProductCategoryId = productCategoryId;
     };
 
-    $scope.addDeck = function (deck, on) {
+    $scope.addCategory = function(category, on){
+        console.log(category.CategoryId);
+        loginService.storage.Categories[category.CategoryId] = on ? 1: 0;
+    }
+
+
+    $scope.addDeck = function (deck, category, on) {
         console.log(deck)
         productCategoryService.addDeckToUser(deck, loginService.storage.UserId, on)
             .success(function (data) {
                 console.log(deck.Id)
                 console.log(on)
+                console.log(deck);
                 loginService.storage.decks[deck.Id] = on ? 1: 0;
+                if(on){
+                    if(loginService.storage.Categories[category.CategoryId]){
+                        loginService.storage.Categories[category.CategoryId] ++;
+                    }
+                    else{
+                        loginService.storage.Categories[category.CategoryId] = 1;
+                    }
+                } else {
+
+                    loginService.storage.Categories[category.CategoryId] --;
+
+
+                }
             })
     }
 
