@@ -4,15 +4,16 @@
 <div class="container"
      data-ng-cloak
      data-ng-modules="productCategoryModule, productModule"
-<<<<<<< HEAD
      data-ng-controller="learnController">
 
     <div class="container padding-top-lg">
-            <div class="card-text" ng-class="{'hide-navbar': hide}" ng-style="hideFooter">
+            <div class="card-text">
                 {{Card.FrontSide}}
             </div>
     </div>
 
+
+    <hr>
     <hr ng-show="show">
 
     <div class="container" ng-show="show">
@@ -54,14 +55,34 @@
             New Card
         </--button-->
 
+    <div class="sticky-container"  ng-show="show">
+        <ul class="sticky">
+            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/open-book.png" />
+                <p>Literatura</p>
+            </li>
+            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885960/source_images/logo_ws_bw_crop.png" />
+                <p>Wikiskripta</p>
+            </li>
+            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/wikipedia-logo.png" />
+                <p>Wikipedia</p>
+            </li>
+            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/youtube-logo.png" />
+                <p>Youtube</p>
+            </li>
+            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/external.png" />
+                <a href="#">Adresa</a>
+            </li>
+        </ul>
+    </div>
 
 <div ng-style="showFooter" class="navbar-hidden">
 <div class="navbar-fixed-bottom navbar navbar-default footer-card">
+
     <div class="container text-center">
         <div class="btn-group">
             <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(0)">
                 <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/delete.png">
-                <p class="text-muted undertext-card-icon" style="margin-top: 10px;">Znovu</p>
+                <p class="text-muted undertext-card-icon">Znovu</p>
             </a>
             <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(2)">
                 <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/minus-sign-inside-a-black-circle.png">
@@ -76,7 +97,9 @@
                 <p class="text-muted undertext-card-icon">Jednoduché</p>
             </a>
         </div>
-    </div>
+
+   </div>
+
 </div>
 </div>
 
