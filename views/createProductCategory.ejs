@@ -53,7 +53,23 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="form-group">
+                    <label for="Category">Category</label>
+                    <br>
+                    <select
+                        class="form-control"
+                        name="Category"
+                        id="CategoryId"
+                        ng-model="productCategory.CategoryId"
+                        ng-options="Category.Id as Category.CategoryName for Category in Categories"
+                        ng-init="productCategory.CategoryId=0"
+                    >
+                        <option value="" >Select Category</option>
 
+                    </select>
+                </div>
+            </div>
 
             <div>&nbsp</div>
             <div class="row">

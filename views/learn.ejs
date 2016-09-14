@@ -4,20 +4,16 @@
      data-ng-cloak
      data-ng-modules="productCategoryModule, productModule"
          data-ng-controller="learnController">
-    <div class="well">{{FrontSide}}</div>
-    <div class="well" ng-show="show">{{BackSide}}</div>
+    <div class="well">{{Card.FrontSide}}</div>
+    <div class="well" ng-show="show">{{Card.BackSide}}</div>
+
     <button type="button"
             class="btn btn-primary"
             ng-show="!show"
             data-ng-click="showAnswer()">
         Show
     </button>
-    <!--button type="button"
-            class="btn btn-primary"
-            ng-show="!show"
-            data-ng-click="addNewCard()">
-        New Card
-    </--button-->
+
     <button type="button"
             class="btn btn-primary"
             ng-show="show"

@@ -20,47 +20,7 @@
                 name="formProductCategory">
 
             <%include validationSummary.ejs%>
-            <div class="row">
-            <div class="form-group">
-                <label for="productDetails">Front Side</label>
-             <textarea
-                     class="form-control"
-                     placeholder="Front side"
-                     name="productDetails"
-                     id="productDetails"
-                     rows="5"
-                     cols="30"
-                     ng-model="product.FrontSide"
-                     style="width:100%"
-                     required>
-
-
-             </textarea>
-            </div>
-            </div>
-
-
-            <div class="row">
-                <div class="form-group">
-                    <label for="productDetails">Back Side</label>
-             <textarea
-                     class="form-control"
-                     placeholder="Back side"
-                    name="productDetails"
-                     id="productDetails"
-                     rows="5"
-                     cols="30"
-
-                     ng-model="product.BackSide"
-
-                     style="width:100%"
-                     required>
-
-
-             </textarea>
-                </div>
-            </div>
-
+            <%include cardInfo.ejs%>
 
 
 

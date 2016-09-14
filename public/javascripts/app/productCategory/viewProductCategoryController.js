@@ -30,6 +30,8 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
             })
     }
 
+    
+
     $scope.currentProductCategoryId = 0;
 
     $scope.setCurrentProductCategoryId = function (productCategoryId){

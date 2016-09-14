@@ -33,6 +33,17 @@ var productDao = {
             AddedBy : product.AddedBy,
             IsValid : true,//productCategory.IsValid,
             CreatedDate : new Date(),
+            Image : product.Image,
+            Literature : product.Literature,
+            Wikipedia  : product.Wikipedia,
+            Wikiskripta : product.Wikiskripta,
+            Youtube : product.Youtube,
+            ExtraLink : product.ExtraLink,
+            Tag : product.Tag,
+            Detail : product.Detail,
+
+
+
 
 
         };
@@ -88,9 +99,9 @@ var productDao = {
     updateProduct : function(product, callback){
         console.log("im in dao")
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "UPDATE Cards SET Decks_FK = ?, FrontSide = ?, BackSide = ?, ModifiedDate = ? WHERE Id = ?";
+        var queryStatement = "UPDATE Cards SET? WHERE Id = ?";
         if (connection){
-            connection.query(queryStatement, [product.body.Decks_FK, product.body.FrontSide, product.body.BackSide, new Date(), product.body.Id], function(err, rows, fields){
+            connection.query(queryStatement, [product.body, product.body.Id], function(err, rows, fields){
                 if (err) {throw err;}
 
 

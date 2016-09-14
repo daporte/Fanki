@@ -5,6 +5,12 @@ learnController.$inject = ["$scope", "$timeout", "loginService", "productCategor
 
 function learnController($scope, $timeout, loginService, productCategoryService, productService, requiredFieldValidationService_Login, $localStorage, $window) {
 
+    $scope.Card ={};
+    $scope.Card.EF = 2.5;
+
+    $scope.getCard();
+
+    /*
     $scope.CardId = -1;
     $scope.FrontSide = "NO MORE";
     $scope.BackSide = "";
@@ -15,6 +21,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     $scope.Reps = 0;
     $scope.TotalReps = 0;
 
+*/
     $scope.showAnswer = function () {
 
         $timeout(function () {
@@ -40,10 +47,10 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
     $scope.doRep = function (q) {
         console.log("CULPRIT");
-        console.log($scope.CardId);
-        var EF =computeEF($scope.EF, q);
-        var TotalReps = $scope.TotalReps + 1;
-        var Reps = $scope.Reps;
+        console.log($scope.Card.CardId);
+        var EF =computeEF($scope.Card.EF, q);
+        var TotalReps = $scope.Card.TotalReps + 1;
+        var Reps = $scope.Card.Reps;
         if (q == 0) {
             Reps=1;
         }
@@ -57,13 +64,13 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         console.log("reps");
         console.log(Reps);
 
-        var RepInterval = computeRepInterval(Reps, EF, $scope.RepInterval);
+        var RepInterval = computeRepInterval(Reps, EF, $scope.Card.RepInterval);
 
         console.log("RepInterval");
         console.log(RepInterval);
 
         if($scope.CardId){
-            productCategoryService.logRep(loginService.storage.UserId, $scope.DeckId, $scope.CardId, EF, RepInterval, Reps, TotalReps)
+            productCategoryService.logRep(loginService.storage.UserId, $scope.Card.DeckId, $scope.Card.CardId, EF, RepInterval, Reps, TotalReps)
                 .success(function(status){
                     console.log(status);
                     unbindView();
@@ -117,6 +124,8 @@ function learnController($scope, $timeout, loginService, productCategoryService,
 
 
     function unbindView() {
+        $scope.Card = {};
+        /*
         $scope.CardId = -1;
         $scope.FrontSide = "NO MORE";
         $scope.BackSide = "";
@@ -126,11 +135,14 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         $scope.RepInterval = 0;
         $scope.Reps = 0;
         $scope.TotalReps = 0;
+        */
     }
 
     function bindView(card) {
         console.log("binding view");
         console.log(card)
+        $scope.Card = card;
+        /*
         $scope.CardId = card.Id;
         $scope.FrontSide = card.FrontSide;
         $scope.BackSide = card.BackSide;
@@ -148,7 +160,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         if(card.TotalReps){
             $scope.TotalReps = card.TotalReps;
         }
-
+*/
 
 
         /*
@@ -167,7 +179,6 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     }
 
 
-    $scope.getCard();
 
 
 

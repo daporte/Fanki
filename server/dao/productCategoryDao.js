@@ -19,6 +19,7 @@ var productCategoryDao = {
             DeckName : productCategory.DeckName,
             Description : productCategory.Description,
             AddedBy : productCategory.AddedBy,
+            CategoryId : productCategory.CategoryId,
             IsValid : true,
             CreatedDate : new Date()
 
@@ -84,7 +85,7 @@ var productCategoryDao = {
     ,
     getAllProductCategory : function(callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM Decks ORDER BY ID DESC";
+        var queryStatement = "SELECT Decks.Id, DeckName, Description, AddedBy, IsValid, CreatedDate, ModifiedDate, CategoryId, CategoryName FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id ORDER BY Decks.Id DESC";
         if (connection){
             connection.query(queryStatement, function(err, rows, fields){
                 if (err) {throw err;}
@@ -114,14 +115,14 @@ var productCategoryDao = {
         }
     }
     ,
-    updateProductCategory : function(deckName, description, productCategoryId, callback){
+    updateProductCategory : function(deckName, description, productCategoryId, categoryId, callback){
 
         console.log("daomelden")
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "UPDATE Decks SET DeckName = ?, Description = ?, ModifiedDate = ? WHERE Id = ?";
+        var queryStatement = "UPDATE Decks SET DeckName = ?, Description = ?, ModifiedDate = ?, CategoryId = ? WHERE Id = ?";
 
         if (connection){
-            connection.query(queryStatement, [deckName, description, new Date(), productCategoryId], function(err, rows, fields){
+            connection.query(queryStatement, [deckName, description, new Date(), categoryId, productCategoryId], function(err, rows, fields){
                 if (err) {throw err;}
 
                 console.log(deckName);
@@ -475,6 +476,22 @@ var productCategoryDao = {
 
     }
 
+    ,
+    getCategories : function(callback){
+        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+        var queryStatement = "SELECT * FROM Categories";
+        if (connection){
+            connection.query(queryStatement, function(err, rows, fields){
+                if (err) {throw err;}
+
+                //console.log(rows);
+                console.log("zzzzz");
+                callback(rows);
+            });
+
+            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+        }
+    }
 };
 
 module.exports.productCategoryDao = productCategoryDao;

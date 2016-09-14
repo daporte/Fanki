@@ -57,11 +57,8 @@ function editCardController($scope, $timeout, productService, requiredFieldValid
 
     function bindView(product) {
         console.log("binding view");
-        $scope.product.DeckName = product.DeckName;
-        $scope.product.FrontSide = product.FrontSide;
-        $scope.product.BackSide = product.BackSide;
-        $scope.product.AddedBy = product.AddedBy;
-        $scope.product.Decks_FK = product.Decks_FK;
+        $scope.product= product;
+
         console.log($scope.product.Decks_FK);
         console.log("that was the decks_FK");
     }

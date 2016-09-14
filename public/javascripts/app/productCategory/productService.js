@@ -16,8 +16,15 @@ function productService($http, $location){
                     FrontSide : product.FrontSide,
                     BackSide : product.BackSide,
                     AddedBy : product.AddedBy,
-                    Decks_FK : deckId
-
+                    Decks_FK : deckId,
+                    Image : product.Image,
+                    Literature : product.Literature,
+                    Wikipedia : product.Wikipedia,
+                    Wikiskripta : product.Wikiskripta,
+                    Youtube : product.Youtube,
+                    ExtraLink : product.ExtraLink,
+                    Tag : product.Tag,
+                    Detail : product.Detail
 
                 }
             )
@@ -79,15 +86,23 @@ function productService($http, $location){
         updateProduct : function(product, productId){
             console.log(productId);
             console.log("THE ID!!!!!!!!!!!!!!!!!!!!!");
-            console.log(product.AddedBy)
+
             return $http.post("/updateProduct",
 
                 {
                     Id : productId,
                     FrontSide : product.FrontSide,
                     BackSide : product.BackSide,
+                    AddedBy : product.AddedBy,
                     Decks_FK : product.Decks_FK,
-                    AddedBy : product.AddedBy
+                    Image : product.Image,
+                    Literature : product.Literature,
+                    Wikipedia : product.Wikipedia,
+                    Wikiskripta : product.Wikiskripta,
+                    Youtube : product.Youtube,
+                    ExtraLink : product.ExtraLink,
+                    Tag : product.Tag,
+                    Detail : product.Detail
 
                 });
         }

@@ -14,7 +14,8 @@ function productCategoryService($http, $location) {
                     DeckName : productCategory.DeckName,
                     Description : productCategory.Description,
                     AddedBy : productCategory.AddedBy,
-                    Id : productCategory.productCategoryId
+                    Id : productCategory.productCategoryId,
+                    CategoryId : productCategory.CategoryId
                 })
         }
 
@@ -57,7 +58,8 @@ function productCategoryService($http, $location) {
                     DeckName : productCategory.DeckName,
                     Description : productCategory.Description,
                     AddedBy : productCategory.AddedBy,
-                    ProductCategoryId : productCategoryId
+                    ProductCategoryId : productCategoryId,
+                    CategoryId : productCategory.CategoryId
                 });
         }
         ,
@@ -119,6 +121,11 @@ function productCategoryService($http, $location) {
                 Reps : Reps,
                 TotalReps : TotalReps
             });
+        }
+        ,
+        getCategories : function (){
+            console.log("calling getall")
+            return $http.get("/getCategories");
         }
     }
 
