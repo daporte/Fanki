@@ -85,6 +85,14 @@ function productCategoryService($http, $location) {
 
         }
         ,
+        addDetails : function (deck, UserId, on) {
+            deck["UserId"] = UserId;
+            deck["On"] = on;
+
+            return $http.post("/addDetails",deck);
+
+        }
+        ,
         getAllUserDecks : function (UserId){
             
             return $http.get("/getAllUserDecks/" + UserId);

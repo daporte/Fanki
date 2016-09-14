@@ -67,7 +67,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         console.log("reps");
         console.log(Reps);
 
-        var RepInterval = computeRepInterval(Reps, EF, $scope.Card.RepInterval);
+        var RepInterval = computeRepInterval(Reps, EF, $scope.Card.RepInterval, q);
 
         console.log("RepInterval");
         console.log(RepInterval);
@@ -98,7 +98,7 @@ function learnController($scope, $timeout, loginService, productCategoryService,
             .success(function (nextCards) {
                 console.log(nextCards);
 
-                bindView(nextCards)
+                bindView(nextCards);
             });
 
 
@@ -114,10 +114,16 @@ function learnController($scope, $timeout, loginService, productCategoryService,
         return newEaseFactor;
     }
 
-    function computeRepInterval(rep, EF, lastinterval) {
+    function computeRepInterval(rep, EF, lastinterval, q) {
         var repInterval;
         //var dayInMs = 86400000;
-        var dayInMs = 10000;
+        var dayInMs = 86400000;
+
+        var tenMinInMs = 600000;
+        if(q === 0){
+            return tenMinInMs;
+        }
+
         if (rep === 1) {
             repInterval = dayInMs;
         }

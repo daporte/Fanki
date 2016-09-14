@@ -56,12 +56,21 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
     };
 
     $scope.addDetails = function(deck, on){
-        loginService.storage.decks[deck.Id][1]= on ? 1:0;
-    }
+        console.log(on);
+        productCategoryService.addDetails(deck, loginService.storage.UserId, on)
+            .success(function (data){
+
+            loginService.storage.decks[deck.Id][1]= on ? 1:0;
+                
+        });
+
+
+    };
 
 
     $scope.addDeck = function (deck, category, on) {
-        console.log(deck)
+        console.log(deck);
+        console.log(on);
         productCategoryService.addDeckToUser(deck, loginService.storage.UserId, on)
             .success(function (data) {
                 console.log(deck.Id)
@@ -71,6 +80,7 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
                 if(on){
                     if(!loginService.storage.decks[deck.Id]){
                         loginService.storage.decks[deck.Id] = [2];
+                        loginService.storage.decks[deck.Id][1] = 0;
                     }
                     loginService.storage.decks[deck.Id][0]= 1;
 

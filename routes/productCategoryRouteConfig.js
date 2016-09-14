@@ -244,6 +244,36 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
     });
 
     self.routeTable.push({
+        requestType : "post",
+        requestUrl : "/addDetails",
+        callbackFunction : function(request, response){
+
+            console.log(request.body.Id);
+            console.log(request.body.UserId);
+            console.log(request.body.On);
+
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
+            productCategoryDao.productCategoryDao.addDetails(request.body.Id, request.body.UserId, request.body.On,
+                function (status) {
+                    response.json(status);
+                    /*
+                     if(request.body.On){
+                     productCategoryDao.productCategoryDao.addUserToDecksTable(request.body.Id, request.body.UserId, function (result) {
+
+                     })
+                     }
+
+                     console.log("im here ")
+                     console.log(status);
+                     response.json(status);
+                     */
+                });
+        }
+    });
+
+
+    self.routeTable.push({
         requestType : "get",
         requestUrl : "/getAllUserDecks/:UserId",
         callbackFunction : function(request, response){
@@ -315,7 +345,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 function (data) {
 
                     console.log("CALLING BACK ROUTE");
-
+                    var dayInMs = 86400000;
 
                     if(!data[0]) {
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
@@ -327,7 +357,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                                 response.json(newCards[0]);
 
                             })
-                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] > new Date().getTime()){
+                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] > new Date().getTime() + dayInMs){
 
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
                             function (newCards) {
@@ -342,7 +372,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                         console.log(data[0]["RepInterval"]);
                         console.log(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"]);
                         console.log(">");
-                        console.log(new Date().getTime());
+                        console.log(new Date().getTime() + dayInMs);
                         console.log("Case 3");
                         response.json(data[0]);
                     }
