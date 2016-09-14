@@ -41,44 +41,22 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
                 loginService.storage.UserId = id;
                 console.log("LOGIN")
                 console.log(data)
+                for(var i=0;i<data.length;i++){
+                    if(!loginService.storage.Decks[data[i]["DeckId"]]){
+                        loginService.storage.Decks[data[i]["DeckId"]] = [2];
+                    }
+                    loginService.storage.Decks[data[i]["DeckId"]][0]=1;
+                    loginService.storage.Decks[data[i]["DeckId"]][1]=data[i]["Details"];
+                }
                 bindView(data)
+
+                $scope.$apply();
                 //window.location.href = "/myDecks";
 
             })
 
     }
 
-    bindView = function (user) {
-        /*
-         console.log(user.username);
-         console.log("scope username")
-         $scope.Username = user.username;
-         console.log($scope.Username)
-         */
-/*
-        for(var property in loginService.storage){
-            if(property != "Username") {
-                delete loginService.storage[property];
-            }
-        }
-
-*/      console.log(user);
-        console.log("alter this");
-        console.log(loginService.storage);
-
-
-        for (var property in user) {
-            split = property.split("_")
-            if(split[0] == "deck"){
-                loginService.storage.decks[split[1]] = user[property];
-            }
-
-        }
-        console.log("STORAGE")
-        console.log(loginService.storage);
-        $scope.$apply()
-
-    }
 
     $scope.logout = function () {
         loginService.storage.Username = "";
