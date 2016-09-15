@@ -13,6 +13,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
 
     $scope.user = Constants.user;
+    console.log(Constants.user);
     console.log($scope.user);
 
     $scope.$storage = loginService.storage;
