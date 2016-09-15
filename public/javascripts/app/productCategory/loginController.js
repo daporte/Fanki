@@ -1,9 +1,9 @@
 angular.module("loginModule")
     .controller("loginController", loginController);
 
-loginController.$inject = ["$scope", "$http", "$timeout", "loginService", "requiredFieldValidationService_Login", "$localStorage", "Constants"];
+loginController.$inject = ["$scope", "$http", "$timeout", "loginService", "requiredFieldValidationService_Login", "$localStorage"];
 
-function loginController($scope, $http, $timeout, loginService, requiredFieldValidationService_Login, $localStorage, Constants) {
+function loginController($scope, $http, $timeout, loginService, requiredFieldValidationService_Login, $localStorage) {
 
     var id = window.userId;
     var nick = window.userNickname;

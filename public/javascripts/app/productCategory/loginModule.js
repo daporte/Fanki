@@ -1,1 +1,1 @@
-var loginModule = angular.module("loginModule", ["ngStorage"]);
+var loginModule = angular.module("loginModule", []);
