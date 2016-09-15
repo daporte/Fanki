@@ -68,15 +68,11 @@ app.get('/user', function (req, res) {
     console.log(req.user);
     console.log(req.user.nickname);
 
-
-
-
     res.render('userTemp', {
         user: req.user
+    });
 
-    })
 
-    
 });
 
 
