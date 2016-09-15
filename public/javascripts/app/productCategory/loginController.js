@@ -1,16 +1,16 @@
 angular.module("loginModule")
     .controller("loginController", loginController);
 
-loginController.$inject = ["$scope", "$timeout", "loginService", "requiredFieldValidationService_Login", "$localStorage"];
+loginController.$inject = ["$scope", "$timeout", "loginService", "requiredFieldValidationService_Login", "$localStorage", "Constants"];
 
-function loginController($scope, $timeout, loginService, requiredFieldValidationService_Login, $localStorage) {
-
-
+function loginController($scope, $timeout, loginService, requiredFieldValidationService_Login, $localStorage, Constants) {
 
 
 
-    var aa = req.user;
-    console.log(aa);
+
+
+    $scope.user = Constants.user;
+    console.log(user);
 
     $scope.$storage = loginService.storage;
     console.log(loginService.storage);
