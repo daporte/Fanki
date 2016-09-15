@@ -1,4 +1,4 @@
-var theUser = user;
+var theUser = window.user;
 
 var loginModuleConstants = angular.module('loginModule.Constants', [])
     .constant('Constants',{user : theUser});
