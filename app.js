@@ -26,16 +26,19 @@ app.use(session({ secret: 'trrfmgtYzvSYrnH3BLS1YQ2vzfZnhq_KNFDEXwgCfR6p06EtgYbDV
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
 app.get('/callback',
     passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
     function(req, res) {
       console.log("ZA+DAAR")
       if (!req.user) {
         throw new Error('user null');
-
       }
 
       res.redirect("/user");
+
+
       //console.log(req.user)
       //var elem = angular.element(document.querySelector('[ng-controller]'));
       //console.log("elem-------");
