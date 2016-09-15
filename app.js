@@ -67,12 +67,12 @@ app.use('/', routes);
 app.get('/user', function (req, res) {
     console.log(req.user);
     console.log(req.user.nickname);
-    res.send({user: req.user});
-    /*
+    //res.send({user: req.user});
+
     res.render('userTemp', {
         user: req.user
     });
-    */
+
 });
 
 var port = process.env.PORT || 3001;

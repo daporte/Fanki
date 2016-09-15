@@ -8,7 +8,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
     $http.get("http://fanki2.herokuapp.com/user")
         .success(function(data) {
-            console.log("this is coming from wherever:" + data);
+            console.log("this is coming from wherever:" + data.user);
         });
 
 
