@@ -67,22 +67,16 @@ app.use('/', routes);
 app.get('/user', function (req, res) {
     console.log(req.user);
     console.log(req.user.nickname);
-    //res.send({user: req.user});
-    console.log(req);
-    /*
-    if (req.accepts('json')) {
-        return res.send({user: req.user});
-    } else {
-        return res.render('userTemp');
-    };
-    */
-    /*
+
+
+
+
     res.render('userTemp', {
         user: req.user
-    });
-*/
 
+    })
 
+    
 });
 
 
