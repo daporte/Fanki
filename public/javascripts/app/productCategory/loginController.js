@@ -5,15 +5,13 @@ loginController.$inject = ["$scope", "$http", "$timeout", "loginService", "requi
 
 function loginController($scope, $http, $timeout, loginService, requiredFieldValidationService_Login, $localStorage, Constants) {
 
-    $scope.returned = ""
 
     $http.get("http://fanki2.herokuapp.com/user")
         .success(function(data) {
-            $scope.returned = data;
+            console.log("this is coming from wherever:" + data);
         });
 
-    console.log($scope.returned);
-    
+
     $scope.user = Constants.user;
     console.log($scope.user);
 

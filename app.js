@@ -69,11 +69,21 @@ app.get('/user', function (req, res) {
     console.log(req.user.nickname);
     //res.send({user: req.user});
 
+    if (req.accepts('json')) {
+        return res.send({user: req.user});
+    } else {
+        return res.render('userTemp');
+    };
+    /*
     res.render('userTemp', {
         user: req.user
     });
+*/
+
 
 });
+
+
 
 var port = process.env.PORT || 3001;
 app.listen(port);
