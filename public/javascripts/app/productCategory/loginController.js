@@ -5,16 +5,8 @@ loginController.$inject = ["$scope", "$http", "$timeout", "loginService", "requi
 
 function loginController($scope, $http, $timeout, loginService, requiredFieldValidationService_Login, $localStorage, Constants) {
 
-
-    $http.get("http://fanki2.herokuapp.com/user")
-        .success(function(data) {
-            console.log("this is coming from wherever:" + data);
-        });
-
-
-
-    $scope.x = window.userData;
-    console.log($scope.x);
+    var id = window.userId;
+    var nick = window.userNickname;
 
 
     $scope.user = Constants.user;
@@ -23,7 +15,37 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
     $scope.$storage = loginService.storage;
     console.log(loginService.storage);
-        
+
+
+    loginService.login(id)
+        .success(function (data) {
+            loginService.storage.Username = nick;
+            loginService.storage.UserId = id;
+            console.log("LOGIN")
+            console.log(data)
+            for (var i = 0; i < data.length; i++) {
+                if (!loginService.storage.decks[data[i]["DeckId"]]) {
+                    loginService.storage.decks[data[i]["DeckId"]] = [2];
+                }
+
+                loginService.storage.decks[data[i]["DeckId"]][0] = 1;
+                loginService.storage.decks[data[i]["DeckId"]][1] = data[i]["Details"];
+                if (!loginService.storage.Categories[data[i]["CategoryId"]]) {
+                    loginService.storage.Categories[data[i]["CategoryId"]] = 1;
+                } else {
+                    loginService.storage.Categories[data[i]["CategoryId"]]++;
+                }
+
+            }
+
+
+            //$scope.$apply();
+            //window.location.href = "/myDecks";
+
+        })
+
+
+
    /*
     $scope.user = {
 
