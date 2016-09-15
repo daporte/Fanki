@@ -443,7 +443,6 @@ var productCategoryDao = {
                         throw err;
                     }
 
-
                     console.log("zzzzz");
                     console.log(rows);
                     callback(rows);
