@@ -9,11 +9,13 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
 
 
 
-    
+    var aa = user;
+    console.log(aa);
 
     $scope.$storage = loginService.storage;
     console.log(loginService.storage);
         
+   /*
     $scope.user = {
 
         Username: "",
@@ -21,7 +23,7 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
         
 
     };
-
+*/
     $scope.validationResult = {
 
         containsValidationError: false,
