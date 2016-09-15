@@ -1,4 +1,6 @@
+var theUser = user;
+
 var loginModuleConstants = angular.module('loginModule.Constants', [])
-    .constant('Constants',{user : '#{user}'});
+    .constant('Constants',{user : theUser});
 
 var loginModule = angular.module("loginModule", ["ngStorage", "loginModule.Constants"]);
