@@ -8,7 +8,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     var id = window.userId;
     var nick = window.userNickname;
 
-    
+
 
     $scope.$storage = loginService.storage;
     console.log(loginService.storage);
@@ -20,6 +20,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
             loginService.storage.UserId = id;
             console.log("LOGIN")
             console.log(data)
+            /*
             for (var i = 0; i < data.length; i++) {
                 if (!loginService.storage.decks[data[i]["DeckId"]]) {
                     loginService.storage.decks[data[i]["DeckId"]] = [2];
@@ -34,7 +35,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
                 }
 
             }
-
+*/
 
             //$scope.$apply();
             //window.location.href = "/myDecks";
