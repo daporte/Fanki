@@ -9,8 +9,7 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
 
 
 
-    var User = {{user}};
-    console.log(User);
+    
 
     $scope.$storage = loginService.storage;
     console.log(loginService.storage);
