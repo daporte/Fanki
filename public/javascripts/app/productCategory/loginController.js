@@ -10,7 +10,7 @@ function loginController($scope, $timeout, loginService, requiredFieldValidation
 
 
     $scope.user = Constants.user;
-    console.log(user);
+    console.log($scope.user);
 
     $scope.$storage = loginService.storage;
     console.log(loginService.storage);
