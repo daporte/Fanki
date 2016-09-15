@@ -1,12 +1,15 @@
 angular.module("loginModule")
     .controller("loginController", loginController);
 
-loginController.$inject = ["$scope", "$timeout", "loginService", "requiredFieldValidationService_Login", "$localStorage", "Constants"];
+loginController.$inject = ["$scope", "$http", "$timeout", "loginService", "requiredFieldValidationService_Login", "$localStorage", "Constants"];
 
-function loginController($scope, $timeout, loginService, requiredFieldValidationService_Login, $localStorage, Constants) {
+function loginController($scope, $http, $timeout, loginService, requiredFieldValidationService_Login, $localStorage, Constants) {
 
 
-
+    $http.get("http://fanki2.herokuapp.com/user")
+        .success(function(data) {
+            console.log("this is coming from wherever:" + data);
+        });
 
 
     $scope.user = Constants.user;
