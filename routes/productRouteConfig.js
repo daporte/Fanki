@@ -49,9 +49,7 @@ productRouteConfig.prototype.addRoutes = function() {
             var productDao = require("../server/dao/productDao.js");
 
             productDao.productDao.createProductCategory(request.body, function(result){
-                productDao.productDao.addToDeckTable(result, request.body.Decks_FK,function (result2) {
-                    
-                })
+                
                 response.json(result);
                
             })

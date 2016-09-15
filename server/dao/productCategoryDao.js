@@ -435,9 +435,10 @@ var productCategoryDao = {
 
         if(deckId == "all") {
             var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-            var queryStatement = "SELECT * FROM Cards Ca WHERE Decks_FK IN (SELECT DeckId FROM userDecks WHERE UserId = ?) AND Ca.Id NOT IN (SELECT CardId FROM bridge WHERE UserId = ? ) LIMIT 1";
+            var queryStatement = "SELECT * FROM Cards Ca WHERE Decks_FK IN (SELECT DeckId FROM userDecks WHERE UserId = ?) AND Ca.Id NOT IN (SELECT CardId FROM bridge WHERE UserId = ? ) AND " +
+                "IF((SELECT Details FROM userDecks WHERE DeckId = Ca.Decks_FK AND UserId = ? LIMIT 1) = 0, Ca.Detail,  0) = 0 LIMIT 1";
             if (connection) {
-                connection.query(queryStatement, [UserId, UserId], function (err, rows, fields) {
+                connection.query(queryStatement, [UserId, UserId, UserId], function (err, rows, fields) {
                     if (err) {
                         throw err;
                     }

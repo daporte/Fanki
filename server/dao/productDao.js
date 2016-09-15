@@ -54,7 +54,7 @@ var productDao = {
         console.log(productToBeAdded);
         if (connection){
             connection.query(insertStatement, productToBeAdded, function(err, result){
-                if (err) {console.log(err)}
+                if (err) {throw err}
                 callback(result);
                 //console.log(result);
             });
@@ -63,22 +63,7 @@ var productDao = {
         }
 
     }
-    ,
-    addToDeckTable : function (result, deckId, callback) {
-        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "AlTER TABLE deck_" + deckId + " ADD card_" + result.insertId + " VARCHAR(100) DEFAULT NULL" ;
-        if (connection){
-            connection.query(queryStatement, function(err, rows, fields){
-                if (err) {throw err;}
-
-
-                console.log("zzzzz");
-                callback(rows);
-            });
-
-            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
-        }
-    }
+    
     ,
     getProductById : function(productId, callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();

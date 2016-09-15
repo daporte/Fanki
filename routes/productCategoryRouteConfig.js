@@ -347,6 +347,17 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                     console.log("CALLING BACK ROUTE");
                     var dayInMs = 86400000;
 
+                    productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
+                        function (newCards) {
+
+
+                            console.log("Case 2");
+                            //console.log(status);
+                            response.json(newCards[0]);
+
+                        })
+
+                    /*
                     if(!data[0]) {
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
                             function (newCards) {
@@ -376,7 +387,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                         console.log("Case 3");
                         response.json(data[0]);
                     }
-                    
+                    */
 
                 });
 
