@@ -12,6 +12,11 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
         });
 
 
+
+    $scope.x = window.userData;
+    console.log($scope.x);
+
+
     $scope.user = Constants.user;
     console.log(Constants.user);
     console.log($scope.user);
