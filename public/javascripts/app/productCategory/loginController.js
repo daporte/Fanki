@@ -8,10 +8,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     var id = window.userId;
     var nick = window.userNickname;
 
-
-    $scope.user = Constants.user;
-    console.log(Constants.user);
-    console.log($scope.user);
+    
 
     $scope.$storage = loginService.storage;
     console.log(loginService.storage);
