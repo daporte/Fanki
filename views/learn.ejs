@@ -7,39 +7,24 @@
      data-ng-controller="learnController">
 
     <div class="container padding-top-lg">
-            <div class="card-text">
+            <div class="card-text"
+                 ng-bind-html="Card.FrontSide">
                 {{Card.FrontSide}}
             </div>
     </div>
 
-
-    <hr>
     <hr ng-show="show">
 
-    <div class="container" ng-show="show">
+    <div class="container"
+         ng-show="show"
+         ng-bind-html="Card.BackSide">
         <div class="card-text">
             {{Card.BackSide}}
         </div>
     </div>
 
-    <div class="container" ng-show="show">
-        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
-    </div>
-    <div class="container" ng-show="show">
-        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
-    </div>
-    <div class="container" ng-show="show">
-        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
-    </div>
-    <div class="container" ng-show="show">
-        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
-    </div>
-    <div class="container" ng-show="show">
-        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
-    </div>
-    <div class="container" ng-show="show">
-        <img style="margin-top: 50px; margin-bottom: 50px" class="img-responsive" src="http://res.cloudinary.com/oktavian/image/upload/v1473669841/538750133_t8p26c.jpg">
-    </div>
+    <img ng-show="show" class="img-responsive" src="{{Card.Image}}">
+
 
         <button type="button"
                 class="btn btn-primary btn-lg card-button"

@@ -1,9 +1,9 @@
 angular.module("productCategoryModule")
     .controller("learnController", learnController);
 
-learnController.$inject = ["$scope", "$timeout", "loginService", "productCategoryService", "productService", "requiredFieldValidationService_Login", "$localStorage", "$window"];
+learnController.$inject = ["$scope", "$sce", "$timeout", "loginService", "productCategoryService", "productService", "requiredFieldValidationService_Login", "$localStorage", "$window"];
 
-function learnController($scope, $timeout, loginService, productCategoryService, productService, requiredFieldValidationService_Login, $localStorage, $window) {
+function learnController($scope, $sce, $timeout, loginService, productCategoryService, productService, requiredFieldValidationService_Login, $localStorage, $window) {
 
     $scope.Card={};
     setDefault();
@@ -172,8 +172,8 @@ function learnController($scope, $timeout, loginService, productCategoryService,
     function bindView(card) {
         console.log("binding view");
         console.log(card)
-        $scope.Card.FrontSide = card.FrontSide;
-        $scope.Card.BackSide = card.BackSide;
+        $scope.Card.FrontSide = $sce.trustAsHtml(card.FrontSide);
+        $scope.Card.BackSide = $sce.trustAsHtml(card.BackSide);
         $scope.Card.DeckId = card.Decks_FK;
         $scope.Card.CardId = card.Id;
         if(card.EF){
