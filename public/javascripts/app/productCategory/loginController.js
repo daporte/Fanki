@@ -122,7 +122,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
 
         window.location.href = "https://daporte21.eu.auth0.com/v2/logout";
-        window.location.href = "http://fanki2.herokuapp.com/";
+       
     }
 
 
