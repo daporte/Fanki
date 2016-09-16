@@ -522,15 +522,34 @@ var productCategoryDao = {
 
         } else {
             console.log("updating");
-            var queryStatement = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
+            var queryLog = "INSERT INTO logs SELECT * FROM bridge UserId = ? AND CardId = ?";
+
+
+            var queryUpdate = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
             if (connection){
-                connection.query(queryStatement, [request.body, request.body.UserId, request.body.CardId], function(err, rows, fields){
-                    if (err) {throw err;}
+                connection.query(queryLog, [request.body.UserId, request.body.CardId], function(err, rows, fields) {
+                    if (err) {
+                        throw err;
+                    }
 
 
                     console.log("zzzzz");
                     console.log(rows)
-                    callback(rows);
+
+                    //callback(rows);
+
+
+                    connection.query(queryUpdate, [request.body, request.body.UserId, request.body.CardId], function (err, rows, fields) {
+                        if (err) {
+                            throw err;
+                        }
+
+
+                        console.log("zzzzz");
+                        console.log(rows)
+
+                        callback(rows);
+                    });
                 });
 
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
