@@ -16,7 +16,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     loginService.storage.Username = nick;
     loginService.storage.UserId = id;
 
-    /*
+
     loginService.login(id)
         .success(function (data) {
 
@@ -43,7 +43,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
         })
 
-*/
+
 
    /*
     $scope.user = {
