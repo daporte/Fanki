@@ -115,43 +115,10 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
             loginService.storage.Categories[i] = 0;
         }
 
-        window.location.href = "/";
+        //window.location.href = "/";
     }
 
 
-     $scope.login = function () {
-
-     var validationMessages = requiredFieldValidationService_Login.getRequiredFieldValidationErrorMessage(
-        [
-         {name: $scope.user.Username || "", errorMessage: "Please enter username"},
-         {name: $scope.user.Password || "", errorMessage: "Please enter password"},
-
-        ]
-     );
-
-     if (validationMessages.length > 0) {
-         $scope.validationResult.containsValidationError = true;
-         console.log("validation errors exist");
-         angular.element("#validationErrorMessage").empty();
-         validationMessages.forEach(function (errorMessage) {
-         angular.element("<li></li>")
-         .html(errorMessage)
-         .appendTo("#validationErrorMessage")
-        });
-     } else {
-
-
-         console.log($scope.User)
-         loginService.login($scope.user)
-         .success(function (data) {
-             console.log("data")
-             console.log(data)
-             bindView(data)
-             window.location.href = "/myDecks";
-
- })
- }
- }
 
 
 
