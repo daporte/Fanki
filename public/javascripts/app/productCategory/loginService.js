@@ -23,6 +23,7 @@ function loginService($http, $location, $localStorage) {
 
         login: function (id) {
             console.log("in service")
+            console.log(id);
             return $http.post("/login",
 
                 {
