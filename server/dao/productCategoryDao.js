@@ -526,6 +526,7 @@ var productCategoryDao = {
                 " (SELECT UserId, CardId, DeckId, Timestamp, Reps, TotalReps, EF, RepInterval FROM bridge WHERE UserId = ? AND CardId = ?)";
 
 
+
             if (connection){
                 connection.query(queryLog, [request.body.UserId, request.body.CardId], function(err, rows, fields) {
                     if (err) {
@@ -543,34 +544,45 @@ var productCategoryDao = {
 
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
             }
-            var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
-            productCategoryDao.productCategoryDao.updateBridge(request, callback);
+            var queryUpdate = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
+            var connection2 = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+            if (connection2){
+                connection2.query(queryUpdate, [request.body, request.body.UserId, request.body.CardId], function(err, rows, fields) {
+                    if (err) {
+                        throw err;
+                    }
 
+
+                    console.log("zzzzz");
+                    console.log(rows)
+
+                    //callback(rows);
+
+
+                });
+
+                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection2);
+            }
         }
 
 
     }
     ,
-    updateBridge : function (request, callback) {
+    saveLog : function (request, callback) {
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryUpdate = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
-        if(connection) {
-            connection.query(queryUpdate, [request.body, request.body.UserId, request.body.CardId], function (err, rows, fields) {
-                if (err) {
-                    throw err;
-                }
+
+        connection.query(queryUpdate, [request.body, request.body.UserId, request.body.CardId], function (err, rows, fields) {
+            if (err) {
+                throw err;
+            }
 
 
-                console.log("zzzzz");
-                console.log(rows)
+            console.log("zzzzz");
+            console.log(rows)
 
-                callback(rows);
-            });
-
-            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
-        }
-
+            callback(rows);
+        });
     }
     ,
     getCategories : function(callback){
