@@ -544,7 +544,7 @@ var productCategoryDao = {
 
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
             }
-
+            console.log("updateQuery");
             var queryUpdate = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
             var connection2 = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
             if (connection2){
@@ -554,7 +554,7 @@ var productCategoryDao = {
                     }
 
 
-                    console.log("zzzzz");
+                    console.log("updateData");
                     console.log(rows)
 
                     //callback(rows);
