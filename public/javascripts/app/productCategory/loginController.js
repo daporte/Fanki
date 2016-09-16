@@ -13,7 +13,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     $scope.$storage = loginService.storage;
     console.log(loginService.storage);
 
-    
+
 
     if(id){
         loginService.storage.Username = nick;
@@ -107,12 +107,12 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
         loginService.storage.Username = "";
         loginService.storage.UserId = "";
 
-        for(var i =0; i <loginService.decks.length; i++){
-            loginService.decks[i] = [];
+        for(var i =0; i <loginService.storage.decks.length; i++){
+            loginService.storage.decks[i] = [];
         }
 
-        for(var i =0; i <loginService.Categories.length; i++){
-            loginService.Categories[i] = 0;
+        for(var i =0; i <loginService.storage.Categories.length; i++){
+            loginService.storage.Categories[i] = 0;
         }
 
         window.location.href = "/";
