@@ -526,7 +526,7 @@ var productCategoryDao = {
                 " (SELECT UserId, CardId, DeckId, Timestamp, Reps, TotalReps, EF, RepInterval FROM bridge WHERE UserId = ? AND CardId = ?)";
 
 
-            //var queryUpdate = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
+            var queryUpdate = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
             if (connection){
                 connection.query(queryLog, [request.body.UserId, request.body.CardId], function(err, rows, fields) {
                     if (err) {
@@ -538,7 +538,7 @@ var productCategoryDao = {
                     console.log(rows)
 
                     //callback(rows);
-                    /*
+
 
                     connection.query(queryUpdate, [request.body, request.body.UserId, request.body.CardId], function (err, rows, fields) {
                         if (err) {
@@ -551,7 +551,7 @@ var productCategoryDao = {
 
                         callback(rows);
                     });
-                    */
+
                 });
 
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
