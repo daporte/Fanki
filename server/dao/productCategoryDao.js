@@ -522,8 +522,8 @@ var productCategoryDao = {
 
         } else {
             console.log("updating");
-            var queryLog = "INSERT INTO Logs (CardId, DeckId, Timestamp, Reps, TotalReps, EF, RepInterval)" +
-                " (SELECT CardId, DeckId, Timestamp, Reps, TotalReps, EF, RepInterval FROM bridge WHERE UserId = ? AND CardId = ?)";
+            var queryLog = "INSERT INTO Logs (UserId, CardId, DeckId, Timestamp, Reps, TotalReps, EF, RepInterval)" +
+                " (SELECT UserId, CardId, DeckId, Timestamp, Reps, TotalReps, EF, RepInterval FROM bridge WHERE UserId = ? AND CardId = ?)";
 
 
             //var queryUpdate = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
