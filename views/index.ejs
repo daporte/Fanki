@@ -1,82 +1,25 @@
 <% include layout%>
 <div class="panel-body">
 
-    <div class="container"
-         data-ng-cloak
-         data-ng-app="loginModule"
-         data-ng-controller="loginController">
-
-        <form
-                class="navbar-form navbar-left" role="search"
-                method="POST"
-                name="formProductCategory">
-
-            <%include validationSummary.ejs%>
-            <div class="row">
-                <div class="form-group">
-                    <label for="">Username</label>
-                    &nbsp;&nbsp;
-
-                    <input type="text"
-                           class="form-control"
-                           placeholder="???"
-                           name="productSelling"
-                           id="productSelling"
-                           ng-model="user.Username"
-                           style="width:100%"
-                           required>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-group">
-                    <label for="">Password</label>
-                    &nbsp;&nbsp;
-
-                    <input type="text"
-                           class="form-control"
-                           placeholder="???"
-                           name="productSelling"
-                           id="productSelling"
-                           ng-model="user.Password"
-                           style="width:100%"
-                           required>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-group" style="padding-left:40%">
-                    <button type="button" class="bin bin-primary"
-                            ng-click="login()"
-                    >Log In</button>
-                </div>
-            </div>
-
-
-        </form>
 
 
 
 
 
-
-
-
-
-        <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
-        <script type="text/javascript">
-            var lock = new Auth0Lock('wdoEMhtdDrkzvnyhyOSZrDwMUqnjtEdn', 'daporte21.eu.auth0.com', {
-                auth: {
-                    redirectUrl: 'http://fanki2.herokuapp.com/callback',
-                    responseType: 'code',
-                    params: {
-                        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
-                    }
+    <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+    <script type="text/javascript">
+        var lock = new Auth0Lock('wdoEMhtdDrkzvnyhyOSZrDwMUqnjtEdn', 'daporte21.eu.auth0.com', {
+            auth: {
+                redirectUrl: 'http://fanki2.herokuapp.com/callback',
+                responseType: 'code',
+                params: {
+                    scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
                 }
-            });
-        </script>
-        <button onclick="lock.show();">Login</button>
-    </div>
+            }
+        });
+    </script>
+    <button onclick="lock.show();">Login</button>
+
 </div>
 
 <div class="jumbotron img-responsive text-center parallax">
