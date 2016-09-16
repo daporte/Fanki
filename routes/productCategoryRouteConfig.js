@@ -345,7 +345,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 function (data) {
 
                     console.log("CALLING BACK ROUTE");
-                    var dayInMs = 86400000;
+                    var dayInMs = 500000;
 
 
 
@@ -379,7 +379,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                         console.log("Case 3");
                         response.json(data[0]);
                     }
-                    
+
 
                 });
 
