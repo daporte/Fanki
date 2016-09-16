@@ -107,7 +107,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
         loginService.storage.Username = "";
         loginService.storage.UserId = "";
 
-       
+
         for (var key in loginService.storage.decks) {
             if (loginService.storage.decks.hasOwnProperty(key)) {
                 loginService.storage.decks[key] = [];
@@ -121,7 +121,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
         }
 
 
-        //window.location.href = "/";
+        window.location.href = "https://daporte21.eu.auth0.com/v2/logout";
     }
 
 
