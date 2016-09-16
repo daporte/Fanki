@@ -522,7 +522,7 @@ var productCategoryDao = {
 
         } else {
             console.log("updating");
-            var queryLog = "INSERT INTO Logs SELECT * FROM bridge UserId = ? AND CardId = ?";
+            var queryLog = "INSERT INTO Logs (SELECT * FROM bridge UserId = ? AND CardId = ?)";
 
 
             var queryUpdate = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
