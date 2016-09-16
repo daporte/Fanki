@@ -15,33 +15,35 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
     loginService.storage.Username = nick;
     loginService.storage.UserId = id;
-    $scope.$apply();
 
-    loginService.login(id)
-        .success(function (data) {
+    if(id){
+        loginService.login(id)
+            .success(function (data) {
 
-            console.log("LOGIN")
-            console.log(data)
-            for (var i = 0; i < data.length; i++) {
-                if (!loginService.storage.decks[data[i]["DeckId"]]) {
-                    loginService.storage.decks[data[i]["DeckId"]] = [2];
+                console.log("LOGIN")
+                console.log(data)
+                for (var i = 0; i < data.length; i++) {
+                    if (!loginService.storage.decks[data[i]["DeckId"]]) {
+                        loginService.storage.decks[data[i]["DeckId"]] = [2];
+                    }
+
+                    loginService.storage.decks[data[i]["DeckId"]][0] = 1;
+                    loginService.storage.decks[data[i]["DeckId"]][1] = data[i]["Details"];
+                    if (!loginService.storage.Categories[data[i]["CategoryId"]]) {
+                        loginService.storage.Categories[data[i]["CategoryId"]] = 1;
+                    } else {
+                        loginService.storage.Categories[data[i]["CategoryId"]]++;
+                    }
+
                 }
 
-                loginService.storage.decks[data[i]["DeckId"]][0] = 1;
-                loginService.storage.decks[data[i]["DeckId"]][1] = data[i]["Details"];
-                if (!loginService.storage.Categories[data[i]["CategoryId"]]) {
-                    loginService.storage.Categories[data[i]["CategoryId"]] = 1;
-                } else {
-                    loginService.storage.Categories[data[i]["CategoryId"]]++;
-                }
 
-            }
+                //$scope.$apply();
+                //window.location.href = "/myDecks";
 
+            })
+    }
 
-            //$scope.$apply();
-            //window.location.href = "/myDecks";
-
-        })
 
 
 
