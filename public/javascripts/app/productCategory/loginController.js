@@ -13,10 +13,12 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     $scope.$storage = loginService.storage;
     console.log(loginService.storage);
 
-    loginService.storage.Username = nick;
-    loginService.storage.UserId = id;
+    
 
     if(id){
+        loginService.storage.Username = nick;
+        loginService.storage.UserId = id;
+
         loginService.login(id)
             .success(function (data) {
 
