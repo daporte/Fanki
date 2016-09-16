@@ -107,13 +107,19 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
         loginService.storage.Username = "";
         loginService.storage.UserId = "";
 
-        for(var i =0; i <loginService.storage.decks.length; i++){
-            loginService.storage.decks[i] = [];
+       
+        for (var key in loginService.storage.decks) {
+            if (loginService.storage.decks.hasOwnProperty(key)) {
+                loginService.storage.decks[key] = [];
+            }
         }
 
-        for(var i =0; i <loginService.storage.Categories.length; i++){
-            loginService.storage.Categories[i] = 0;
+        for (var key in loginService.storage.Categories) {
+            if (loginService.storage.Categories.hasOwnProperty(key)) {
+                loginService.storage.Categories[key] = 0;
+            }
         }
+
 
         //window.location.href = "/";
     }
