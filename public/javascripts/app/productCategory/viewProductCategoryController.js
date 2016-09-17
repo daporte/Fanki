@@ -118,17 +118,15 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
 
     $scope.setCurrentTopic = function(categoryName){
         $scope.currentTopic = categoryName;
+        
     }
     
     $scope.getSuperCategory = function (category) {
         var cat = category;
-        while(cat["SuperCategory"]){
-            console.log("SUPER");
-            console.log(cat["SuperCategory"]);
+        while(cat["SuperCategory"]) {
+
             cat = categoryMap[cat["SuperCategory"]];
         }
-        console.log("RETURNING");
-        console.log(cat["SuperCategory"]);
         return cat["CategoryName"];
     }
 
