@@ -479,10 +479,10 @@ var productCategoryDao = {
     getHierarchy : function(callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
 
-        var setSession = "SET SESSION group_concat_max_len = 1000000;"
+        var setGlobal = "SET GLOBAL group_concat_max_len = 1000000;"
 
         if (connection){
-            connection.query(setSession, function(err, rows, fields){
+            connection.query(setGlobal, function(err, rows, fields){
                 if (err) {throw err;}
                 console.log("zzzzz");
                 console.log(rows);
