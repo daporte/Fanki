@@ -97,7 +97,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
                     for(var i=0;i<Object.keys(hierarchy).length;i++){
 
-                        //console.log(hierarchy[i]["DeckList"]);
+                        console.log(hierarchy[i]["DeckList"]);
 
                         var string = hierarchy[i]["DeckList"];
                         var splitString = string.split("|");
