@@ -95,10 +95,16 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
         console.log("GETTING CARD");
         productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
-            .success(function (nextCards) {
-                console.log(nextCards);
+            .success(function (nextCard) {
+                console.log(nextCard);
+                if(!nextCard){
+                    window.location.href = "/myDecks";
+                } else{
+                    bindView(nextCard);
+                }
 
-                bindView(nextCards);
+
+
             });
 
 
