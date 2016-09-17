@@ -119,10 +119,11 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                             console.log("CATEGORY TREEEE");
                             console.log(categoryTree);
                             var combine = {"hierarchy" : hierarchy, "categories": categoryTree}
+                            response.json(combine);
                         })
 
 
-                    response.json(hierarchy);
+                   
                 });
 
         }
