@@ -23,7 +23,7 @@
 
 
                     <div ng-show="currentTopic == Category.Topic || Category.Layer == 0">
-                        <ul><input type="checkbox" ng-model="checkCat" ng-click="setCurrentTopic(Category.Topic)" ng-init="checkCat = false" ng-attr-id="{{getSuperCategory(Category)}}" layer="{{Category.Layer}}"> {{Category.CategoryName}}</ul>
+                        <ul><input type="checkbox" ng-model="checkCat" ng-click="setCurrentTopic(Category.Topic)" ng-checked="currentTopic == Category.Topic" ng-init="checkCat = false" ng-attr-id="{{getSuperCategory(Category)}}" layer="{{Category.Layer}}"> {{Category.CategoryName}}</ul>
                     </div>
 
                     <div ng-show="currentTopic == Category.Topic">
