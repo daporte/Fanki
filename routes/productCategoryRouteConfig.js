@@ -108,13 +108,18 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                             var deckJson = JSON.parse(splitString[z]);
                             hierarchy[i]["Decks"].push(deckJson);
                         }
-                        //console.log(splitString[0]);
-                       // console.log("ITERATE HIERARCHY");
-                        //console.log(splitString.length)
+
                         console.log(hierarchy[i]["Decks"]);
 
-                       //JSON.parse(hierarchy[i]["DeckName"]);
                     }
+                    productCategoryDao.productCategoryDao.getCategoryTree(
+                        function(categoryTree){
+
+
+                            console.log("CATEGORY TREEEE");
+                            console.log(categoryTree);
+                            var combine = {"hierarchy" : hierarchy, "categories": categoryTree}
+                        })
 
 
                     response.json(hierarchy);

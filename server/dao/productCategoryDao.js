@@ -517,6 +517,31 @@ var productCategoryDao = {
 
 
     }
+    ,
+
+    getCategoryTree : function (callback) {
+        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+
+
+
+
+        var queryStatement = "SELECT SuperCategory, GROUP_CONCAT(CategoryName) FROM Categories GROUP BY SuperCategory";
+
+        if (connection) {
+            connection.query(queryStatement, function (err, rows, fields) {
+                if (err) {
+                    throw err;
+                }
+
+                console.log("rows");
+                callback(rows);
+            });
+
+            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+
+        }
+
+    }
 
     ,
     logRep : function (request, callback) {
