@@ -22,16 +22,19 @@
 
 
 
+                    <div ng-show="currentTopic == Category.Topic || Category.Layer == 0">
+                        <ul><input type="checkbox" ng-model="checkCat" ng-click="setCurrentTopic(Category.Topic)" ng-init="checkCat = false" ng-attr-id="{{getSuperCategory(Category)}}" layer="{{Category.Layer}}"> {{Category.CategoryName}}</ul>
+                    </div>
 
-                    <ul><input type="checkbox" ng-model="checkCat" ng-click="setCurrentTopic(Category.CategoryName)" ng-init="checkCat = false" ng-attr-id="{{getSuperCategory(Category)}}" layer="{{Category.Layer}}"> {{Category.CategoryName}}</ul>
-                    <ul ng-show="checkCat" ng-repeat="Deck in Category.Decks">
-                        <input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-init="check = $storage.decks[Deck.Id][0]==1" ng-attr-id="{{getSuperCategory(Category)}}">{{Deck.DeckName}}
-                        <input type="checkbox" ng-show="check" ng-model="checkDet" ng-click="addDetails(Deck, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1" ng-attr-id="{{getSuperCategory(Category)}}">
-                        <span ng-show="check"  ng-attr-id="{{getSuperCategory(Category)}}">Details</span>
-                    </ul>
+                    <div ng-show="currentTopic == Category.Topic">
+                        <ul ng-show="checkCat" ng-repeat="Deck in Category.Decks">
+                            <input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-init="check = $storage.decks[Deck.Id][0]==1" ng-attr-id="{{getSuperCategory(Category)}}">{{Deck.DeckName}}
+                            <input type="checkbox" ng-show="check" ng-model="checkDet" ng-click="addDetails(Deck, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1" ng-attr-id="{{getSuperCategory(Category)}}">
+                            <span ng-show="check"  ng-attr-id="{{getSuperCategory(Category)}}">Details</span>
+                        </ul>
 
-                    <ul ng-hide="!$parent.checkCat" ng-repeat="Category in Category.SubCategories" ng-include ="'field_renderer.html'"></ul>
-
+                        <ul ng-hide="!$parent.checkCat" ng-repeat="Category in Category.SubCategories" ng-include ="'field_renderer.html'"></ul>
+                    </div>
 
 
 

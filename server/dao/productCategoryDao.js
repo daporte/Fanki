@@ -491,10 +491,10 @@ var productCategoryDao = {
 
 
                 //var queryStatement = "SELECT Decks.Id, DeckName, Description, AddedBy, IsValid, CreatedDate, ModifiedDate, CategoryId, CategoryName FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY Decks.CategoryId ";
-                var queryStatement = " SELECT CategoryId, CategoryName, SuperCategory, Topic, GROUP_CONCAT(CONCAT('{\"Id\":\"', Decks.Id, '\", \"DeckName\":\"', DeckName, '\", \"Description\" : \"',Description, " +
+                var queryStatement = " SELECT CategoryId, CategoryName, SuperCategory, GROUP_CONCAT(CONCAT('{\"Id\":\"', Decks.Id, '\", \"DeckName\":\"', DeckName, '\", \"Description\" : \"',Description, " +
                     "'\" , \"AddedBy\" : \"', AddedBy, '\", \"IsValid\" : \"', IsValid, '\", \"CreatedDate\" : \"', CreatedDate, '\", \"ModifiedDate\" : \"', IFNULL(ModifiedDate, 'NULL'), '\", \"CategoryName\" : \"', IFNULL(CategoryName, 'NULL'), '\"," +
                     "\"CategoryId\" : \"', IFNULL(CategoryId, 'NULL'), '\"}') SEPARATOR '|') as DeckList " +
-                    " FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY CategoryId, CategoryName, SuperCategory, Topic;"
+                    " FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY CategoryId, CategoryName, SuperCategory;"
 
 
                 if (connection){
@@ -525,7 +525,7 @@ var productCategoryDao = {
 
 
 
-        var queryStatement = "SELECT new.SuperCategory, new.CategoryName, new.Id, GROUP_CONCAT(orig.Id SEPARATOR '|') as SubCategories FROM Categories orig RIGHT JOIN Categories new ON orig.SuperCategory = new.Id GROUP BY orig.SuperCategory, new.CategoryName, new.Id";
+        var queryStatement = "SELECT new.SuperCategory, new.CategoryName, new.Id, new.Topic, GROUP_CONCAT(orig.Id SEPARATOR '|') as SubCategories FROM Categories orig RIGHT JOIN Categories new ON orig.SuperCategory = new.Id GROUP BY orig.SuperCategory, new.CategoryName, new.Id, new.Topic";
 
         if (connection) {
             connection.query(queryStatement, function (err, rows, fields) {

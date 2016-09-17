@@ -19,7 +19,10 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
 
     function addNode(categories, categoryMap, decks, deckMap, currentCat, superArray, Layer){
 
-        var catObj = {"CategoryId" : currentCat["Id"], "CategoryName" : currentCat["CategoryName"], "SubCategories" : [], "Layer" : Layer, "SuperCategory" : currentCat["SuperCategory"]};
+        var catObj = {"CategoryId" : currentCat["Id"], "CategoryName" : currentCat["CategoryName"],
+            "SubCategories" : [], "Layer" : Layer, "SuperCategory" : currentCat["SuperCategory"],
+            "Topic" : currentCat["Topic"]
+            };
         console.log(deckMap[currentCat["Id"]]);
         if(deckMap[currentCat["Id"]]){
             catObj["Decks"]= deckMap[currentCat["Id"]]["Decks"];
