@@ -504,6 +504,7 @@ var productCategoryDao = {
                         console.log(rows);
                         console.log("zzzzz");
                         callback(rows);
+                        connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
                     });
 
 
@@ -514,7 +515,7 @@ var productCategoryDao = {
             //connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
         }
 
-        connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+
     }
 
     ,
