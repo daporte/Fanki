@@ -12,6 +12,8 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
 
     $scope.$storage = loginService.storage;
 
+    $scope.currentTopic = "";
+
 
     function addNode(categories, categoryMap, decks, deckMap, currentCat, superArray, Layer){
 
@@ -111,6 +113,10 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
     */
 
     $scope.currentProductCategoryId = 0;
+
+    $scope.setCurrentTopic = function(categoryName){
+        $scope.currentTopic = categoryName
+    }
 
     $scope.setCurrentProductCategoryId = function (productCategoryId){
         console.log(productCategoryId);
