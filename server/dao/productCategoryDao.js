@@ -511,7 +511,7 @@ var productCategoryDao = {
 
             });
 
-            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+            //connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
         }
 
 
