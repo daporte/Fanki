@@ -478,15 +478,32 @@ var productCategoryDao = {
 
     getHierarchy : function(callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+
+        var setSession = "SET SESSION group_concat_max_len = 1000000;"
+
+        if (connection){
+            connection.query(setSession, function(err, rows, fields){
+                if (err) {throw err;}
+                console.log("zzzzz");
+                console.log(rows);
+                console.log("zzzzz");
+
+            });
+
+            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+        }
+
+        var connection2 = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+
         //var queryStatement = "SELECT Decks.Id, DeckName, Description, AddedBy, IsValid, CreatedDate, ModifiedDate, CategoryId, CategoryName FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY Decks.CategoryId ";
-        var queryStatement = "SET SESSION group_concat_max_len = 1000000; SELECT CategoryId, CategoryName, GROUP_CONCAT(CONCAT('{\"Id\":\"', Decks.Id, '\", \"DeckName\":\"', DeckName, '\", \"Description\" : \"',Description, " +
+        var queryStatement = " SELECT CategoryId, CategoryName, GROUP_CONCAT(CONCAT('{\"Id\":\"', Decks.Id, '\", \"DeckName\":\"', DeckName, '\", \"Description\" : \"',Description, " +
             "'\" , \"AddedBy\" : \"', AddedBy, '\", \"IsValid\" : \"', IsValid, '\", \"CreatedDate\" : \"', CreatedDate, '\", \"ModifiedDate\" : \"', IFNULL(ModifiedDate, 'NULL'), '\", \"CategoryName\" : \"', IFNULL(CategoryName, 'NULL'), '\"," +
             "\"CategoryId\" : \"', IFNULL(CategoryId, 'NULL'), '\"}') SEPARATOR '|') as DeckList " +
             " FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY CategoryId, CategoryName;"
 
 
-        if (connection){
-            connection.query(queryStatement, function(err, rows, fields){
+        if (connection2){
+            connection2.query(queryStatement, function(err, rows, fields){
                 if (err) {throw err;}
                 console.log("zzzzz");
                 console.log(rows);
@@ -494,7 +511,7 @@ var productCategoryDao = {
                 callback(rows);
             });
 
-            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection2);
         }
     }
 
