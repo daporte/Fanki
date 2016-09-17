@@ -525,7 +525,7 @@ var productCategoryDao = {
 
 
 
-        var queryStatement = "SELECT SuperCategory, GROUP_CONCAT(CONCAT(\"CategoryName\" : \", CategoryName, \") as SubCategories FROM Categories GROUP BY SuperCategory";
+        var queryStatement = "SELECT SuperCategory, GROUP_CONCAT(CONCAT(\"CategoryName\" : \", CategoryName, \")) as SubCategories FROM Categories GROUP BY SuperCategory";
 
         if (connection) {
             connection.query(queryStatement, function (err, rows, fields) {
