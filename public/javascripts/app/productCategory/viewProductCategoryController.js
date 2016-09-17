@@ -13,6 +13,37 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
     $scope.$storage = loginService.storage;
 
 
+    function addNode(categories, categoryMap, decks, deckMap, currentCat, superArray){
+
+        var catObj = {"CategoryId" : currentCat["Id"], "CategoryName" : currentCat["CategoryName"], "SubCategories" : []};
+        console.log(deckMap[currentCat["Id"]]);
+        if(deckMap[currentCat["Id"]]){
+            catObj["Decks"]= deckMap[currentCat["Id"]]["Decks"];
+        }
+
+
+        superArray.push(catObj);
+
+        if(currentCat["SubCategories"]){
+            var SubCategoryIds = currentCat["SubCategories"].split("|");
+
+            for(var i=0;i<SubCategoryIds.length;i++){
+
+
+
+                addNode(categories, categoryMap, decks, deckMap, categoryMap[SubCategoryIds[i]], catObj["SubCategories"]);
+
+
+
+
+            }
+        }
+
+
+    }
+
+
+
     function getHierarchy(){
         productCategoryService.getHierarchy()
             .success(function (data){
@@ -20,7 +51,38 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
 
                 if(data){
                     console.log(data);
-                    $scope.Hierarchy = data;
+
+                    var categories = data.categories;
+                    var decks = data.decks;
+
+                    var hierarchy = {};
+                    hierarchy["SubCategories"] = []
+
+                    var categoryMap = {};
+                    var deckMap = {};
+
+                    for(var i=0;i<Object.keys(categories).length;i++){
+                        categoryMap[categories[i]["Id"]] = categories[i];
+                    }
+
+                    for(var i=0;i<Object.keys(decks).length;i++){
+                        deckMap[decks[i]["CategoryId"]] = decks[i];
+                    }
+
+                    console.log(categoryMap);
+                    console.log(deckMap);
+
+                    for(var i=0;i<Object.keys(categories).length;i++){
+                        var currentCat = categories[i];
+                        console.log(currentCat);
+                        if(!currentCat["SuperCategory"]){
+
+                            addNode(categories, categoryMap, decks, deckMap, currentCat, hierarchy["SubCategories"]);
+                        }
+
+                    }
+                    console.log(hierarchy);
+                    $scope.Hierarchy = hierarchy;
                     console.log("CCCCCCCCCCCCCCCc");
                 }
 
@@ -76,6 +138,8 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
                 console.log(deck.Id)
                 console.log(on)
                 console.log(deck);
+                console.log("CATEGORY ID");
+                console.log(category.CategoryId);
 
                 if(on){
                     if(!loginService.storage.decks[deck.Id]){

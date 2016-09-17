@@ -95,6 +95,8 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 function (hierarchy) {
                     //console.log(productCategories);
 
+
+
                     for(var i=0;i<Object.keys(hierarchy).length;i++){
 
                         console.log(hierarchy[i]["DeckList"]);
@@ -108,19 +110,29 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                             var deckJson = JSON.parse(splitString[z]);
                             hierarchy[i]["Decks"].push(deckJson);
                         }
+                        delete hierarchy[i]["DeckList"]
+
 
                         console.log(hierarchy[i]["Decks"]);
 
                     }
+                    var parsedHierarchy = JSON.parse(JSON.stringify(hierarchy));
+                    console.log(parsedHierarchy);
+                    //response.json(hierarchy);
+
+
+
                     productCategoryDao.productCategoryDao.getCategoryTree(
                         function(categoryTree){
 
 
                             console.log("CATEGORY TREEEE");
                             console.log(categoryTree);
-                            var combine = {"hierarchy" : JSON.parse(hierarchy), "categories": categoryTree}
+                            console.log(hierarchy);
+                            var combine = {"decks" : parsedHierarchy, "categories": categoryTree}
                             response.json(combine);
                         })
+
 
 
 
