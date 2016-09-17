@@ -14,10 +14,12 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
 
     $scope.currentTopic = "";
 
+    var categoryMap = {};
+    var deckMap = {};
 
     function addNode(categories, categoryMap, decks, deckMap, currentCat, superArray, Layer){
 
-        var catObj = {"CategoryId" : currentCat["Id"], "CategoryName" : currentCat["CategoryName"], "SubCategories" : [], "Layer" : Layer};
+        var catObj = {"CategoryId" : currentCat["Id"], "CategoryName" : currentCat["CategoryName"], "SubCategories" : [], "Layer" : Layer, "SuperCategory" : currentCat["SuperCategory"]};
         console.log(deckMap[currentCat["Id"]]);
         if(deckMap[currentCat["Id"]]){
             catObj["Decks"]= deckMap[currentCat["Id"]]["Decks"];
@@ -60,8 +62,8 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
                     var hierarchy = {};
                     hierarchy["SubCategories"] = []
 
-                    var categoryMap = {};
-                    var deckMap = {};
+                    categoryMap = {};
+                    deckMap = {};
 
                     for(var i=0;i<Object.keys(categories).length;i++){
                         categoryMap[categories[i]["Id"]] = categories[i];
@@ -115,7 +117,19 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
     $scope.currentProductCategoryId = 0;
 
     $scope.setCurrentTopic = function(categoryName){
-        $scope.currentTopic = categoryName
+        $scope.currentTopic = categoryName;
+    }
+    
+    $scope.getSuperCategory = function (category) {
+        var cat = category;
+        while(cat["SuperCategory"]){
+            console.log("SUPER");
+            console.log(cat["SuperCategory"]);
+            cat = categoryMap[cat["SuperCategory"]];
+        }
+        console.log("RETURNING");
+        console.log(cat["SuperCategory"]);
+        return cat["CategoryName"];
     }
 
     $scope.setCurrentProductCategoryId = function (productCategoryId){

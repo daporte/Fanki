@@ -22,29 +22,35 @@
 
 
 
-                <div ng-if="Category.Layer == 0">
-                    <ul><input type="checkbox" ng-model="checkCat" ng-click="setCurrentTopic(Category.CategoryName)" ng-init="checkCat = false"> {{Category.CategoryName}}</ul>
-                </div>
-                
-                <div ng-if="Category.Layer > 0">
-                    <ul><input type="checkbox" ng-model="checkCat" ng-init="checkCat = false"> {{Category.CategoryName}}</ul>
-                </div>
 
-                <div ng-if="currentTopic == Category.CategoryName">
+                    <ul><input type="checkbox" ng-model="checkCat" ng-click="setCurrentTopic(Category.CategoryName)" ng-init="checkCat = false" ng-attr-id="{{getSuperCategory(Category)}}"> {{Category.CategoryName}}</ul>
                     <ul ng-show="checkCat" ng-repeat="Deck in Category.Decks">
                         <input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-init="check = $storage.decks[Deck.Id][0]==1"> {{Deck.DeckName}}
                         <input type="checkbox" ng-show="check" ng-model="checkDet" ng-click="addDetails(Deck, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1"> <span ng-show="check">Details</span>
                     </ul>
 
                     <ul ng-hide="!$parent.checkCat" ng-repeat="Category in Category.SubCategories" ng-include ="'field_renderer.html'"></ul>
-                </div>
+
+
+
+
+
+
+
+
+
+
+
 
                 </ul>
             </div>
         </script>
 
 
+        <script type="text/ng-template" id="expand.html">
 
+
+        </script>
 
 
 
