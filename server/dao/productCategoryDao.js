@@ -488,7 +488,7 @@ var productCategoryDao = {
                 console.log(rows);
                 console.log("zzzzz");
 
-                var connection2 = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+
 
                 //var queryStatement = "SELECT Decks.Id, DeckName, Description, AddedBy, IsValid, CreatedDate, ModifiedDate, CategoryId, CategoryName FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY Decks.CategoryId ";
                 var queryStatement = " SELECT CategoryId, CategoryName, GROUP_CONCAT(CONCAT('{\"Id\":\"', Decks.Id, '\", \"DeckName\":\"', DeckName, '\", \"Description\" : \"',Description, " +
@@ -497,8 +497,8 @@ var productCategoryDao = {
                     " FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY CategoryId, CategoryName;"
 
 
-                if (connection2){
-                    connection2.query(queryStatement, function(err, rows, fields){
+                if (connection){
+                    connection.query(queryStatement, function(err, rows, fields){
                         if (err) {throw err;}
                         console.log("zzzzz");
                         console.log(rows);
@@ -506,7 +506,7 @@ var productCategoryDao = {
                         callback(rows);
                     });
 
-                    connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection2);
+
                 }
 
             });
