@@ -15,15 +15,15 @@
 
     <hr ng-show="show">
 
-    <div class="container"
+    <div class="container card-text"
          ng-show="show"
          ng-bind-html="Card.BackSide">
-        <div class="card-text">
+        <div >
             {{Card.BackSide}}
         </div>
     </div>
 
-    <img ng-show="show" class="img-responsive" src="{{Card.Image}}">
+    <img ng-show="show" class="img-responsive padding-top-lg" src="{{Card.Image}}">
 
 
         <button type="button"
