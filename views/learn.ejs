@@ -1,5 +1,5 @@
 <% include layout%>
-<script src="../../javascripts/keystrokes.js"></script>
+
 
 <div class="container"
      data-ng-cloak
@@ -74,19 +74,19 @@
 
     <div class="container text-center">
         <div class="btn-group">
-            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(0)">
+            <a id="znovu" href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(0)">
                 <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/delete.png">
                 <p class="text-muted undertext-card-icon">Znovu</p>
             </a>
-            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(2)">
+            <a id="tezke" href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(2)">
                 <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/minus-sign-inside-a-black-circle.png">
                 <p class="text-muted undertext-card-icon">Těžké</p>
             </a>
-            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(4)">
+            <a id="spravne" href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(4)">
                 <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/correct-symbol.png">
                 <p class="text-muted undertext-card-icon">Správně</p>
             </a>
-            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(6)">
+            <a id="jednoduche" href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(6)">
                 <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/star.png">
                 <p class="text-muted undertext-card-icon">Jednoduché</p>
             </a>
@@ -120,6 +120,13 @@
 
 </div>
 
+
+<script type="text/javascript">$(document).keyup(function(e) {
+        if (e.keyCode == 27) {
+            alert('Esc key pressed!');
+        }
+    });</script>
     <script src="../../javascripts/app/productCategory/learnController.js"></script>
     <script src="../../javascripts/app/productCategory/productCategoryService.js"></script>
     <script src="../../javascripts/app/productCategory/productService.js"></script>
+<script src="../../javascripts/keystrokes.js"></script>
