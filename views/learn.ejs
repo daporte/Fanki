@@ -42,21 +42,31 @@
 
     <div class="sticky-container"  ng-show="show">
         <ul class="sticky">
-            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/open-book.png" />
+            <a data-toggle="modal" data-target="#LiteratureModal">
+            <li ng-show="Card.Literature"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/open-book.png" />
                 <p>Literatura</p>
             </li>
-            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885960/source_images/logo_ws_bw_crop.png" />
-                <p>Wikiskripta</p>
+            </a>
+            <a target="_blank" href="{{Card.Wikiskripta}}">
+            <li ng-show="Card.Wikiskripta"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885960/source_images/logo_ws_bw_crop.png" />
+                <a target="_blank" href="{{Card.Wikiskripta}}">Wikiskripta</a>
             </li>
-            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/wikipedia-logo.png" />
-                <p>Wikipedia</p>
+            </a>
+            <a target="_blank" href="{{Card.Wikipedia}}">
+            <li ng-show="Card.Wikipedia"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/wikipedia-logo.png" />
+                <a target="_blank" href="{{Card.Wikipedia}}">Wikipedia</a>
             </li>
-            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/youtube-logo.png" />
-                <p>Youtube</p>
+            </a>
+            <a target="_blank" href="{{Card.Wikipedia}}">
+            <li ng-show="Card.Youtube"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/youtube-logo.png" />
+                <a target="_blank" href="{{Card.Youtube}}">Youtube</a>
             </li>
-            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/external.png" />
-                <a href="#">Adresa</a>
+            </a>
+            <a target="_blank" href="{{Card.Wikipedia}}">
+            <li ng-show="Card.ExtraLink"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/external.png" />
+                <a target="_blank" href="{{Card.ExtraLink}}">Externí zdroj</a>
             </li>
+            </a>
         </ul>
     </div>
 
@@ -85,6 +95,27 @@
    </div>
 
 </div>
+
+    <!-- Modal -->
+    <div id="LiteratureModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Literatura</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{Card.Literature}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
 </div>
