@@ -669,19 +669,22 @@ label.css-label {
 
 .sidebar-nav li a {
     display: block;
-    text-decoration: none;
+  /*  text-decoration: none;*/
     color: #999999;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .sidebar-nav li a:hover {
-    text-decoration: none;
+  /*  text-decoration: none;*/
     color: #fff;
     background: rgba(255,255,255,0.2);
 }
 
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 
 .sidebar-nav > .sidebar-brand {
