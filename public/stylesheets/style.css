@@ -46,6 +46,10 @@ h4 {
 	padding-top: 40px;
 }
 
+.padding-top-xlg {
+    padding-top: 80px;
+}
+
 .navbar {
     margin:0;
 }
@@ -628,7 +632,7 @@ label.css-label {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    margin-top: 50px;
+    margin-top: -45px;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -639,6 +643,7 @@ label.css-label {
     width: 100%;
     position: absolute;
     padding: 15px;
+    margin-top: 45px;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -946,3 +951,5 @@ fieldset[disabled] .btn-primary.active {
 
 
 .fa { display:inline; }
+
+body { padding-top: 55px; }
