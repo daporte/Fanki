@@ -13,7 +13,9 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     $scope.$storage = loginService.storage;
     console.log(loginService.storage);
 
-
+    var lo =  $window.lock;
+    console.log($window.lock)
+    console.log(lo);
     $window.lock.on("authenticated", function(authResult) {
         loginService.storage.aa = "zz";
         // Use the token in authResult to getProfile() and save it to localStorage
