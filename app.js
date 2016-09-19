@@ -21,7 +21,7 @@ var session = require('express-session');
 var app = express();
 
 //---
-app.use(session({ secret: 'trrfmgtYzvSYrnH3BLS1YQ2vzfZnhq_KNFDEXwgCfR6p06EtgYbDVY3Qg5uUcP-d', resave: false,  saveUninitialized: false }));
+app.use(session({ secret: 'LnGKqVCxvir_G714DJWha_zfFA6TA1aaWPfiOaUZZcX4f7r23fPabnUiAgo256KP', resave: false,  saveUninitialized: false }));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -35,6 +35,7 @@ app.get('/callback',
       if (!req.user) {
         throw new Error('user null');
       }
+
 
       res.redirect("/user");
 

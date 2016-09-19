@@ -2,9 +2,9 @@ var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
 
 var strategy = new Auth0Strategy({
-    domain:       'daporte21.eu.auth0.com',
-    clientID:     'wdoEMhtdDrkzvnyhyOSZrDwMUqnjtEdn',
-    clientSecret: 'trrfmgtYzvSYrnH3BLS1YQ2vzfZnhq_KNFDEXwgCfR6p06EtgYbDVY3Qg5uUcP-d',
+    domain:       'oktavian.eu.auth0.com',
+    clientID:     '9KjKDpa6q2RGJNRl8xVFhZw1sokWetyQ',
+    clientSecret: 'LnGKqVCxvir_G714DJWha_zfFA6TA1aaWPfiOaUZZcX4f7r23fPabnUiAgo256KP',
     callbackURL:  '/callback'
 }, function(accessToken, refreshToken, extraParams, profile, done) {
     // accessToken is the token to call Auth0 API (not needed in the most cases)
