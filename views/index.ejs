@@ -13,6 +13,7 @@
                 auth: {
                     redirectUrl: 'http://fanki2.herokuapp.com/callback',
                     responseType: 'code',
+                    responseMode: "form_post",
                     params: {
                         scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
                     }
