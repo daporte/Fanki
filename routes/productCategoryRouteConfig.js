@@ -47,7 +47,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
             if(request.body.Privilege == "admin"){
                 response.render("createProductCategory", { title : "Create Deck"})
             }
-            
+
         }
     });
 
@@ -57,30 +57,32 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/createProductCategory",
         callbackFunction : function(request, response){
             console.log(request.body);
-           
-            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+            if(request.body.Privilege == "admin"){
+                var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
-            console.log(request.body);
-            console.log("zdar");
-
-
-            productCategoryDao.productCategoryDao.createProductCategory(request.body,
-                function(result){
-                    productCategoryDao.productCategoryDao.createTable(result, function (result2) {
-
-                        productCategoryDao.productCategoryDao.addToUserDecks(result, function(status){
+                console.log(request.body);
+                console.log("zdar");
 
 
-                                response.json(status);
-                                console.log(status);
-                            }
+                productCategoryDao.productCategoryDao.createProductCategory(request.body,
+                    function(result){
+                        productCategoryDao.productCategoryDao.createTable(result, function (result2) {
 
-                        )
+                            productCategoryDao.productCategoryDao.addToUserDecks(result, function(status){
 
-                    })
 
-                  
-                });
+                                    response.json(status);
+                                    console.log(status);
+                                }
+
+                            )
+
+                        })
+
+
+                    });
+            }
+
 
         }
     })
