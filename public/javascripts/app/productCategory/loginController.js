@@ -10,30 +10,24 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     var privilege = window.privilege;
 
 
-    var lock = new Auth0Lock('9KjKDpa6q2RGJNRl8xVFhZw1sokWetyQ', 'oktavian.eu.auth0.com', {
-        auth: {
-            redirectUrl: 'http://fanki2.herokuapp.com/callback',
-            responseType: 'code',
-            params: {
-                scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
-            }
-        }
-    });
+    $scope.$storage = loginService.storage;
+    console.log(loginService.storage);
+
 
     lock.on("authenticated", function(authResult) {
-        $storage.Privilege = "ZDAAAR";
+        loginService.storage.aa = "zz";
         // Use the token in authResult to getProfile() and save it to localStorage
         console.log("LOCK AND LOAD");
         console.log(authResult.idToken);
 
-        lock.getProfile(authResult.idToken, function(error, profile) {
+        lock.getProfile(authResult.idToken, function (error, profile) {
             if (error) {
                 // Handle error
                 return;
             }
             console.log("PROFILE");
             console.log(profile);
-            $storage.aa = "profile";
+            loginService.storage.aa = "profile";
 
             console.log(authResult.idToken);
 
@@ -41,9 +35,6 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
         });
     });
 
-
-    $scope.$storage = loginService.storage;
-    console.log(loginService.storage);
 
 
 
