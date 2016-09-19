@@ -14,7 +14,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     console.log(loginService.storage);
 
     var lo =  $window.lock;
-    console.log($window.lock)
+    console.log($window.lock);
     console.log(lo);
     loginService.storage.aa = "gggggg";
     $window.lock.on("authenticated", function(authResult) {
