@@ -38,7 +38,8 @@ function loginService($http, $location, $localStorage) {
             decks : {},
             Categories : {},
             UserId : "auth0|57d6815cd4ae50142a5437af",
-            Privilege: "User"
+            Privilege: "User",
+            aa:""
         })
 
         
