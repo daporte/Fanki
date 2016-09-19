@@ -1,5 +1,6 @@
-function productCategoryRouteConfig(app) {
+function productCategoryRouteConfig(app, bs) {
     this.app = app;
+    this.BS = bs;
     this.routeTable = [];
     this.init();
 }
@@ -44,9 +45,10 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/createProductCategory",
         callbackFunction : function(request, response){
-            if(request.body.Privilege == "admin"){
+                console.log("aaaaa")
+                console.log(BS);
                 response.render("createProductCategory", { title : "Create Deck"})
-            }
+
 
         }
     });

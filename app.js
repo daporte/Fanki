@@ -68,13 +68,15 @@ app.use('/', routes);
 var requiresLogin = require('./routes/requiresLogin.js');
 
 
-
+var BS = "";
 
 app.get('/user', function (req, res) {
     console.log(req.user);
     console.log(req.user.nickname);
 
+    BS = req.user;
     res.render('userTemp', {
+
         user: req.user
     });
 
@@ -97,7 +99,7 @@ var productCategoryRoute = require("./routes/productCategoryRouteConfig.js");
 var productRoute = require("./routes/productRouteConfig.js");
 var loginRoute = require("./routes/loginRouteConfig.js");
 
-new productCategoryRoute(app)
+new productCategoryRoute(app, BS);
 new productRoute(app);
 new loginRoute(app);
 
