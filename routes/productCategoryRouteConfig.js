@@ -17,6 +17,11 @@ productCategoryRouteConfig.prototype.processRoutes = function (){
 
     var requiresLogin = require('./requiresLogin.js');
 
+
+    self.app.run(['$rootScope', '$location', 'loginService', function ($rootScope, $location, Auth) {
+        console.log(loginService.storage.Privilege);
+    }]);
+    
     self.routeTable.forEach(function (route) {
 
         if(route.requestType == "get"){
@@ -34,8 +39,7 @@ productCategoryRouteConfig.prototype.processRoutes = function (){
 
 productCategoryRouteConfig.prototype.addRoutes = function () {
     var self = this;
-    var service = angular.element(document.querySelector('.ng-scope')).injector().get('loginService');
-    console.log(service);
+
     self.routeTable.push({
         requestType : "get",
         requestUrl : "/createProductCategory",
