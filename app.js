@@ -85,7 +85,8 @@ app.get('/user', function (req, res) {
 app.get('/getToken', function(req, res, next) {
     //manually get the token! annoying as heck
     auth0.getProfile(req.headers['access-token'], function(err, userInfo){
-        console.log(userInfo);
+        res.send(userInfo);
+
     } );
 });
 
