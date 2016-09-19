@@ -107,7 +107,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/getHierarchy",
         callbackFunction : function(request, response){
             console.log("aaaaa")
-            console.log(BS);
+            console.log(self.BS);
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
             productCategoryDao.productCategoryDao.getHierarchy(
                 function (hierarchy) {
