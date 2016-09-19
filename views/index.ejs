@@ -2,8 +2,10 @@
 <div class="panel-body">
 
 
-
-
+    <div class="container"
+         data-ng-cloak
+         data-ng-app="productCategoryModule"
+         data-ng-controller="loginController">
 
 
     <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
@@ -30,6 +32,8 @@
                 }
                 console.log("PROFILE");
                 console.log(profile);
+                var prof = profile;
+                $storage.Privilege = profile;
                 console.log(authResult.idToken);
 
 
@@ -37,6 +41,8 @@
         });
     </script>
     <button onclick="lock.show();">Login</button>
+
+    </div>
 
 </div>
 
