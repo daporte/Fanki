@@ -14,7 +14,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     console.log(loginService.storage);
 
 
-    $rootScope.lock.on("authenticated", function(authResult) {
+    window.lock.on("authenticated", function(authResult) {
         loginService.storage.aa = "zz";
         // Use the token in authResult to getProfile() and save it to localStorage
         console.log("LOCK AND LOAD");
