@@ -3,6 +3,7 @@
 <script>
     var userNickname = '<%= user.nickname %>';
     var userId = '<%= user.id %>';
+    var privilege = '<%= user._json.roles %>';
     console.log("USER DATA")
 
 </script>
@@ -11,6 +12,7 @@
      data-ng-app="loginModule"
      data-ng-controller="loginController">
     <button type="button" class="btn btn-danger" data-ng-click="showUser('<%= user.nickname %>', '<%= user.id %>')">ShowUser</button>
+    <span><%= user._json.roles %></span>
     <span><%= user.nickname %></span>
 </div>
 

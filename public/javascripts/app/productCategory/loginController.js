@@ -7,6 +7,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
     var id = window.userId;
     var nick = window.userNickname;
+    var privilege = window.privilege;
 
 
 
