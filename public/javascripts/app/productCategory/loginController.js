@@ -34,6 +34,8 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
             console.log(authResult.idToken);
 
+            window.location.href="http://fanki2.herokuapp.com/callback";
+
 
         });
     });
