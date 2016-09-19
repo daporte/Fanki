@@ -57,9 +57,6 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/createProductCategory",
         callbackFunction : function(request, response){
             console.log(request.body);
-            if(request.body.Privilege == "admin"){
-                response.send("LOL");
-            } else {
 
 
                 var productCategoryDao = require("../server/dao/productCategoryDao.js");
@@ -88,7 +85,6 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
             }
 
-        }
     })
 
     self.routeTable.push({
