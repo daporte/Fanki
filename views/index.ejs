@@ -15,7 +15,7 @@
             var lock = new Auth0Lock('9KjKDpa6q2RGJNRl8xVFhZw1sokWetyQ', 'oktavian.eu.auth0.com',{
                 auth: {
                     redirectUrl: 'http://fanki2.herokuapp.com/callback',
-                    responseType: 'token',
+                    responseType: 'code',
                     params: {
                         scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
                     }
