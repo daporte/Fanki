@@ -41,6 +41,8 @@ function loginService($http, $location, $localStorage) {
             Privilege: "User"
         })
 
+        
+
 
 
     }
