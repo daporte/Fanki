@@ -32,9 +32,11 @@ productCategoryRouteConfig.prototype.processRoutes = function (){
         }
     })
 }
-
-
-
+/*
+function checkUser(){
+    self.app.get("/user")
+}
+*/
 productCategoryRouteConfig.prototype.addRoutes = function () {
     var self = this;
 
