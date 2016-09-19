@@ -107,7 +107,7 @@ var productDao = {
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         var queryStatement = "SELECT de.DeckName, de.Id as Decks_FK, ca.Id, ca.FrontSide, ca.BackSide, ca.AddedBy," +
             " ca.CreatedDate, SUBSTRING(ca.BackSide, 1, 100) as PartialDescription," +
-            " ca.IsValid, ca.ModifiedDate FROM Decks de INNER JOIN Cards ca on ca.Decks_FK = de.Id WHERE de.Id = ? ORDER BY ca.CreatedDate DESC";
+            " ca.IsValid, ca.ModifiedDate, ca.Image, ca.Literature, ca.Wikipedia, ca.Wikiskripta, ca.Youtube, ca.ExtraLink, ca.Tag,ca.Detail FROM Decks de INNER JOIN Cards ca on ca.Decks_FK = de.Id WHERE de.Id = ? ORDER BY ca.CreatedDate DESC";
         if (connection){
             connection.query(queryStatement, deckId, function(err, rows, result){
                 if (err) {console.log(err)}
