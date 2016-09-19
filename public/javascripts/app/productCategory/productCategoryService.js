@@ -6,7 +6,7 @@ productCategoryService.$inject = ["$http", "$location"];
 function productCategoryService($http, $location) {
 
     return {
-        createProductCategory : function (productCategory) {
+        createProductCategory : function (productCategory, privilege) {
 
             return $http.post("/createProductCategory",
 
@@ -15,7 +15,8 @@ function productCategoryService($http, $location) {
                     Description : productCategory.Description,
                     AddedBy : productCategory.AddedBy,
                     Id : productCategory.productCategoryId,
-                    CategoryId : productCategory.CategoryId
+                    CategoryId : productCategory.CategoryId,
+                    Privilege : privilege
                 })
         }
 

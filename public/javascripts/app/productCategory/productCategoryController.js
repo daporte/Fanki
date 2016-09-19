@@ -46,7 +46,7 @@ function productCategoryController($scope, $timeout, productCategoryService, req
         } else {
 
             $scope.validationResult.containsValidationError = false;
-            productCategoryService.createProductCategory(productCategory)
+            productCategoryService.createProductCategory(productCategory, loginService.storage.Privilege)
                 .success(function (data) {
                     console.log(" SUCCESS" + data.resultId)
                     loginService.storage.decks[data.resultId] = 0;

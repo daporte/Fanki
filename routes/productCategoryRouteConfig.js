@@ -44,7 +44,10 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/createProductCategory",
         callbackFunction : function(request, response){
-            response.render("createProductCategory", { title : "Create Deck"})
+            if(request.body.Privilege == "admin"){
+                response.render("createProductCategory", { title : "Create Deck"})
+            }
+            
         }
     });
 
