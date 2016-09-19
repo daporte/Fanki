@@ -2,6 +2,9 @@ function productCategoryRouteConfig(app) {
     this.app = app;
     this.routeTable = [];
     this.init();
+    app.run(['$rootScope', '$location', 'loginService', function ($rootScope, $location, loginService) {
+        console.log(loginService.storage.Privilege);
+    }]);
 }
 
 productCategoryRouteConfig.prototype.init = function () {
@@ -18,10 +21,8 @@ productCategoryRouteConfig.prototype.processRoutes = function (){
     var requiresLogin = require('./requiresLogin.js');
 
 
-    self.app.run(['$rootScope', '$location', 'loginService', function ($rootScope, $location, Auth) {
-        console.log(loginService.storage.Privilege);
-    }]);
-    
+
+
     self.routeTable.forEach(function (route) {
 
         if(route.requestType == "get"){
