@@ -19,7 +19,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     if(id){
         loginService.storage.Username = nick;
         loginService.storage.UserId = id;
-
+        loginService.storage.Privilege = privilege;
         loginService.login(id)
             .success(function (data) {
 
@@ -107,7 +107,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     $scope.logout = function () {
         loginService.storage.Username = "";
         loginService.storage.UserId = "";
-
+        loginService.storage.Privilege = "";
 
         for (var key in loginService.storage.decks) {
             if (loginService.storage.decks.hasOwnProperty(key)) {
