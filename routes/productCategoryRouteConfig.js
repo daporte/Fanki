@@ -30,9 +30,12 @@ productCategoryRouteConfig.prototype.processRoutes = function (){
     })
 }
 
+
+
 productCategoryRouteConfig.prototype.addRoutes = function () {
     var self = this;
-
+    var service = angular.element(document.querySelector('.ng-scope')).injector().get('loginService');
+    console.log(service);
     self.routeTable.push({
         requestType : "get",
         requestUrl : "/createProductCategory",
