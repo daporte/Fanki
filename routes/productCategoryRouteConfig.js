@@ -45,8 +45,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/createProductCategory",
         callbackFunction : function(request, response){
-                console.log("aaaaa")
-                console.log(BS);
+
                 response.render("createProductCategory", { title : "Create Deck"})
 
 
@@ -107,6 +106,8 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/getHierarchy",
         callbackFunction : function(request, response){
+            console.log("aaaaa")
+            console.log(BS);
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
             productCategoryDao.productCategoryDao.getHierarchy(
                 function (hierarchy) {
