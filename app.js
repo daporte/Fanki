@@ -70,7 +70,7 @@ var requiresLogin = require('./routes/requiresLogin.js');
 
 
 
-app.get('/user', requiresLogin, function (req, res) {
+app.get('/user', function (req, res) {
     console.log(req.user);
     console.log(req.user.nickname);
 
