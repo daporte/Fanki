@@ -15,7 +15,7 @@ productCategoryRouteConfig.prototype.processRoutes = function (){
 
     var self = this;
 
-    var requiresLogin = require('././requiresLogin.js');
+    var requiresLogin = require('./requiresLogin.js');
 
     self.routeTable.forEach(function (route) {
 

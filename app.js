@@ -65,7 +65,7 @@ app.use('/', routes);
 //app.use('/callback', routes);
 //app.use('/user', users);
 
-var requiresLogin = require('./requiresLogin.js');
+var requiresLogin = require('./routes/requiresLogin.js');
 
 
 
