@@ -1,9 +1,9 @@
 angular.module("loginModule")
     .controller("loginController", loginController);
 
-loginController.$inject = ["$scope", "$http", "$timeout", "loginService", "requiredFieldValidationService_Login", "$localStorage", "$rootScope"];
+loginController.$inject = ["$scope", "$http", "$timeout", "loginService", "requiredFieldValidationService_Login", "$localStorage", "$rootScope","$window"];
 
-function loginController($scope, $http, $timeout, loginService, requiredFieldValidationService_Login, $localStorage, $rootScope) {
+function loginController($scope, $http, $timeout, loginService, requiredFieldValidationService_Login, $localStorage, $rootScope, $window) {
 
     var id = window.userId;
     var nick = window.userNickname;
@@ -11,10 +11,10 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
 
     $scope.$storage = loginService.storage;
-    console.log(loginService.storage);
+    console.log($window.lock);
 
 
-    window.lock.on("authenticated", function(authResult) {
+    $window.lock.on("authenticated", function(authResult) {
         loginService.storage.aa = "zz";
         // Use the token in authResult to getProfile() and save it to localStorage
         console.log("LOCK AND LOAD");
