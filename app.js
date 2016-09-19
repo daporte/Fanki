@@ -65,7 +65,12 @@ app.use('/', routes);
 //app.use('/callback', routes);
 //app.use('/user', users);
 
-app.get('/user', function (req, res) {
+var requiresLogin = require('requiresLogin');
+
+
+
+
+app.get('/user', requiresLogin, function (req, res) {
     console.log(req.user);
     console.log(req.user.nickname);
 
