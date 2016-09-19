@@ -58,6 +58,10 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         callbackFunction : function(request, response){
             console.log(request.body);
             if(request.body.Privilege == "admin"){
+                response.send("LOL");
+            } else {
+
+
                 var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
                 console.log(request.body);
@@ -65,24 +69,24 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
 
                 productCategoryDao.productCategoryDao.createProductCategory(request.body,
-                    function(result){
+                    function (result) {
                         productCategoryDao.productCategoryDao.createTable(result, function (result2) {
 
-                            productCategoryDao.productCategoryDao.addToUserDecks(result, function(status){
+                            productCategoryDao.productCategoryDao.addToUserDecks(result, function (status) {
 
 
                                     response.json(status);
                                     console.log(status);
                                 }
-
                             )
 
                         })
 
 
                     });
-            }
 
+
+            }
 
         }
     })
