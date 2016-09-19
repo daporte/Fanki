@@ -17,6 +17,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     console.log($window.lock);
     console.log(lo);
     loginService.storage.aa = "gggggg";
+    
     $window.lock.on("authenticated", function(authResult) {
         loginService.storage.aa = "zz";
         // Use the token in authResult to getProfile() and save it to localStorage
@@ -34,7 +35,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
             console.log(authResult.idToken);
 
-            
+
 
 
         });
