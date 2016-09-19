@@ -16,13 +16,15 @@ loginRouteConfig.prototype.processRoutes = function (){
     var self = this;
     self.routeTable.forEach(function (route) {
 
+        var requiresLogin = require('./requiresLogin.js');
+
         if(route.requestType == "get"){
-            self.app.get(route.requestUrl, route.callbackFunction);
+            self.app.get(route.requestUrl, requiresLogin,route.callbackFunction);
         } else if(route.requestType == "post"){
             console.log("posting");
-            self.app.post(route.requestUrl, route.callbackFunction);
+            self.app.post(route.requestUrl, requiresLogin,route.callbackFunction);
         } else if(route.requestType == "delete"){
-            self.app.delete(route.requestUrl, route.callbackFunction);
+            self.app.delete(route.requestUrl, requiresLogin,route.callbackFunction);
         }
     })
 }
