@@ -2,9 +2,6 @@ function productCategoryRouteConfig(app) {
     this.app = app;
     this.routeTable = [];
     this.init();
-    app.run(['$rootScope', '$location', 'loginService', function ($rootScope, $location, loginService) {
-        console.log(loginService.storage.Privilege);
-    }]);
 }
 
 productCategoryRouteConfig.prototype.init = function () {
