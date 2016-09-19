@@ -17,6 +17,19 @@
                 }
             }
         });
+
+        lock.on("authenticated", function(authResult) {
+            // Use the token in authResult to getProfile() and save it to localStorage
+            lock.getProfile(authResult.idToken, function(error, profile) {
+                if (error) {
+                    // Handle error
+                    return;
+                }
+                console.log(authResult.idToken);
+
+
+            });
+        });
     </script>
     <button onclick="lock.show();">Login</button>
 
