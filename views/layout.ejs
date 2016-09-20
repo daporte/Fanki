@@ -19,22 +19,23 @@
   <script src="../../javascripts/app/productCategory/requiredFieldValidationService_Login.js"></script>
   <script src="../../javascripts/ngStorage.js"></script>
 </head>
-<body>
+<body id="page-top">
 
+<!--
 <nav class="navbar navbar-default">
 
   <div class="container-fluid"
        data-ng-cloak
        data-ng-modules="loginModule, productModule, productCategoryModule"
        data-ng-controller="loginController">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    &lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;
     <div class="navbar-header">
       <a class="navbar-brand" rel="home" href="#" title="Oktavian">
         <img alt ="logo" class="logo" src="http://res.cloudinary.com/oktavian/image/upload/v1473669451/source_images/Oktavian_logo_nearwhite.png">
       </a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    &lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav"  ng-hide=$storage.Username !="">
         <li><a href="/">Log In</a></li>
@@ -69,10 +70,251 @@
         <li ng-show='$storage.Privilege == "admin"'><a href="/viewProductCategory">Edit Decks</a></li>
       </ul>
 
+    </div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;
+  </div>&lt;!&ndash; /.container-fluid &ndash;&gt;
+
+  </nav>
+
+-->
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid"
+       data-ng-cloak
+       data-ng-modules="loginModule, productModule, productCategoryModule"
+       data-ng-controller="loginController">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand page-scroll" href="#page-top">Oktavian</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav"  ng-hide=$storage.Username !="">
+        <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+        <script type="text/javascript">
+          var options = {
+            languageDictionary: {
+              error: {
+                forgotPassword: {
+                  "too_many_requests": "Limit pro počet obnovených hesel byl dosažen. Počkej prosím, než to zkusíš znovu.",
+                  "lock.fallback": "Je nám líto, něco je špatně s obnovou hesla."
+                },
+                login: {
+                  "blocked_user": "Uživatel je zablokován.",
+                  "invalid_user_password": "Wrong credentials.",
+                  "lock.fallback": "Je nám líto, při pokusu o přihlášení nastala chyba.",
+                  "lock.invalid_code": "neplatný kód",
+                  "lock.invalid_email_password": "Chybně zadaný email nebo heslo.",
+                  "lock.invalid_username_password": "Chybně zadané heslo nebo uživatelské jméno.",
+                  "lock.network": "Nelze se připojit k servru. Prosíme, zkontroluj své připojení a zkus to znovu.",
+                  "lock.popup_closed": "Vyskakovací okno zavřeno. Zkus to znovu.",
+                  "lock.unauthorized": "Oprávnění nebyla poskytnuta. Zkus to znovu.",
+                  "password_change_required": "Musíš si aktualizovat heslo, protože je to poprvé, co se přihlašuješ, nebo protože platnost tvého hesla vypršela.", // TODO: verify error code
+                  "password_leaked": "Tento účet byl zablokován, protože tvoje heslo bylo zveřejněno na jiné webové stránce. Poslali jsme ti email s instrukcemi na jeho odblokování.",
+                  "too_many_attempts": "Tvůj účet byl kvůli velkému množství nedávných pokusů o přihlášení zablokován."
+                },
+                passwordless: {
+                  "bad.email": "Tento email je neplatný.",
+                  "bad.phone_number": "Toto telefoní číslo je neplatné.",
+                  "lock.fallback": "Je nám líto, někde nastala chyba."
+                },
+                signUp: {
+                  "invalid_password": "Heslo je neplatné.",
+                  "lock.fallback": "Je nám líto, při pokusu o přihlášení nastala chyba.",
+                  "password_dictionary_error": "Heslo je příliš běžné.",
+                  "password_no_user_info_error": "Infiormace o uživateli jsou obsaženy v hesle.",
+                  "password_strength_error": "Heslo je příliš slabé.",
+                  "user_exists": "Tento uživatel už existuje.",
+                  "username_exists": "Toto uživatelkské jméno už existuje."
+                }
+              },
+              success: { // success messages show above the form or in a confirmation pane
+                logIn: "Díky za přihlášení.",
+                forgotPassword: "Zaslali jsme ti email k obnovení hesla.",
+                magicLink: "Poslali jsme ti odkaz k přihlášení<br />k %s.",
+                signUp: "Díky za registraci."
+              },
+              blankErrorHint: "Nesmí být prázdné",
+              codeInputPlaceholder: "your code",
+              databaseEnterpriseLoginInstructions: "",
+              databaseEnterpriseAlternativeLoginInstructions: "or",
+              databaseSignUpInstructions: "",
+              databaseAlternativeSignUpInstructions: "or",
+              emailInputPlaceholder: "vas@email.cz",
+              enterpriseLoginIntructions: "Login with your corporate credentials.",
+              enterpriseActiveLoginInstructions: "Please enter your coorporate credentials at %s.",
+              failedLabel: "Chyba!",
+              forgotPasswordAction: "Nepamatujete si heslo?",
+              forgotPasswordInstructions: "Zadejte prosím vaši emailovou adresu. Zašleme vám email k resetovaní hesla.",
+              forgotPasswordSubmitLabel: "Poslat email",
+              invalidErrorHint: "Nesprávná hodnota",
+              lastLoginInstructions: "Last time you logged in with",
+              loginAtLabel: "Log in at %s",
+              loginLabel: "Přihlásit se",
+              loginSubmitLabel: "Přihlásit se",
+              loginWithLabel: "Log in with %s",
+              notYourAccountAction: "Not your account?",
+              passwordInputPlaceholder: "vaše heslo",
+              passwordStrength: {
+                containsAtLeast: "Musí obsahovat nejméně %d z následujících %d typů znaků:",
+                identicalChars: "Nepoužívej více jak %d stejných znaků v řade (např., \"%s\" není povoleno)",
+                nonEmpty: "Musíš si zvolit nějaké heslo",
+                numbers: "Čísla (např. 0-9)",
+                lengthAtLeast: "Minimální délka je %d znaků",
+                lowerCase: "Malá písmena (a-z)",
+                shouldContain: "Mělo by obsahovat:",
+                specialCharacters: "Speciální symboly (např. !@#$%^&*)",
+                upperCase: "Velká písmena (A-Z)"
+              },
+              passwordlessEmailAlternativeInstructions: "Otherwise, enter your email to sign in<br/>or create an account",
+              passwordlessEmailCodeInstructions: "An email with the code has been sent to %s.",
+              passwordlessEmailInstructions: "Enter your email to sign in<br/>or create an account",
+              passwordlessSMSAlternativeInstructions: "Otherwise, enter your phone to sign in<br/>or create an account",
+              passwordlessSMSCodeInstructions: "An SMS with the code has been sent<br/>to %s.",
+              passwordlessSMSInstructions: "Enter your phone to sign in<br/>or create an account",
+              phoneNumberInputPlaceholder: "your phone number",
+              resendCodeAction: "Did not get the code?",
+              resendLabel: "Resend",
+              resendingLabel: "Resending...",
+              retryLabel: "Zkusit znovu",
+              sentLabel: "Sent!",
+              signUpLabel: "Registrovat",
+              signUpSubmitLabel: "Registrovat",
+              signUpTerms: "",
+              signUpWithLabel: "Sign up with %s",
+              socialLoginInstructions: "",
+              socialSignUpInstructions: "",
+              ssoEnabled: "Single Sign-On enabled",
+              submitLabel: "Submit",
+              unrecoverableError: "Something went wrong.<br />Please contact technical support.",
+              usernameFormatErrorHint: "Použijte 1-15 znaků, čísel a \"_\"",
+              usernameInputPlaceholder: "your username",
+              usernameOrEmailInputPlaceholder: "username/email",
+              title: "",
+              welcome: "Vítejte %s!",
+              windowsAuthInstructions: "You are connected from your corporate network&hellip;",
+              windowsAuthLabel: "Windows Authentication"
+            }
+            ,
+            theme: {
+              logo: 'http://res.cloudinary.com/oktavian/image/upload/v1474202729/source_images/oktavian_text_logo.png',
+              primaryColor: 'green'
+            },
+
+            auth: {
+              redirectUrl: 'http://fanki2.herokuapp.com/callback',
+              responseType: 'code',
+              params: {
+                scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+              }
+            },
+          };
+
+          var lock = new Auth0Lock('wdoEMhtdDrkzvnyhyOSZrDwMUqnjtEdn', 'daporte21.eu.auth0.com', options);
+        </script>
+        <button onclick="lock.show();">Login</button>
+        <li><a href="#jaktofunguje" class="page-scroll">Jak to funguje</a></li>
+        <li><a href="#predmety" class="page-scroll">Předměty</a></li>
+        <li><a href="#proc" class="page-scroll">Proč</a></li>
+        <li><a href="#veda" class="page-scroll">Věda</a></li>
+      </ul>
+
+      <div ng-show=$storage.Username !="">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$storage.Username}}<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <button
+                      type="button"
+                      class="btn btn primary"
+                      data-categoryId="{{productCategory.Id}}"
+                      data-ng-click="logout()">Log Out</button>
+
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right" ng-show=$storage.Username !="">
+
+        <li><a href="/myDecks">My Decks</a></li>
+        <li><a href="/chooseDecks">Choose Decks</a></li>
+        <li><a href="/viewProductCategory">Edit Decks</a></li>
+      </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 
-  </nav>
+</nav>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script type="text/javascript">(function($) {
+    "use strict"; // Start of use strict
+
+    // jQuery for page scrolling feature - requires jQuery Easing plugin
+    $('a.page-scroll').bind('click', function(event) {
+      var $anchor = $(this);
+      $('html, body').stop().animate({
+        scrollTop: ($($anchor.attr('href')).offset().top - 100)
+      }, 1250, 'easeInOutExpo');
+      event.preventDefault();
+    });
+
+    // Highlight the top nav as scrolling occurs
+    $('body').scrollspy({
+      target: '.navbar-fixed-top',
+      offset: 51
+    });
+
+    // Closes the Responsive Menu on Menu Item Click
+    $('.navbar-collapse ul li a').click(function() {
+      $('.navbar-toggle:visible').click();
+    });
+
+    // Offset for Main Navigation
+    $('#mainNav').affix({
+      offset: {
+        top: 100
+      }
+    })
+
+    // Initialize and Configure Scroll Reveal Animation
+    window.sr = ScrollReveal();
+    sr.reveal('.sr-icons', {
+      duration: 600,
+      scale: 0.3,
+      distance: '0px'
+    }, 200);
+    sr.reveal('.sr-button', {
+      duration: 1000,
+      delay: 200
+    });
+    sr.reveal('.sr-contact', {
+      duration: 600,
+      scale: 0.3,
+      distance: '0px'
+    }, 300);
+
+    // Initialize and Configure Magnific Popup Lightbox Plugin
+    $('.popup-gallery').magnificPopup({
+      delegate: 'a',
+      type: 'image',
+      tLoading: 'Loading image #%curr%...',
+      mainClass: 'mfp-img-mobile',
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+      },
+      image: {
+        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+      }
+    });
+
+  })(jQuery); // End of use strict</script>
+
 
 </body>
 

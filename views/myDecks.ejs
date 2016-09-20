@@ -6,50 +6,26 @@
 
 <div data-ng-app="productCategoryModule"
      data-ng-controller="myDecksController">
-    <div class="panel panel-info">
-        <div class="panel-heading">
 
-            <h3 class="panel-title"> {{DeckName}}</h3>
-        </div>
-    </div>
+<div class="container text-center padding-top-lg">
+    <a href="/learn/all" class="btn btn-info btn-lg" role="button">Studovat vše</a>
+</div>
 
 
-    <a href="/learn/all" class="btn btn-info" role="button">Learn All</a>
+    <div class="container  padding-top-lg">
 
-    <div class="container">
+        <h2 style="padding-bottom: 20px">Studovat jednotlivá témata</h2>
         <table
                 data-ng-show="productCategories.length > 0"
-
-                class="table table-striped table-hover"
-
+                class="table table-striped table-hover padding-top-lg"
         >
-            <tr class="success">
-                <td>Deck Name</td>
-                <td>Description</td>
-                <td>AddedBy</td>
-                <td>Created Date</td>
-                <td>Modified Date</td>
-
-                <td>Actions</td>
-            </tr>
 
             <tr data-ng-repeat="productCategory in productCategories">
-                <td>{{productCategory.DeckName}}</td>
-                <td><button
-                            type="button"
-                            class="btn btn primary"
-                            data-toggle="modal"
-                            data-target="#DeckDetailsModalWindow"
-                            data-categoryId="{{productCategory.Id}}"
-                            data-ng-click="showProductDetailsInformation(productCategory)">View Details</button></td>
-
-                <td>{{productCategory.AddedBy}}</td>
-                <td>{{productCategory.CreatedDate}}</td>
-                <td>{{productCategory.ModifiedDate}}</td>
-
-                <td class="info">
-
-                    <a href="/learn/{{productCategory.Id}}" class="btn btn-info" role="button">Learn</a>
+                <td>
+                    {{productCategory.DeckName}}
+                </td>
+                <td>
+                    <a href="/learn/{{productCategory.Id}}" class="btn btn-info" role="button" style="margin-left: -80px">Studovat</a>
 
                 </td>
             </tr>

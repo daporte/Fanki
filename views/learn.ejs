@@ -1,5 +1,5 @@
 <% include layout%>
-<script src="../../javascripts/keystrokes.js"></script>
+
 
 <div class="container"
      data-ng-cloak
@@ -15,15 +15,15 @@
 
     <hr ng-show="show">
 
-    <div class="container"
+    <div class="container card-text"
          ng-show="show"
          ng-bind-html="Card.BackSide">
-        <div class="card-text">
+        <div >
             {{Card.BackSide}}
         </div>
     </div>
 
-    <img ng-show="show" class="img-responsive" src="{{Card.Image}}">
+    <img ng-show="show" class="img-responsive padding-top-lg" src="{{Card.Image}}">
 
 
         <button type="button"
@@ -42,42 +42,51 @@
 
     <div class="sticky-container"  ng-show="show">
         <ul class="sticky">
-            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/open-book.png" />
+            <a data-toggle="modal" data-target="#LiteratureModal">
+            <li ng-show="Card.Literature"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/open-book.png" />
                 <p>Literatura</p>
             </li>
-            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885960/source_images/logo_ws_bw_crop.png" />
-                <p>Wikiskripta</p>
+            </a>
+            <a target="_blank" href="{{Card.Wikiskripta}}">
+            <li ng-show="Card.Wikiskripta"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885960/source_images/logo_ws_bw_crop.png" />
+                <a target="_blank" href="{{Card.Wikiskripta}}">Wikiskripta</a>
             </li>
-            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/wikipedia-logo.png" />
-                <p>Wikipedia</p>
+            </a>
+            <a target="_blank" href="{{Card.Wikipedia}}">
+            <li ng-show="Card.Wikipedia"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/wikipedia-logo.png" />
+                <a target="_blank" href="{{Card.Wikipedia}}">Wikipedia</a>
             </li>
-            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/youtube-logo.png" />
-                <p>Youtube</p>
+            </a>
+            <a target="_blank" href="{{Card.Wikipedia}}">
+            <li ng-show="Card.Youtube"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/youtube-logo.png" />
+                <a target="_blank" href="{{Card.Youtube}}">Youtube</a>
             </li>
-            <li> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/external.png" />
-                <a href="#">Adresa</a>
+            </a>
+            <a target="_blank" href="{{Card.Wikipedia}}">
+            <li ng-show="Card.ExtraLink"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/external.png" />
+                <a target="_blank" href="{{Card.ExtraLink}}">Externí zdroj</a>
             </li>
+            </a>
         </ul>
     </div>
 
-<div ng-style="showFooter" class="navbar-hidden">
-<div class="navbar-fixed-bottom navbar navbar-default footer-card">
+<div class="navbar-fixed-bottom navbar navbar-default footer-card" ng-show="show">
 
     <div class="container text-center">
         <div class="btn-group">
-            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(0)">
+            <a id="znovu" href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(0)">
                 <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/delete.png">
                 <p class="text-muted undertext-card-icon">Znovu</p>
             </a>
-            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(2)">
+            <a id="tezke" href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(2)">
                 <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/minus-sign-inside-a-black-circle.png">
                 <p class="text-muted undertext-card-icon">Těžké</p>
             </a>
-            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(4)">
+            <a id="spravne" href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(4)">
                 <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/correct-symbol.png">
                 <p class="text-muted undertext-card-icon">Správně</p>
             </a>
-            <a href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(6)">
+            <a id="jednoduche" href="#" class="btn btn-primary footer-card-button" data-ng-click="doRep(6)">
                 <img alt="" class="card-icons" src="http://res.cloudinary.com/oktavian/image/upload/v1473800057/source_images/star.png">
                 <p class="text-muted undertext-card-icon">Jednoduché</p>
             </a>
@@ -86,11 +95,38 @@
    </div>
 
 </div>
-</div>
+
+    <!-- Modal -->
+    <div id="LiteratureModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Literatura</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{Card.Literature}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
 </div>
 
+
+<script type="text/javascript">$(document).keyup(function(e) {
+        if (e.keyCode == 27) {
+            alert('Esc key pressed!');
+        }
+    });</script>
     <script src="../../javascripts/app/productCategory/learnController.js"></script>
     <script src="../../javascripts/app/productCategory/productCategoryService.js"></script>
     <script src="../../javascripts/app/productCategory/productService.js"></script>
+<script src="../../javascripts/keystrokes.js"></script>
