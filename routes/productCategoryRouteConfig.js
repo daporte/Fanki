@@ -412,6 +412,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
+            
             productCategoryDao.productCategoryDao.countDueCards(request.body.deckId, request.body.UserId, request.body.CurrentTime,
                 function (data) {
 

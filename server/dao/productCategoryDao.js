@@ -329,19 +329,37 @@ var productCategoryDao = {
     ,
     countDueCards : function(DeckId, UserId, CurrentTime, callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT COUNT(*) AS CardsDue FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp + RepInterval) < ? AND DeckId = ?";
-        if (connection){
-            connection.query(queryStatement, [UserId, CurrentTime, DeckId], function(err, rows, fields){
-                if (err) {throw err;}
+        if(DeckId == "all"){
 
-                //console.log(rows);
-                console.log("zzzzzaaa");
-                console.log(rows);
-                callback(rows);
-            });
+            var queryStatement = "SELECT COUNT(*) AS CardsDue FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp + RepInterval) < ?";
+            if (connection){
+                connection.query(queryStatement, [UserId, CurrentTime], function(err, rows, fields){
+                    if (err) {throw err;}
 
-            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+                    //console.log(rows);
+                    console.log("zzzzzaaa");
+                    console.log(rows);
+                    callback(rows);
+                });
+
+                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+            }
+        } else {
+            var queryStatement = "SELECT COUNT(*) AS CardsDue FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp + RepInterval) < ? AND DeckId = ?";
+            if (connection){
+                connection.query(queryStatement, [UserId, CurrentTime, DeckId], function(err, rows, fields){
+                    if (err) {throw err;}
+
+                    //console.log(rows);
+                    console.log("zzzzzaaa");
+                    console.log(rows);
+                    callback(rows);
+                });
+
+                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+            }
         }
+
 
     }
     ,
