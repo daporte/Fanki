@@ -96,7 +96,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         console.log("GETTING CARD");
         productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function (nextCard) {
-                var hourInMili = 360000;
+                var hourInMili = 3600000;
                 console.log(nextCard);
                 if(!nextCard){
                     productCategoryService.getSoonCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId, hourInMili)
