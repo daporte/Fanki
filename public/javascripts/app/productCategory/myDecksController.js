@@ -28,7 +28,12 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
                     console.log("xx");
 
 
-                    data["Decks"][i]["DueCards"] = data["DueCards"][i]["DueCards"];
+                    if(data["DueCards"][i]){
+                        data["Decks"][i]["DueCards"] = data["DueCards"][i]["DueCards"];
+                    } else {
+                        data["Decks"][i]["DueCards"] = 0;
+                    }
+
 
 
                 }

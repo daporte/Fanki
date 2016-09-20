@@ -334,12 +334,14 @@ var productCategoryDao = {
                     console.log(rows2);
                     result["DueCards"] = rows2;
                     callback(result);
+                    
+                    connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
                 });
             });
 
 
 
-            //connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+
         }
 
 
