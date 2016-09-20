@@ -2,6 +2,7 @@ function productCategoryRouteConfig(app, bs) {
     this.app = app;
     this.BS = bs;
     this.routeTable = [];
+    this.redirectRoute = "/"
     this.init();
 }
 
@@ -46,8 +47,12 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/createProductCategory",
         callbackFunction : function(request, response){
 
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                response.render("createProductCategory", { title : "Create Deck"})
+            } else{
+                response.redirect(self.redirectRoute);
+            }
 
-            response.render("createProductCategory", { title : "Create Deck"})
 
 
 
@@ -60,9 +65,8 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "post",
         requestUrl : "/createProductCategory",
         callbackFunction : function(request, response){
-            console.log(request.body);
 
-
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
                 var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
                 console.log(request.body);
@@ -85,6 +89,13 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
 
                     });
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
+
+
 
 
             }
@@ -95,6 +106,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/getAllProductCategory",
         callbackFunction : function(request, response){
+
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
             productCategoryDao.productCategoryDao.getAllProductCategory(
                 function (productCategories) {
@@ -166,7 +178,14 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/viewProductCategory",
         callbackFunction : function(request, response){
-            response.render("viewProductCategory", { title : "All Decks"})
+
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                response.render("viewProductCategory", { title : "All Decks"})
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
         }
     });
 
@@ -175,7 +194,13 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/editProductCategory/:productCategoryId",
         callbackFunction : function(request, response){
-            response.render("editProductCategory", { title : "Edit Deck"})
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                response.render("editProductCategory", { title : "Edit Deck"})
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
         }
     });
 
@@ -184,13 +209,18 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/getProductCategoryById/:productCategoryId",
         callbackFunction : function(request, response){
-            var productCategoryDao = require("../server/dao/productCategoryDao.js");
-            productCategoryDao.productCategoryDao.getProductCategoryById(request.params.productCategoryId,
-                function (productCategories) {
-                    console.log("im here ")
-                    //console.log(productCategories);
-                    response.json({productCategories : productCategories});
-                });
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                var productCategoryDao = require("../server/dao/productCategoryDao.js");
+                productCategoryDao.productCategoryDao.getProductCategoryById(request.params.productCategoryId,
+                    function (productCategories) {
+                        console.log("im here ")
+                        //console.log(productCategories);
+                        response.json({productCategories : productCategories});
+                    });
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
 
         }
     });
@@ -201,15 +231,18 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/updateProductCategory",
         callbackFunction : function(request, response){
 
-            console.log(request.body.DeckName);
-
-            var productCategoryDao = require("../server/dao/productCategoryDao.js");
-            productCategoryDao.productCategoryDao.updateProductCategory(request.body.DeckName, request.body.Description, request.body.ProductCategoryId, request.body.CategoryId,
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                var productCategoryDao = require("../server/dao/productCategoryDao.js");
+                productCategoryDao.productCategoryDao.updateProductCategory(request.body.DeckName, request.body.Description, request.body.ProductCategoryId, request.body.CategoryId,
                     function (status) {
-                    console.log("im here ")
-                    console.log(status);
-                    response.json(status);
-                });
+                        console.log("im here ")
+                        console.log(status);
+                        response.json(status);
+                    });
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
         }
     });
 
@@ -218,28 +251,38 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/deleteProductCategoryById/:productCategoryId",
         callbackFunction : function(request, response){
 
-            console.log(request.params.productCategoryId);
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                    var productCategoryDao = require("../server/dao/productCategoryDao.js");
+                    productCategoryDao.productCategoryDao.deleteProductCategoryById(request.params.productCategoryId,
+                        function (status) {
+                            console.log("im here ")
+                            if(status=="successful"){
 
-            var productCategoryDao = require("../server/dao/productCategoryDao.js");
-            productCategoryDao.productCategoryDao.deleteProductCategoryById(request.params.productCategoryId,
-                function (status) {
-                    console.log("im here ")
-                    if(status=="successful"){
+                                productCategoryDao.productCategoryDao.deleteTable(request.params.productCategoryId, function(status2) {
 
-                        productCategoryDao.productCategoryDao.deleteTable(request.params.productCategoryId, function(status2) {
+                                    productCategoryDao.productCategoryDao.deleteFromUserDecks(request.params.productCategoryId, function (status3) {
 
-                            productCategoryDao.productCategoryDao.deleteFromUserDecks(request.params.productCategoryId, function (status3) {
+                                        response.json(status3);
+                                        console.log(status3);
+                                    });
 
-                                response.json(status3);
-                                console.log(status3);
-                            });
-
-                        })
-                    }
+                                })
+                            }
 
 
 
-                });
+                        });
+                } else{
+                    response.redirect(self.redirectRoute);
+                }
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
+
+
 
         }
     });
@@ -248,7 +291,14 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/editDeck/:deckId",
         callbackFunction : function(request, response){
-            response.render("editDeck", { title : "Edit Deck"})
+
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                response.render("editDeck", { title : "Edit Deck"})
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
         }
     });
 

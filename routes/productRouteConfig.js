@@ -2,6 +2,7 @@ function productRouteConfig(app){
 
     this.app = app;
     this.routeTable = [];
+    this.redirectRoute = "/"
     this.init();
 };
 
@@ -38,7 +39,13 @@ productRouteConfig.prototype.addRoutes = function() {
         requestUrl : "/createProduct",
         callbackFunction: function(request, response){
 
-            response.render("createProduct", { title: "Create Product"});
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                response.render("createProduct", { title: "Create Product"});
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
         }
 
     });
@@ -48,13 +55,19 @@ productRouteConfig.prototype.addRoutes = function() {
         requestUrl : "/api/createProduct",
         callbackFunction: function(request, response){
 
-            var productDao = require("../server/dao/productDao.js");
 
-            productDao.productDao.createProductCategory(request.body, function(result){
-                
-                response.json(result);
-               
-            })
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                var productDao = require("../server/dao/productDao.js");
+
+                productDao.productDao.createProductCategory(request.body, function(result){
+
+                    response.json(result);
+
+                })
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
         }
 
     })
