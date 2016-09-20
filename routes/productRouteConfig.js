@@ -86,14 +86,18 @@ productRouteConfig.prototype.addRoutes = function() {
         requestType : "get",
         requestUrl : "/api/getAllProducts",
         callbackFunction: function(request, response){
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                var productDao = require("../server/dao/productDao.js");
 
-            var productDao = require("../server/dao/productDao.js");
+                productDao.productDao.getAllProducts( function(products){
 
-            productDao.productDao.getAllProducts( function(products){
+                    response.json(products);
+                    //console.log(products);
+                })
+            } else{
+                response.redirect(self.redirectRoute);
+            }
 
-                response.json(products);
-                //console.log(products);
-            })
         }
     });
 
