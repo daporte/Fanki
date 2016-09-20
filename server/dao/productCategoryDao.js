@@ -329,7 +329,7 @@ var productCategoryDao = {
     ,
     countDueCards : function(DeckId, UserId, CurrentTime, callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT COUNT(*) AS CardsLeft FROM bridge WHERE UserId = ? AND Timestamp + RepInterval < ? AND DeckId = ?";
+        var queryStatement = "SELECT COUNT(*) AS CardsLeft FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp + RepInterval) < ? AND DeckId = ?";
         if (connection){
             connection.query(queryStatement, [UserId, CurrentTime, DeckId], function(err, rows, fields){
                 if (err) {throw err;}
