@@ -99,7 +99,7 @@ loginRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/myDecks",
         callbackFunction : function(request, response){
             console.log("aaaaa")
-            req.app.get('bs');
+            request.app.get('bs');
             response.render("myDecks", { title : "My Decks"})
         }
 
