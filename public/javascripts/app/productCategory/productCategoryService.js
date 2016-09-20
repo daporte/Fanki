@@ -116,6 +116,15 @@ function productCategoryService($http, $location) {
             });
         }
         ,
+        getSoonCard : function (deckId, UserId, bias) {
+
+            return $http.post("/getSoonCard",  {
+                deckId : deckId,
+                UserId : UserId,
+                Bias : bias
+            });
+        }
+        ,
         addNewCard : function (deckId, UserId) {
             console.log("ADDING NEW CARD - service");
 

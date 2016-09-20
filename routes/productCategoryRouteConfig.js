@@ -425,6 +425,33 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
     self.routeTable.push({
         requestType : "post",
+        requestUrl : "/getSoonCard",
+        callbackFunction : function(request, response){
+
+
+
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
+            productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.UserId,
+                function (data) {
+
+                    if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] < new Date().getTime() + request.body.Bias){
+                        response.json(data[0]);
+                    } else {
+                        response.json({"status":"fail"});
+                    }
+
+                    console.log("im here ")
+                    console.log(data);
+
+                });
+        }
+    });
+
+
+
+    self.routeTable.push({
+        requestType : "post",
         requestUrl : "/getNextCard",
         callbackFunction : function(request, response){
             var productCategoryDao = require("../server/dao/productCategoryDao.js");

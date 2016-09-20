@@ -96,9 +96,20 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         console.log("GETTING CARD");
         productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function (nextCard) {
+                var hourInMili = 360000;
                 console.log(nextCard);
                 if(!nextCard){
-                    window.location.href = "/myDecks";
+                    productCategoryService.getSoonCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId, hourInMili)
+                        .success(function(data){
+                            if(data["status"] == "fail"){
+                                window.location.href = "/myDecks";
+                            } else {
+                                bindView(data);
+                            }
+                    });
+                    
+                    
+
                 } else{
                     bindView(nextCard);
                 }
@@ -109,6 +120,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
 
     }
+
 
 
 
