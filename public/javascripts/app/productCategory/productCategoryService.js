@@ -118,7 +118,7 @@ function productCategoryService($http, $location) {
         ,
         countCardsLeft : function(DeckId, UserId){
             return $http.post("/countCardsLeft",  {
-                deckId : deckId,
+                deckId : DeckId,
                 UserId : UserId
             });
         }
