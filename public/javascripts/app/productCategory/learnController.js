@@ -152,10 +152,10 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
     function computeRepInterval(rep, EF, lastinterval, q) {
         var repInterval;
-        var dayInSec = 86400;
+        var dayInSec = 86400000;
         //var dayInMs = 10000;
 
-        var tenMinInSec = 600;
+        var tenMinInSec = 600000;
         if(q === 0){
             return tenMinInSec;
         }
