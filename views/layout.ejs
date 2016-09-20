@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Oktavian | Efektivnější studium</title>
   <link href="../../stylesheets/bootstrap.min.css" rel="stylesheet"/>
   <link href="../../stylesheets/style.css" rel="stylesheet"/>
   <script src="../../javascripts/jquery.min.js"></script>
@@ -18,6 +18,21 @@
   <script src="../../javascripts/app/productCategory/productCategoryModule.js"></script>
   <script src="../../javascripts/app/productCategory/requiredFieldValidationService_Login.js"></script>
   <script src="../../javascripts/ngStorage.js"></script>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/57e08a83184cdc458d7875b2/default';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+
 </head>
 <body id="page-top">
 
@@ -205,7 +220,7 @@
             },
 
             auth: {
-              redirectUrl: 'http://fanki2.herokuapp.com/callback',
+              redirectUrl: 'http://oktavian.herokuapp.com/callback',
               responseType: 'code',
               params: {
                 scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
@@ -213,7 +228,7 @@
             },
           };
 
-          var lock = new Auth0Lock('wdoEMhtdDrkzvnyhyOSZrDwMUqnjtEdn', 'oktavian.eu.auth0.com', options);
+          var lock = new Auth0Lock('9KjKDpa6q2RGJNRl8xVFhZw1sokWetyQ', 'oktavian.eu.auth0.com', options);
         </script>
         <button onclick="lock.show();">Login</button>
         <li><a href="#jaktofunguje" class="page-scroll">Jak to funguje</a></li>
@@ -222,27 +237,27 @@
         <li><a href="#veda" class="page-scroll">Věda</a></li>
       </ul>
 
-      <div ng-show=$storage.Username !="">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$storage.Username}}<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <button
-                      type="button"
-                      class="btn btn primary"
-                      data-categoryId="{{productCategory.Id}}"
-                      data-ng-click="logout()">Log Out</button>
+      <ul class="nav navbar-nav navbar-right" ng-hide=$storage.Username !="">
+        <li><button type="button" class="btn btn-warning btn-md" onclick="lock.show();" style="margin-bottom: -7px">Studovat</button></li>
+      </ul>
 
-            </ul>
-          </li>
-        </ul>
-      </div>
 
       <ul class="nav navbar-nav navbar-right" ng-show=$storage.Username !="">
 
-        <li><a href="/myDecks">My Decks</a></li>
-        <li><a href="/chooseDecks">Choose Decks</a></li>
-        <li ng-show='$storage.Privilege == "admin"'><a href="/viewProductCategory">Edit Decks</a></li>
+        <li><a href="/myDecks">Studovat</a></li>
+        <li><a href="/chooseDecks">Témata</a></li>
+        <li ng-show='$storage.Privilege == "admin"'><a href="/viewProductCategory">Administrace</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$storage.Username}}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <button
+                    type="button"
+                    class="btn btn primary"
+                    data-categoryId="{{productCategory.Id}}"
+                    data-ng-click="logout()">Odhlásit se</button>
+
+          </ul>
+        </li>
       </ul>
 
     </div><!-- /.navbar-collapse -->
