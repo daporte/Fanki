@@ -481,8 +481,11 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
             productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.UserId,
                 function (data) {
-
-                    if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000 < new Date().getTime() + request.body.Bias * 1000){
+                    console.log(data);
+                    console.log(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000);
+                    console.log("<")
+                    console.log(new Date().getTime() + request.body.Bias * 1000)
+                    if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000 +7200000< new Date().getTime() + request.body.Bias * 1000){
                         response.json(data[0]);
                     } else {
                         response.json({"status":"fail"});
@@ -507,9 +510,14 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 function (data) {
 
                     console.log("CALLING BACK ROUTE");
+                    console.log(data)
 
+                    if(data[0]){
+                        console.log(new Date(data[0]["Timestamp"]).getTime());
+                        console.log(">")
+                        console.log(new Date().getTime())
 
-
+                    }
 
 
                     if(!data[0]) {
@@ -522,7 +530,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                                 response.json(newCards[0]);
 
                             })
-                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000 > new Date().getTime()){
+                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000 +7200000> new Date().getTime()){
 
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
                             function (newCards) {
@@ -534,7 +542,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
                             })
                     } else {
-
+                        console.log("Case 3");
                         response.json(data[0]);
                     }
 

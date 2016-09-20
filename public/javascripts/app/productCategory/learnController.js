@@ -102,8 +102,9 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
                 if(!nextCard){
                     productCategoryService.getSoonCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId, hourInsec)
                         .success(function(data){
+                            console.log(data);
                             if(data["status"] == "fail"){
-                                window.location.href = "/myDecks";
+                                //window.location.href = "/myDecks";
                             } else {
                                 bindView(data);
                             }
@@ -155,7 +156,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         var dayInSec = 86400;
         //var dayInMs = 10000;
 
-        var tenMinInSec = 600;
+        var tenMinInSec = 6;
         if(q === 0){
             return tenMinInSec;
         }
