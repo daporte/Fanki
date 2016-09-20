@@ -122,10 +122,10 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
     }
 
     function countDueCards(){
-        productCategoryService.countDueCards(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId, new Date().getTime())
+        productCategoryService.countDueCards(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function (data) {
                 console.log("COUNTED");
-                console.log(new Date().getTime());
+
                 console.log(data);
             });
     }
@@ -142,19 +142,19 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
     function computeRepInterval(rep, EF, lastinterval, q) {
         var repInterval;
-        var dayInMs = 86400000;
+        var dayInSec = 86400;
         //var dayInMs = 10000;
 
-        var tenMinInMs = 1;
+        var tenMinInSec = 600;
         if(q === 0){
             return tenMinInMs;
         }
 
         if (rep === 1) {
-            repInterval = dayInMs;
+            repInterval = dayInSec;
         }
         else if (rep === 2) {
-            repInterval = 4*dayInMs;
+            repInterval = 4*dayInSec;
         }
         else {
             repInterval = lastinterval*EF;

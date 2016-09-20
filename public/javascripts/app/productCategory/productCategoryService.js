@@ -116,11 +116,11 @@ function productCategoryService($http, $location) {
             });
         }
         ,
-        countDueCards : function(DeckId, UserId, CurrentTime){
+        countDueCards : function(DeckId, UserId){
             return $http.post("/countDueCards",  {
                 deckId : DeckId,
-                UserId : UserId,
-                CurrentTime : CurrentTime
+                UserId : UserId
+
             });
         }
         ,

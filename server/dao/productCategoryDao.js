@@ -327,13 +327,13 @@ var productCategoryDao = {
         }
     }
     ,
-    countDueCards : function(DeckId, UserId, CurrentTime, callback){
+    countDueCards : function(DeckId, UserId, callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         if(DeckId == "all"){
 
-            var queryStatement = "SELECT COUNT(*) AS CardsDue FROM bridge WHERE UserId = ? AND Timestamp + RepInterval < ?";
+            var queryStatement = "SELECT COUNT(*) AS DueCards FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) + RepInterval < UNIX_TIMESTAMP()";
             if (connection){
-                connection.query(queryStatement, [UserId, CurrentTime], function(err, rows, fields){
+                connection.query(queryStatement, [UserId], function(err, rows, fields){
                     if (err) {throw err;}
 
                     //console.log(rows);
@@ -345,9 +345,9 @@ var productCategoryDao = {
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
             }
         } else {
-            var queryStatement = "SELECT (UNIX_TIMESTAMP(Timestamp) * 1000) AS Time FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) * 1000 + RepInterval < ? AND DeckId = ? ";
+            var queryStatement = "SELECT COUNT(*) AS DueCards FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) + RepInterval < UNIX_TIMESTAMP() AND DeckId = ? ";
             if (connection){
-                connection.query(queryStatement, [UserId, CurrentTime, DeckId], function(err, rows, fields){
+                connection.query(queryStatement, [UserId, DeckId], function(err, rows, fields){
                     if (err) {throw err;}
 
                     //console.log(rows);
