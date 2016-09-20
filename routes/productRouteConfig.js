@@ -101,7 +101,15 @@ productRouteConfig.prototype.addRoutes = function() {
         requestType : "get",
         requestUrl : "/editProduct/:productId",
         callbackFunction : function(request, response){
-            response.render("editProduct", { title : "Edit Product"})
+
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                response.render("editProduct", { title : "Edit Product"})
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
+
         }
     });
 
@@ -126,13 +134,20 @@ productRouteConfig.prototype.addRoutes = function() {
         requestType : "post",
         requestUrl : "/updateProduct",
         callbackFunction : function(request, response){
-            var productDao = require("../server/dao/productDao.js");
-            productDao.productDao.updateProduct(request,
-                function (status) {
-                    console.log("im here ")
-                    //console.log(status);
-                    response.json(status);
-                });
+
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                var productDao = require("../server/dao/productDao.js");
+                productDao.productDao.updateProduct(request,
+                    function (status) {
+                        console.log("im here ")
+                        //console.log(status);
+                        response.json(status);
+                    });
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
 
         }
     });
@@ -156,7 +171,14 @@ productRouteConfig.prototype.addRoutes = function() {
         requestType : "get",
         requestUrl : "/editCard/:deckId/:productId",
         callbackFunction : function(request, response){
-            response.render("editCard", { title : "Edit Card"})
+
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                response.render("editCard", { title : "Edit Card"})
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
         }
     });
 
@@ -166,29 +188,35 @@ productRouteConfig.prototype.addRoutes = function() {
 
         callbackFunction : function(request, response){
 
-            console.log(request.params.cardId);
-            console.log("deleting in route")
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                console.log(request.params.cardId);
+                console.log("deleting in route")
 
-            var productDao = require("../server/dao/productDao.js");
-            
-            productDao.productDao.getDeckIdFromCard(request.params.cardId, function(result){
-                console.log("fetch id");
-                console.log(result);
-               
-                productDao.productDao.deleteCardById(request.params.cardId,
-                    function (result2) {
-                        
-                         productDao.productDao.deleteCardFromDeckTable(request.params.cardId, result, function(result3){
+                var productDao = require("../server/dao/productDao.js");
 
-                         })
-                         
-                        console.log("deleteResult")
-                        console.log(result2)
-                        response.json(result2);
+                productDao.productDao.getDeckIdFromCard(request.params.cardId, function(result){
+                    console.log("fetch id");
+                    console.log(result);
 
-                    });
-            })
-           
+                    productDao.productDao.deleteCardById(request.params.cardId,
+                        function (result2) {
+
+                            productDao.productDao.deleteCardFromDeckTable(request.params.cardId, result, function(result3){
+
+                            })
+
+                            console.log("deleteResult")
+                            console.log(result2)
+                            response.json(result2);
+
+                        });
+                })
+
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
                 
         }
     });
@@ -198,7 +226,13 @@ productRouteConfig.prototype.addRoutes = function() {
         requestUrl : "/createCard/:deckId",
         callbackFunction: function(request, response){
 
-            response.render("createCard", { title: "Create Card"});
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                response.render("createCard", { title: "Create Card"});
+            } else{
+                response.redirect(self.redirectRoute);
+            }
+
+
         }
 
     });
