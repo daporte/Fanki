@@ -18,8 +18,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
     console.log(lo);
     loginService.storage.aa = "gggggg";
 
-    
-
+   
 
 
 
