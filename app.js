@@ -74,7 +74,7 @@ app.get('/user', function (req, res) {
     console.log(req.user);
     console.log(req.user.nickname);
 
-    app.set('bs', { domain: req.user });
+    app.set('bs', req.user );
     res.render('userTemp', {
 
         user: req.user
