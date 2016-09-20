@@ -128,7 +128,7 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
         }
 
 
-        window.location.href = "https://daporte21.eu.auth0.com/v2/logout";
+        window.location.href = "https://oktavian.eu.auth0.com/v2/logout?returnTo=https://oktavian.herokuapp.com/";
        
     }
 
