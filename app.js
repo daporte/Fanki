@@ -37,7 +37,7 @@ app.get('/callback',
       }
 
 
-      res.redirect("/user");
+      res.redirect("/myDecks");
 
 
       //console.log(req.user)
