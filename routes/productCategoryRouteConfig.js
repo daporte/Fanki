@@ -179,9 +179,11 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/viewProductCategory",
         callbackFunction : function(request, response){
 
-
-            response.render("viewProductCategory", { title : "All Decks"})
-
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+                response.render("viewProductCategory", { title : "All Decks"})
+            } else{
+                response.redirect(self.redirectRoute);
+            }
 
 
         }
