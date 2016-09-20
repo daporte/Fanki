@@ -331,7 +331,7 @@ var productCategoryDao = {
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         if(DeckId == "all"){
 
-            var queryStatement = "SELECT COUNT(*) AS CardsDue FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp + RepInterval) < ?";
+            var queryStatement = "SELECT COUNT(*) AS CardsDue FROM bridge WHERE UserId = ? AND Timestamp + RepInterval < ?";
             if (connection){
                 connection.query(queryStatement, [UserId, CurrentTime], function(err, rows, fields){
                     if (err) {throw err;}
@@ -345,7 +345,7 @@ var productCategoryDao = {
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
             }
         } else {
-            var queryStatement = "SELECT COUNT(*) AS CardsDue FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp + RepInterval) < ? AND DeckId = ?";
+            var queryStatement = "SELECT (UNIX_TIMESTAMP(Timestamp) * 1000) AS Time FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) * 1000 + RepInterval < ? AND DeckId = ? ";
             if (connection){
                 connection.query(queryStatement, [UserId, CurrentTime, DeckId], function(err, rows, fields){
                     if (err) {throw err;}

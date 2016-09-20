@@ -125,6 +125,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         productCategoryService.countDueCards(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId, new Date().getTime())
             .success(function (data) {
                 console.log("COUNTED");
+                console.log(new Date().getTime());
                 console.log(data);
             });
     }
@@ -144,7 +145,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         var dayInMs = 86400000;
         //var dayInMs = 10000;
 
-        var tenMinInMs = 10;
+        var tenMinInMs = 1;
         if(q === 0){
             return tenMinInMs;
         }
