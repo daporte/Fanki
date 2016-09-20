@@ -100,6 +100,7 @@ loginRouteConfig.prototype.addRoutes = function () {
     self.routeTable.push({
         requestType : "get",
         requestUrl : "/myDecks",
+        requiresAdmin : true,
         callbackFunction : function(request, response){
             console.log("aaaaa")
 
