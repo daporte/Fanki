@@ -18,14 +18,17 @@ loginRouteConfig.prototype.processRoutes = function (){
     self.routeTable.forEach(function (route) {
 
         var requiresLogin = require('./requiresLogin.js');
-
-        if(route.requestType == "get"){
-            self.app.get(route.requestUrl, requiresLogin,route.callbackFunction);
-        } else if(route.requestType == "post"){
-            console.log("posting");
-            self.app.post(route.requestUrl, requiresLogin,route.callbackFunction);
-        } else if(route.requestType == "delete"){
-            self.app.delete(route.requestUrl, requiresLogin,route.callbackFunction);
+        if(route.requiresAdmin && request.app.get('bs')["_json"]["roles"][0]=="admin") {
+            if (route.requestType == "get") {
+                self.app.get(route.requestUrl, requiresLogin, route.callbackFunction);
+            } else if (route.requestType == "post") {
+                console.log("posting");
+                self.app.post(route.requestUrl, requiresLogin, route.callbackFunction);
+            } else if (route.requestType == "delete") {
+                self.app.delete(route.requestUrl, requiresLogin, route.callbackFunction);
+            }
+        } else {
+            self.app.get("/", function(){});
         }
     })
 }

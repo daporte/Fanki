@@ -45,12 +45,10 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/createProductCategory",
         callbackFunction : function(request, response){
-            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
 
-                response.render("createProductCategory", { title : "Create Deck"})
-            } else {
-                response.redirect("/")
-            }
+
+            response.render("createProductCategory", { title : "Create Deck"})
+
 
 
 
@@ -64,7 +62,6 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         callbackFunction : function(request, response){
             console.log(request.body);
 
-            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
 
                 var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
@@ -88,10 +85,6 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
 
                     });
-            } else {
-                response.redirect("/")
-            }
-
 
 
             }
@@ -108,6 +101,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                     //console.log(productCategories);
                     response.json({productCategories : productCategories});
                 });
+
         }
     });
 
@@ -172,13 +166,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/viewProductCategory",
         callbackFunction : function(request, response){
-            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
-
-                response.render("viewProductCategory", { title : "All Decks"})
-            } else {
-                response.redirect("/")
-            }
-
+            response.render("viewProductCategory", { title : "All Decks"})
         }
     });
 
@@ -187,13 +175,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/editProductCategory/:productCategoryId",
         callbackFunction : function(request, response){
-
-            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
-
-                response.render("editProductCategory", { title : "Edit Deck"})
-            } else {
-                response.redirect("/")
-            }
+            response.render("editProductCategory", { title : "Edit Deck"})
         }
     });
 
