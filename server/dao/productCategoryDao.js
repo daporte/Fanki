@@ -327,7 +327,7 @@ var productCategoryDao = {
         }
     }
     ,
-    countCardsLeft : function(DeckId, UserId, callback){
+    countDueCards : function(DeckId, UserId, callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         var queryStatement = "SELECT COUNT(*) AS CardsLeft FROM bridge WHERE UserId = ? AND Timestamp + RepInterval > 0 AND DeckId = ?";
         if (connection){

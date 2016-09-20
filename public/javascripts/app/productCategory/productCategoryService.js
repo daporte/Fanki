@@ -116,8 +116,8 @@ function productCategoryService($http, $location) {
             });
         }
         ,
-        countCardsLeft : function(DeckId, UserId){
-            return $http.post("/countCardsLeft",  {
+        countDueCards : function(DeckId, UserId){
+            return $http.post("/countDueCards",  {
                 deckId : DeckId,
                 UserId : UserId
             });

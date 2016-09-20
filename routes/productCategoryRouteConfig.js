@@ -405,14 +405,14 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
     self.routeTable.push({
         requestType : "post",
-        requestUrl : "/countCardsLeft",
+        requestUrl : "/countDueCards",
         callbackFunction : function(request, response){
 
 
 
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
-            productCategoryDao.productCategoryDao.countCardsLeft(request.body.deckId, request.body.UserId,
+            productCategoryDao.productCategoryDao.countDueCards(request.body.deckId, request.body.UserId,
                 function (data) {
 
 

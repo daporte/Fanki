@@ -8,7 +8,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
     $scope.Card={};
     setDefault();
 
-    countCardsLeft();
+    countDueCards();
 
     /*
     $scope.CardId = -1;
@@ -121,8 +121,8 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
     }
 
-    function countCardsLeft(){
-        productCategoryService.countCardsLeft(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
+    function countDueCards(){
+        productCategoryService.countDueCards(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function (data) {
                 console.log("COUNTED");
                 console.log(data);
