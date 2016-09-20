@@ -413,7 +413,29 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
 
-            productCategoryDao.productCategoryDao.countDueCards(request.body.deckId, request.body.UserId, 
+            productCategoryDao.productCategoryDao.countDueCards(request.body.deckId, request.body.UserId,
+                function (data) {
+
+
+
+                    console.log("im here ")
+                    console.log(data);
+                    response.json(data);
+                });
+        }
+    });
+
+    self.routeTable.push({
+        requestType : "post",
+        requestUrl : "/countDeckCards",
+        callbackFunction : function(request, response){
+
+
+
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
+
+            productCategoryDao.productCategoryDao.countDeckCards(request.body.DeckId,
                 function (data) {
 
 

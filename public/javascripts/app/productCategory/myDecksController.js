@@ -24,6 +24,8 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
 
             })
     }
+    
+    
 
     $scope.currentProductCategoryId = 0;
 
@@ -88,6 +90,8 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
 
 
     }
+    
+    
 
 
 };

@@ -327,6 +327,28 @@ var productCategoryDao = {
         }
     }
     ,
+    countDeckCards : function(DeckId, callback){
+        console.log("in dao m7");
+
+        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+
+        var queryStatement = "SELECT COUNT(*) AS CardsInDeck FROM Cards WHERE Decks_FK = ?";
+   
+        console.log(queryStatement)
+        if (connection){
+            connection.query(queryStatement, DeckId, function(err, rows, fields){
+                if (err) {throw err;}
+
+                //console.log(rows);
+                console.log("zzzzzaaa");
+                console.log(rows);
+                callback(rows);
+            });
+
+            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+        }
+    }
+    ,
     countDueCards : function(DeckId, UserId, callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         if(DeckId == "all"){

@@ -9,6 +9,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
     setDefault();
 
     countDueCards();
+    countDeckCards();
 
     /*
     $scope.CardId = -1;
@@ -119,6 +120,15 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
             });
 
 
+    }
+
+    function countDeckCards(){
+        productCategoryService.countDeckCards(productCategoryService.getIdFromEndPoint())
+            .success(function (data) {
+                console.log("COUNTED DECK CARDS");
+
+                console.log(data);
+            });
     }
 
     function countDueCards(){
