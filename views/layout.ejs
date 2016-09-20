@@ -242,7 +242,7 @@
 
         <li><a href="/myDecks">My Decks</a></li>
         <li><a href="/chooseDecks">Choose Decks</a></li>
-        <li><a href="/viewProductCategory">Edit Decks</a></li>
+        <li ng-show='$storage.Privilege == "admin"'><a href="/viewProductCategory">Edit Decks</a></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->
