@@ -100,12 +100,13 @@ loginRouteConfig.prototype.addRoutes = function () {
         callbackFunction : function(request, response){
             console.log("aaaaa")
             if(! request.app.get('bs')["_json"]["roles"][0]=="admin"){
-
+                
+                response.render("myDecks", { title : "My Decks"})
+            } else {
                 response.redirect("/")
-                return;
             }
 
-            response.render("myDecks", { title : "My Decks"})
+
 
 
 
