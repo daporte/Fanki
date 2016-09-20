@@ -97,10 +97,10 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         console.log("GETTING CARD");
         productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function (nextCard) {
-                var hourInMili = 3600000;
+                var hourInsec = 3600;
                 console.log(nextCard);
                 if(!nextCard){
-                    productCategoryService.getSoonCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId, hourInMili)
+                    productCategoryService.getSoonCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId, hourInsec)
                         .success(function(data){
                             if(data["status"] == "fail"){
                                 window.location.href = "/myDecks";
@@ -152,10 +152,10 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
     function computeRepInterval(rep, EF, lastinterval, q) {
         var repInterval;
-        var dayInSec = 86400000;
+        var dayInSec = 86400;
         //var dayInMs = 10000;
 
-        var tenMinInSec = 600000;
+        var tenMinInSec = 600;
         if(q === 0){
             return tenMinInSec;
         }

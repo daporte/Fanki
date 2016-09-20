@@ -480,7 +480,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
             productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.UserId,
                 function (data) {
 
-                    if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] < new Date().getTime() + request.body.Bias){
+                    if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000 < new Date().getTime() + request.body.Bias){
                         response.json(data[0]);
                     } else {
                         response.json({"status":"fail"});
@@ -520,7 +520,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                                 response.json(newCards[0]);
 
                             })
-                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] > new Date().getTime()){
+                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000 > new Date().getTime()){
 
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
                             function (newCards) {
@@ -532,11 +532,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
                             })
                     } else {
-                        console.log(data[0]["RepInterval"]);
-                        console.log(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"]);
-                        console.log(">");
 
-                        console.log("Case 3");
                         response.json(data[0]);
                     }
 
