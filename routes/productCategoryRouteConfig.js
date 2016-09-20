@@ -108,7 +108,6 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                     //console.log(productCategories);
                     response.json({productCategories : productCategories});
                 });
-
         }
     });
 
@@ -173,7 +172,13 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/viewProductCategory",
         callbackFunction : function(request, response){
-            response.render("viewProductCategory", { title : "All Decks"})
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+
+                response.render("viewProductCategory", { title : "All Decks"})
+            } else {
+                response.redirect("/")
+            }
+
         }
     });
 
@@ -182,7 +187,13 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/editProductCategory/:productCategoryId",
         callbackFunction : function(request, response){
-            response.render("editProductCategory", { title : "Edit Deck"})
+
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+
+                response.render("editProductCategory", { title : "Edit Deck"})
+            } else {
+                response.redirect("/")
+            }
         }
     });
 
