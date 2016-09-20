@@ -45,8 +45,13 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/createProductCategory",
         callbackFunction : function(request, response){
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
 
                 response.render("createProductCategory", { title : "Create Deck"})
+            } else {
+                response.redirect("/")
+            }
+
 
 
         }
@@ -59,6 +64,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         callbackFunction : function(request, response){
             console.log(request.body);
 
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
 
                 var productCategoryDao = require("../server/dao/productCategoryDao.js");
 
@@ -82,6 +88,10 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
 
                     });
+            } else {
+                response.redirect("/")
+            }
+
 
 
             }
@@ -106,7 +116,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/getHierarchy",
         callbackFunction : function(request, response){
-            
+
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
             productCategoryDao.productCategoryDao.getHierarchy(
                 function (hierarchy) {
