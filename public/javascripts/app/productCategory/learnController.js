@@ -122,7 +122,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
     }
 
     function countDueCards(){
-        productCategoryService.countDueCards(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
+        productCategoryService.countDueCards(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId, new Date().getTime())
             .success(function (data) {
                 console.log("COUNTED");
                 console.log(data);

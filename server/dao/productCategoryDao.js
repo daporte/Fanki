@@ -327,11 +327,11 @@ var productCategoryDao = {
         }
     }
     ,
-    countDueCards : function(DeckId, UserId, callback){
+    countDueCards : function(DeckId, UserId, CurrentTime, callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT COUNT(*) AS CardsLeft FROM bridge WHERE UserId = ? AND Timestamp + RepInterval > 0 AND DeckId = ?";
+        var queryStatement = "SELECT COUNT(*) AS CardsLeft FROM bridge WHERE UserId = ? AND Timestamp + RepInterval > ? AND DeckId = ?";
         if (connection){
-            connection.query(queryStatement, [UserId,DeckId], function(err, rows, fields){
+            connection.query(queryStatement, [UserId, CurrentTime, DeckId], function(err, rows, fields){
                 if (err) {throw err;}
 
                 //console.log(rows);
