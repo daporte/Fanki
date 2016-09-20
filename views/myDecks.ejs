@@ -1,13 +1,5 @@
 <% include layout.ejs%>
 
-<script>
-    var userNickname = '<%= user.nickname %>';
-    var userId = '<%= user.id %>';
-    var privilege = '<%= user._json.roles %>';
-    console.log("USER DATA")
-
-</script>
-
 <div data-ng-app="productCategoryModule"
      data-ng-controller="myDecksController">
 
@@ -59,15 +51,6 @@
 </div>
 
 </div>
-
-
-
-<script src="../../javascripts/app/productCategory/loginModule.js"></script>
-<script src="../../javascripts/app/productCategory/loginController.js"></script>
-<script src="../../javascripts/app/productCategory/loginService.js"></script>
-<script src="../../javascripts/app/productCategory/requiredFieldValidationService_Login.js"></script>
-<script src="../../javascripts/app/productCategory/layoutController.js"></script>
-
 
 
 <script src="../../javascripts/app/productCategory/productCategoryService.js"></script>
