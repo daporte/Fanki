@@ -309,11 +309,12 @@ var productCategoryDao = {
         console.log("in dao m7");
         
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        var queryStatement = "SELECT * FROM userDecks INNER JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
+        "SELECT *, (select COUNT(*) from posts) AS total"
+        var queryStatement = "SELECT *, (SELECT COUNT(*) FROM bridge WHERE UserId = ? AND Timestamp + RepInterval > 0) AS cardsLeft FROM userDecks INNER JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
         console.log(UserId)
         console.log(queryStatement)
         if (connection){
-            connection.query(queryStatement, UserId, function(err, rows, fields){
+            connection.query(queryStatement, [UserId,UserId], function(err, rows, fields){
                 if (err) {throw err;}
 
                 //console.log(rows);
