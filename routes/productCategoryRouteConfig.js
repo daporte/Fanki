@@ -512,7 +512,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                         console.log(data[0]["RepInterval"]);
                         console.log(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"]);
                         console.log(">");
-                        console.log(new Date().getTime() + dayInMs);
+
                         console.log("Case 3");
                         response.json(data[0]);
                     }

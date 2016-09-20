@@ -144,7 +144,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         var dayInMs = 86400000;
         //var dayInMs = 10000;
 
-        var tenMinInMs = 600000;
+        var tenMinInMs = 10;
         if(q === 0){
             return tenMinInMs;
         }
