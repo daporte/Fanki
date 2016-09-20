@@ -157,7 +157,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
         var tenMinInSec = 600;
         if(q === 0){
-            return tenMinInMs;
+            return tenMinInSec;
         }
 
         if (rep === 1) {
