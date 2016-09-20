@@ -1,5 +1,6 @@
-function loginRouteConfig(app) {
+function loginRouteConfig(app, bs) {
     this.app = app;
+    this.BS = bs;
     this.routeTable = [];
     this.init();
 }
@@ -97,6 +98,8 @@ loginRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/myDecks",
         callbackFunction : function(request, response){
+            console.log("aaaaa")
+            console.log(self.BS.nickname);
             response.render("myDecks", { title : "My Decks"})
         }
 

@@ -100,8 +100,8 @@ var productRoute = require("./routes/productRouteConfig.js");
 var loginRoute = require("./routes/loginRouteConfig.js");
 
 new productCategoryRoute(app, BS);
-new productRoute(app);
-new loginRoute(app);
+new productRoute(app, BS);
+new loginRoute(app, BS);
 
 
 // catch 404 and forward to error handler
