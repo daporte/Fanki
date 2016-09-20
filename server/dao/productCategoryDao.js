@@ -307,12 +307,13 @@ var productCategoryDao = {
     
     getAllUserDecks : function(UserId, callback){
         console.log("in dao m7");
-        
+
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
 
         var queryStatement = "SELECT * FROM userDecks INNER JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
         console.log(UserId)
         console.log(queryStatement)
+
         if (connection){
             connection.query(queryStatement, [UserId,UserId], function(err, rows, fields){
                 if (err) {throw err;}
@@ -320,11 +321,28 @@ var productCategoryDao = {
                 //console.log(rows);
                 console.log("zzzzzaaa");
                 console.log(rows);
-                callback(rows);
+
+                //callback(rows);
+                var result = {"Decks" : rows};
+
+                var queryStatement2 = "SELECT bridge.DeckId, COUNT(*) AS DueCards FROM bridge WHERE UserId = ? GROUP BY bridge.DeckId";
+                connection.query(queryStatement2, UserId, function(err, rows2, fields){
+                    if (err) {throw err;}
+
+                    //console.log(rows);
+                    console.log("zzzzzaaa");
+                    console.log(rows2);
+                    result["DueCards"] = rows2;
+                    callback(result);
+                });
             });
 
-            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+
+
+            //connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
         }
+
+
     }
     ,
     countDeckCards : function(DeckId, callback){
@@ -333,7 +351,7 @@ var productCategoryDao = {
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
 
         var queryStatement = "SELECT COUNT(*) AS CardsInDeck FROM Cards WHERE Decks_FK = ?";
-   
+
         console.log(queryStatement)
         if (connection){
             connection.query(queryStatement, DeckId, function(err, rows, fields){

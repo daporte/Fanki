@@ -371,6 +371,8 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
             productCategoryDao.productCategoryDao.getAllUserDecks(request.params.UserId,
                 function (productCategories) {
                     console.log("PROPERTIES")
+                    
+                    
 
                     response.json(productCategories);
                     /*

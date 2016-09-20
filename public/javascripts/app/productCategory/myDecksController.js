@@ -18,14 +18,32 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
                 console.log(data);
                 console.log(data.productCategories);
 
-                $scope.productCategories = data;
+
+
+
+
+                for(var i=0;i<data["Decks"].length;i++){
+
+
+                    console.log("xx");
+
+
+                    data["Decks"][i]["DueCards"] = data["DueCards"][i]["DueCards"];
+
+
+                }
+
+                console.log(data);
+                $scope.productCategories = data["Decks"];
+
+
                 console.log("CCCCCCCCCCCCCCCc");
 
 
             })
     }
-    
-    
+
+    console.log($scope.productCategories);
 
     $scope.currentProductCategoryId = 0;
 
