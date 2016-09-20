@@ -309,8 +309,8 @@ var productCategoryDao = {
         console.log("in dao m7");
         
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-        "SELECT *, (select COUNT(*) from posts) AS total"
-        var queryStatement = "SELECT *, (SELECT COUNT(*) FROM bridge WHERE UserId = ? AND Timestamp + RepInterval > 0) AS cardsLeft FROM userDecks INNER JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
+
+        var queryStatement = "SELECT * FROM userDecks INNER JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
         console.log(UserId)
         console.log(queryStatement)
         if (connection){
@@ -325,6 +325,24 @@ var productCategoryDao = {
 
             connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
         }
+    }
+    ,
+    countCardsLeft : function(DeckId, UserId, callback){
+        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+        var queryStatement = "SELECT COUNT(*) AS CardsLeft FROM bridge WHERE UserId = ? AND Timestamp + RepInterval > 0 AND DeckId = ?";
+        if (connection){
+            connection.query(queryStatement, [UserId,DeckId], function(err, rows, fields){
+                if (err) {throw err;}
+
+                //console.log(rows);
+                console.log("zzzzzaaa");
+                console.log(rows);
+                callback(rows);
+            });
+
+            connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+        }
+
     }
     ,
     getUserDeckInfo : function(UserId, callback){
