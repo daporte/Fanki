@@ -315,7 +315,7 @@ var productCategoryDao = {
         console.log(queryStatement)
 
         if (connection){
-            connection.query(queryStatement, [UserId,UserId], function(err, rows, fields){
+            connection.query(queryStatement, UserId, function(err, rows, fields){
                 if (err) {throw err;}
 
                 //console.log(rows);
@@ -325,7 +325,7 @@ var productCategoryDao = {
                 //callback(rows);
                 var result = {"Decks" : rows};
 
-                var queryStatement2 = "SELECT bridge.DeckId, COUNT(*) AS DueCards FROM bridge WHERE UserId = ? GROUP BY bridge.DeckId";
+                var queryStatement2 = "SELECT bridge.DeckId, COUNT(*) AS DueCards FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) + RepInterval < UNIX_TIMESTAMP() GROUP BY bridge.DeckId";
                 connection.query(queryStatement2, UserId, function(err, rows2, fields){
                     if (err) {throw err;}
 
@@ -334,7 +334,7 @@ var productCategoryDao = {
                     console.log(rows2);
                     result["DueCards"] = rows2;
                     callback(result);
-                    
+
                     connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
                 });
             });

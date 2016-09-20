@@ -482,7 +482,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
             productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.UserId,
                 function (data) {
 
-                    if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000 < new Date().getTime() + request.body.Bias){
+                    if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000 < new Date().getTime() + request.body.Bias * 1000){
                         response.json(data[0]);
                     } else {
                         response.json({"status":"fail"});
