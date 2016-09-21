@@ -305,7 +305,7 @@ var productCategoryDao = {
     
     ,
     
-    getAllUserDecks : function(UserId, callback){
+    getAllUserDecks : function(UserId, callback) {
         console.log("in dao m7");
 
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
@@ -314,37 +314,52 @@ var productCategoryDao = {
         console.log(UserId)
         console.log(queryStatement)
 
-        if (connection){
-            connection.query(queryStatement, [UserId], function(err, rows, fields){
-                if (err) {throw err;}
+        if (connection) {
+            connection.query(queryStatement, [UserId], function (err, rows, fields) {
+                if (err) {
+                    throw err;
+                }
 
                 //console.log(rows);
                 console.log("zzzzzaaa");
                 console.log(rows);
 
                 //callback(rows);
-                var result = {"Decks" : rows};
+                var result = {"Decks": rows};
 
                 var queryStatement2 = "SELECT bridge.DeckId, COUNT(*) AS DueCards FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) + RepInterval < UNIX_TIMESTAMP() GROUP BY bridge.DeckId";
-                connection.query(queryStatement2, UserId, function(err, rows2, fields){
-                    if (err) {throw err;}
+                connection.query(queryStatement2, UserId, function (err, rows2, fields) {
+                    if (err) {
+                        throw err;
+                    }
 
                     //console.log(rows);
                     console.log("zzzzzaaa");
                     console.log(rows2);
                     result["DueCards"] = rows2;
-                    callback(result);
 
-                    connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+
+                    var queryStatement3 = "SELECT Decks_FK, (COUNT(*) - learnedCount) AS CardsLeft FROM Cards LEFT JOIN (SELECT COUNT(*) AS learnedCount, DeckId FROM bridge WHERE UserId = ? GROUP BY DeckId) sub ON Cards.Decks_FK = sub.DeckId GROUP BY Decks_FK";
+                    connection.query(queryStatement3, UserId, function (err, rows3, fields) {
+                        if (err) {
+                            throw err;
+                        }
+
+                        //console.log(rows);
+                        console.log("zzzzzaaa");
+                        console.log(rows3);
+                        result["CardsLeft"] = rows3;
+                        callback(result);
+
+                        connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+                    });
                 });
-            });
 
 
+            })
 
 
         }
-
-
     }
     ,
     countDeckCards : function(DeckId, callback){

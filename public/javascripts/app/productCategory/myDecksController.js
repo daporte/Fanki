@@ -19,9 +19,36 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
                 console.log(data.productCategories);
 
 
+                var leftMap = {};
+                var dueMap = {};
 
 
 
+                for(var i=0;i<data["CardsLeft"].length;i++) {
+                    var id = data["CardsLeft"][i]["Decks_FK"];
+                    var value = data["CardsLeft"][i]["CardsLeft"];
+                    leftMap[id] = value;
+                }
+
+                for(var i=0;i<data["DueCards"].length;i++) {
+                    var id = data["DueCards"][i]["DeckId"];
+                    var value = data["DueCards"][i]["DueCards"];
+                    dueMap[id] = value;
+                }
+
+                console.log(leftMap);
+                console.log(dueMap);
+
+                for(var i=0;i<data["Decks"].length;i++){
+
+                    console.log("xx");
+                    var id = data["Decks"][i]["DeckId"];
+
+                    data["Decks"][i]["CardsLeft"] = leftMap[id] ? leftMap[id] : 0;
+                    data["Decks"][i]["DueCards"] = dueMap[id] ? dueMap[id] : 0;
+                    console.log(data["Decks"][i]);
+                }
+/*
                 for(var i=0;i<data["Decks"].length;i++){
 
 
@@ -34,9 +61,17 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
                         data["Decks"][i]["DueCards"] = 0;
                     }
 
+                    if(data["DueCards"][["Decks"][i]["DeckId"]]){
+                        data["Decks"][i]["DueCards"] = data["DueCards"][i]["DueCards"];
+                    } else {
+                        data["Decks"][i]["DueCards"] = 0;
+                    }
+
 
 
                 }
+
+                */
 
                 console.log(data);
                 $scope.productCategories = data["Decks"];

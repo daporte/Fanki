@@ -375,30 +375,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                     
 
                     response.json(productCategories);
-                    /*
-                    var activeDecks = [];
-                    for (var property in productCategories[0]) {
-                        if (productCategories[0].hasOwnProperty(property)) {
-                            if (productCategories[0][property] == 1){
-                                console.log(property);
-                                activeDecks.push(property.split("_")[1])
-                            }
-                        }
-                    }
-                    console.log(activeDecks);
-                    var inClause = "("
-                    for (var i = 0; i < activeDecks.length; i++) {
-                        inClause += (activeDecks[i]);
-                        inClause += ","
-                    }
-                    inClause = inClause.slice(0, -1);
-                    inClause += ")"
-                    console.log(inClause)
-
-                    productCategoryDao.productCategoryDao.getDeckInfo(inClause, function(resultDecks) {
-                        response.json(resultDecks);
-                    });
-                    */
+                    
                 });
 
         }
