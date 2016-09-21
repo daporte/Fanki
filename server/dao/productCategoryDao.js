@@ -326,8 +326,8 @@ var productCategoryDao = {
 
                 //callback(rows);
                 var result = {"Decks": rows};
-
-                var queryStatement2 = "SELECT bridge.DeckId, COUNT(*) AS DueCards FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) + RepInterval < UNIX_TIMESTAMP() GROUP BY bridge.DeckId";
+                // BIAS HARDCODED ---------------------------ALERT ALERT ALERT
+                var queryStatement2 = "SELECT bridge.DeckId, COUNT(*) AS DueCards FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) + RepInterval < UNIX_TIMESTAMP() + 3600 GROUP BY bridge.DeckId";
                 connection.query(queryStatement2, UserId, function (err, rows2, fields) {
                     if (err) {
                         throw err;
