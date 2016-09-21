@@ -104,7 +104,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
                         .success(function(data){
                             console.log(data);
                             if(data["status"] == "fail"){
-                                //window.location.href = "/myDecks";
+                                window.location.href = "/myDecks";
                             } else {
                                 bindView(data);
                             }
