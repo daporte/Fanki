@@ -176,7 +176,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
     function setDefault() {
         $scope.Card.CardId = -1;
-        $scope.Card.FrontSide = "NO MORE";
+        $scope.Card.FrontSide = "";
         $scope.Card.BackSide = "";
         $scope.Card.DeckId = -1;
         $scope.Card.EF = 2.5;
