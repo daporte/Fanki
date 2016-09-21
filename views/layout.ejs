@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>Oktavian | Efektivnější studium</title>
+  <title>Oktavian | Efektivnější studium medicíny</title>
   <link href="../../stylesheets/bootstrap.min.css" rel="stylesheet"/>
   <link href="../../stylesheets/style.css" rel="stylesheet"/>
   <script src="../../javascripts/jquery.min.js"></script>
@@ -30,6 +30,10 @@
       s1.setAttribute('crossorigin','*');
       s0.parentNode.insertBefore(s1,s0);
     })();
+    Tawk_API.visitor = {
+      name  : $("[ng-controller='MainFormCtrl']").scope($storage.Username),
+      email : 'email@email.comss'
+    };
   </script>
   <!--End of Tawk.to Script-->
 
