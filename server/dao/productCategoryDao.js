@@ -339,7 +339,7 @@ var productCategoryDao = {
                     result["DueCards"] = rows2;
 
 
-                    var queryStatement3 = "SELECT Decks_FK, (COUNT(*) - learnedCount) AS CardsLeft FROM Cards LEFT JOIN (SELECT COUNT(*) AS learnedCount, DeckId FROM bridge WHERE UserId = ? GROUP BY DeckId) sub ON Cards.Decks_FK = sub.DeckId GROUP BY Decks_FK";
+                    var queryStatement3 = "SELECT Decks_FK, (COUNT(*) - IFNULL(learnedCount,0)) AS CardsLeft FROM Cards LEFT JOIN (SELECT COUNT(*) AS learnedCount, DeckId FROM bridge WHERE UserId = ? GROUP BY DeckId) sub ON Cards.Decks_FK = sub.DeckId GROUP BY Decks_FK";
                     connection.query(queryStatement3, UserId, function (err, rows3, fields) {
                         if (err) {
                             throw err;
