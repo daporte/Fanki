@@ -65,7 +65,7 @@
                     }*/
 
         $(function () {
-            $("#imagefield").val(imageData[0].url);
+            $("#imagefield").val(imageData[0].url).trigger('input');
 /*            $('#imagefield').replaceWith('<textarea
             class="form-control"
             placeholder="Literature"
