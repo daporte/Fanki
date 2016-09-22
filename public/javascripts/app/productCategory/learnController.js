@@ -8,7 +8,8 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
     $scope.Card={};
     setDefault();
 
-
+    countDueCards();
+    countDeckCards();
 
     /*
     $scope.CardId = -1;
@@ -96,9 +97,21 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         console.log("GETTING CARD");
         productCategoryService.getNextCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function (nextCard) {
+                var hourInsec = 3600;
                 console.log(nextCard);
                 if(!nextCard){
-                    window.location.href = "/myDecks";
+                    productCategoryService.getSoonCard(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId, hourInsec)
+                        .success(function(data){
+                            console.log(data);
+                            if(data["status"] == "fail"){
+                                window.location.href = "/myDecks";
+                            } else {
+                                bindView(data);
+                            }
+                    });
+                    
+                    
+
                 } else{
                     bindView(nextCard);
                 }
@@ -108,6 +121,24 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
             });
 
 
+    }
+
+    function countDeckCards(){
+        productCategoryService.countDeckCards(productCategoryService.getIdFromEndPoint())
+            .success(function (data) {
+                console.log("COUNTED DECK CARDS");
+
+                console.log(data);
+            });
+    }
+
+    function countDueCards(){
+        productCategoryService.countDueCards(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
+            .success(function (data) {
+                console.log("COUNTED");
+
+                console.log(data);
+            });
     }
 
 
@@ -122,19 +153,19 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
     function computeRepInterval(rep, EF, lastinterval, q) {
         var repInterval;
-        var dayInMs = 86400000;
+        var dayInSec = 86400;
         //var dayInMs = 10000;
 
-        var tenMinInMs = 600000;
+        var tenMinInSec = 6;
         if(q === 0){
-            return tenMinInMs;
+            return tenMinInSec;
         }
 
         if (rep === 1) {
-            repInterval = dayInMs;
+            repInterval = dayInSec;
         }
         else if (rep === 2) {
-            repInterval = 4*dayInMs;
+            repInterval = 4*dayInSec;
         }
         else {
             repInterval = lastinterval*EF;
@@ -145,7 +176,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
     function setDefault() {
         $scope.Card.CardId = -1;
-        $scope.Card.FrontSide = "NO MORE";
+        $scope.Card.FrontSide = "";
         $scope.Card.BackSide = "";
         $scope.Card.DeckId = -1;
         $scope.Card.EF = 2.5;

@@ -25,12 +25,12 @@ productCategoryRouteConfig.prototype.processRoutes = function (){
     self.routeTable.forEach(function (route) {
 
         if(route.requestType == "get"){
-            self.app.get(route.requestUrl, requiresLogin, route.callbackFunction);
+            self.app.get(route.requestUrl,  route.callbackFunction);
         } else if(route.requestType == "post"){
             console.log("posting");
-            self.app.post(route.requestUrl, requiresLogin,route.callbackFunction);
+            self.app.post(route.requestUrl, route.callbackFunction);
         } else if(route.requestType == "delete"){
-            self.app.delete(route.requestUrl, requiresLogin, route.callbackFunction);
+            self.app.delete(route.requestUrl,  route.callbackFunction);
         }
     })
 }
@@ -371,34 +371,58 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
             productCategoryDao.productCategoryDao.getAllUserDecks(request.params.UserId,
                 function (productCategories) {
                     console.log("PROPERTIES")
+                    
+                    
 
                     response.json(productCategories);
-                    /*
-                    var activeDecks = [];
-                    for (var property in productCategories[0]) {
-                        if (productCategories[0].hasOwnProperty(property)) {
-                            if (productCategories[0][property] == 1){
-                                console.log(property);
-                                activeDecks.push(property.split("_")[1])
-                            }
-                        }
-                    }
-                    console.log(activeDecks);
-                    var inClause = "("
-                    for (var i = 0; i < activeDecks.length; i++) {
-                        inClause += (activeDecks[i]);
-                        inClause += ","
-                    }
-                    inClause = inClause.slice(0, -1);
-                    inClause += ")"
-                    console.log(inClause)
-
-                    productCategoryDao.productCategoryDao.getDeckInfo(inClause, function(resultDecks) {
-                        response.json(resultDecks);
-                    });
-                    */
+                    
                 });
 
+        }
+    });
+
+
+    self.routeTable.push({
+        requestType : "post",
+        requestUrl : "/countDueCards",
+        callbackFunction : function(request, response){
+
+
+
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
+
+            productCategoryDao.productCategoryDao.countDueCards(request.body.deckId, request.body.UserId,
+                function (data) {
+
+
+
+                    console.log("im here ")
+                    console.log(data);
+                    response.json(data);
+                });
+        }
+    });
+
+    self.routeTable.push({
+        requestType : "post",
+        requestUrl : "/countDeckCards",
+        callbackFunction : function(request, response){
+
+
+
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
+
+            productCategoryDao.productCategoryDao.countDeckCards(request.body.DeckId,
+                function (data) {
+
+
+
+                    console.log("im here ")
+                    console.log(data);
+                    response.json(data);
+                });
         }
     });
 
@@ -425,6 +449,36 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
     self.routeTable.push({
         requestType : "post",
+        requestUrl : "/getSoonCard",
+        callbackFunction : function(request, response){
+
+
+
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
+            productCategoryDao.productCategoryDao.getCardsFromDeck(request.body.deckId, request.body.UserId,
+                function (data) {
+                    console.log(data);
+                    console.log(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000);
+                    console.log("<")
+                    console.log(new Date().getTime() + request.body.Bias * 1000)
+                    if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000 +7200000< new Date().getTime() + request.body.Bias * 1000){
+                        response.json(data[0]);
+                    } else {
+                        response.json({"status":"fail"});
+                    }
+
+                    console.log("im here ")
+                    console.log(data);
+
+                });
+        }
+    });
+
+
+
+    self.routeTable.push({
+        requestType : "post",
         requestUrl : "/getNextCard",
         callbackFunction : function(request, response){
             var productCategoryDao = require("../server/dao/productCategoryDao.js");
@@ -433,9 +487,14 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 function (data) {
 
                     console.log("CALLING BACK ROUTE");
-                    var dayInMs = 86410000;
+                    console.log(data)
 
+                    if(data[0]){
+                        console.log(new Date(data[0]["Timestamp"]).getTime());
+                        console.log(">")
+                        console.log(new Date().getTime())
 
+                    }
 
 
                     if(!data[0]) {
@@ -448,7 +507,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                                 response.json(newCards[0]);
 
                             })
-                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] > new Date().getTime() + dayInMs){
+                    } else if(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"] * 1000 +7200000> new Date().getTime()){
 
                         productCategoryDao.productCategoryDao.addNewCard(request.body.deckId, request.body.UserId,
                             function (newCards) {
@@ -460,10 +519,6 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
                             })
                     } else {
-                        console.log(data[0]["RepInterval"]);
-                        console.log(new Date(data[0]["Timestamp"]).getTime() + data[0]["RepInterval"]);
-                        console.log(">");
-                        console.log(new Date().getTime() + dayInMs);
                         console.log("Case 3");
                         response.json(data[0]);
                     }

@@ -116,6 +116,31 @@ function productCategoryService($http, $location) {
             });
         }
         ,
+        countDueCards : function(DeckId, UserId){
+            return $http.post("/countDueCards",  {
+                deckId : DeckId,
+                UserId : UserId
+
+            });
+        }
+        ,
+        countDeckCards : function(DeckId){
+            return $http.post("/countDeckCards",  {
+                DeckId : DeckId,
+
+
+            });
+        }
+        ,
+        getSoonCard : function (deckId, UserId, bias) {
+
+            return $http.post("/getSoonCard",  {
+                deckId : deckId,
+                UserId : UserId,
+                Bias : bias
+            });
+        }
+        ,
         addNewCard : function (deckId, UserId) {
             console.log("ADDING NEW CARD - service");
 

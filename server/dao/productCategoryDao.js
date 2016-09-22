@@ -305,15 +305,73 @@ var productCategoryDao = {
     
     ,
     
-    getAllUserDecks : function(UserId, callback){
+    getAllUserDecks : function(UserId, callback) {
         console.log("in dao m7");
-        
+
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+
         var queryStatement = "SELECT * FROM userDecks INNER JOIN Decks ON userDecks.DeckId = Decks.Id WHERE UserId = ?";
         console.log(UserId)
         console.log(queryStatement)
+
+        if (connection) {
+            connection.query(queryStatement, [UserId], function (err, rows, fields) {
+                if (err) {
+                    throw err;
+                }
+
+                //console.log(rows);
+                console.log("zzzzzaaa");
+                console.log(rows);
+
+                //callback(rows);
+                var result = {"Decks": rows};
+                // BIAS HARDCODED ---------------------------ALERT ALERT ALERT
+                var queryStatement2 = "SELECT bridge.DeckId, COUNT(*) AS DueCards FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) + RepInterval < UNIX_TIMESTAMP() + 3600 GROUP BY bridge.DeckId";
+                connection.query(queryStatement2, UserId, function (err, rows2, fields) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    //console.log(rows);
+                    console.log("zzzzzaaa");
+                    console.log(rows2);
+                    result["DueCards"] = rows2;
+
+
+                    var queryStatement3 = "SELECT Decks_FK, (COUNT(*) - IFNULL(learnedCount,0)) AS CardsLeft FROM Cards LEFT JOIN (SELECT COUNT(*) AS learnedCount, DeckId FROM bridge WHERE UserId = ? GROUP BY DeckId) sub ON Cards.Decks_FK = sub.DeckId GROUP BY Decks_FK";
+                    connection.query(queryStatement3, UserId, function (err, rows3, fields) {
+                        if (err) {
+                            throw err;
+                        }
+
+                        //console.log(rows);
+                        console.log("zzzzzaaa");
+                        console.log(rows3);
+                        result["CardsLeft"] = rows3;
+                        callback(result);
+
+                        connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+                    });
+                });
+
+
+            })
+
+
+        }
+    }
+    ,
+    countDeckCards : function(DeckId, callback){
+        console.log("in dao m7");
+
+        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+
+        var queryStatement = "SELECT COUNT(*) AS CardsInDeck FROM Cards WHERE Decks_FK = ?";
+
+        console.log(queryStatement)
         if (connection){
-            connection.query(queryStatement, UserId, function(err, rows, fields){
+            connection.query(queryStatement, DeckId, function(err, rows, fields){
                 if (err) {throw err;}
 
                 //console.log(rows);
@@ -324,6 +382,42 @@ var productCategoryDao = {
 
             connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
         }
+    }
+    ,
+    countDueCards : function(DeckId, UserId, callback){
+        var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
+        if(DeckId == "all"){
+
+            var queryStatement = "SELECT COUNT(*) AS DueCards FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) + RepInterval < UNIX_TIMESTAMP()";
+            if (connection){
+                connection.query(queryStatement, [UserId], function(err, rows, fields){
+                    if (err) {throw err;}
+
+                    //console.log(rows);
+                    console.log("zzzzzaaa");
+                    console.log(rows);
+                    callback(rows);
+                });
+
+                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+            }
+        } else {
+            var queryStatement = "SELECT COUNT(*) AS DueCards FROM bridge WHERE UserId = ? AND UNIX_TIMESTAMP(Timestamp) + RepInterval < UNIX_TIMESTAMP() AND DeckId = ? ";
+            if (connection){
+                connection.query(queryStatement, [UserId, DeckId], function(err, rows, fields){
+                    if (err) {throw err;}
+
+                    //console.log(rows);
+                    console.log("zzzzzaaa");
+                    console.log(rows);
+                    callback(rows);
+                });
+
+                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+            }
+        }
+
+
     }
     ,
     getUserDeckInfo : function(UserId, callback){
@@ -548,69 +642,80 @@ var productCategoryDao = {
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         console.log("Dao hi");
         console.log(request.body);
+        var setGlobal = "SET @@time_zone = '+2:00';"
 
-        if(!(request.body.TotalReps) || request.body.TotalReps == 1){
-            console.log("inserting");
-            var queryStatement = "INSERT INTO bridge SET?";
-            if (connection){
-                connection.query(queryStatement, request.body, function(err, rows, fields){
-                    if (err) {throw err;}
+        if (connection) {
 
+            connection.query(setGlobal, function (err, rows, fields) {
+                if (err) {
+                    throw err;
+                }
 
-                    console.log("zzzzz");
-                    console.log(rows)
-                    callback(rows);
-                });
+                if (!(request.body.TotalReps) || request.body.TotalReps == 1) {
+                    console.log("inserting");
+                    var queryStatement = "INSERT INTO bridge SET?";
 
-                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
-            }
-
-        } else {
-            console.log("updating");
-            var queryLog = "INSERT INTO Logs (UserId, CardId, DeckId, Timestamp, Reps, TotalReps, EF, RepInterval)" +
-                " (SELECT UserId, CardId, DeckId, Timestamp, Reps, TotalReps, EF, RepInterval FROM bridge WHERE UserId = ? AND CardId = ?)";
+                    connection.query(queryStatement, request.body, function (err, rows, fields) {
+                        if (err) {
+                            throw err;
+                        }
 
 
+                        console.log("zzzzz");
+                        console.log(rows)
+                        callback(rows);
+                    });
 
-            if (connection){
-                connection.query(queryLog, [request.body.UserId, request.body.CardId], function(err, rows, fields) {
-                    if (err) {
-                        throw err;
+                    connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+                    //connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+
+
+                } else {
+                    console.log("updating");
+                    var queryLog = "INSERT INTO Logs (UserId, CardId, DeckId, Timestamp, Reps, TotalReps, EF, RepInterval)" +
+                        " (SELECT UserId, CardId, DeckId, Timestamp, Reps, TotalReps, EF, RepInterval FROM bridge WHERE UserId = ? AND CardId = ?)";
+
+
+                    connection.query(queryLog, [request.body.UserId, request.body.CardId], function (err, rows, fields) {
+                        if (err) {
+                            throw err;
+                        }
+
+
+                        console.log("zzzzz");
+                        console.log(rows)
+
+                        //callback(rows);
+
+
+                    });
+
+                    //connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+
+                    console.log("updateQuery");
+                    var queryUpdate = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
+
+
+                    connection.query(queryUpdate, [request.body, request.body.UserId, request.body.CardId], function (err, rows, fields) {
+                        if (err) {
+                            throw err;
+                        }
+
+
+                        console.log("updateData");
+                        console.log(rows)
+
+                        callback(rows);
+
+                        connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
+                    });
+
+
                     }
 
+            })
 
-                    console.log("zzzzz");
-                    console.log(rows)
-
-                    //callback(rows);
-
-
-                });
-
-                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
-            }
-            console.log("updateQuery");
-            var queryUpdate = "UPDATE bridge SET? WHERE UserId = ? AND CardId = ?";
-            var connection2 = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
-            if (connection2){
-                connection2.query(queryUpdate, [request.body, request.body.UserId, request.body.CardId], function(err, rows, fields) {
-                    if (err) {
-                        throw err;
-                    }
-
-
-                    console.log("updateData");
-                    console.log(rows)
-
-                    callback(rows);
-
-
-                });
-
-                connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection2);
-            }
         }
-
 
     }
     ,
