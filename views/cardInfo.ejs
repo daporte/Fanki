@@ -47,6 +47,18 @@
     </div>
 </div>
 <br>
+
+<a href="#" id="upload_widget_opener">Upload multiple images</a>
+
+<script type="text/javascript">
+    document.getElementById("upload_widget_opener").addEventListener("click", function() {
+
+        cloudinary.openUploadWidget({ cloud_name: 'oktavian', upload_preset: 'ak1tyhm6'},
+                function(error, result) { console.log(error, result) });
+
+    }, false);
+</script>
+
 <div class="row">
     <div class="form-group">
         <label for="productDetails">Image</label>
