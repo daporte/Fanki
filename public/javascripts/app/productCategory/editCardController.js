@@ -105,7 +105,6 @@ function editCardController($scope, $timeout, productService, requiredFieldValid
         } else {
 
             $scope.validationResult.containsValidationError = false;
-            $scope.$apply();
             productService.updateProduct($scope.product, productService.getIdFromEndPoint())
                 .success(function (data) {
                     if (data && data.status && data.status == "successful") {
