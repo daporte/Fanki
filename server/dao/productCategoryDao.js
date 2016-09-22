@@ -588,7 +588,7 @@ var productCategoryDao = {
                 var queryStatement = " SELECT CategoryId, CategoryName, SuperCategory, GROUP_CONCAT(CONCAT('{\"Id\":\"', Decks.Id, '\", \"DeckName\":\"', DeckName, '\", \"Description\" : \"',Description, " +
                     "'\" , \"AddedBy\" : \"', AddedBy, '\", \"IsValid\" : \"', IsValid, '\", \"CreatedDate\" : \"', CreatedDate, '\", \"ModifiedDate\" : \"', IFNULL(ModifiedDate, 'NULL'), '\", \"CategoryName\" : \"', IFNULL(CategoryName, 'NULL'), '\"," +
                     "\"CategoryId\" : \"', IFNULL(CategoryId, 'NULL'), '\"}') SEPARATOR '|') as DeckList " +
-                    " FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY CategoryId, CategoryName, SuperCategory;"
+                    " FROM Decks LEFT JOIN Categories ON Decks.CategoryId = Categories.Id GROUP BY CategoryId, CategoryName, SuperCategory ORDER BY CategoryId DESC;"
 
 
                 if (connection){
