@@ -60,6 +60,16 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         }
     });
 
+    self.routeTable.push({
+        requestType : "get",
+        requestUrl : "/dokumentace",
+        callbackFunction : function(request, response){
+
+            response.render("dokumentace", {})
+
+
+        }
+    });
 
     self.routeTable.push({
         requestType : "post",
