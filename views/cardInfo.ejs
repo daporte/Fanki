@@ -58,6 +58,9 @@
             console.log(error, result);
                     var imageData = result;
                     console.log(imageData);
+                    for(var key in result) {
+                        console.log("key:" + key + element);
+                    }
 
         $(function () {
             $("#imagefield").val(imageData.url);
