@@ -66,6 +66,16 @@
 
         $(function () {
             $("#imagefield").val(imageData[0].url);
+            $('#imagefield').replaceWith('<textarea
+            class="form-control"
+            placeholder="Literature"
+            rows="2"
+            cols="30"
+            ng-model="product.Literature"
+            style="width:100%"
+            required>
+            imageData[0].url
+            </textarea>');
         });
                 })
     }, false);
