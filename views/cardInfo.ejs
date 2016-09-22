@@ -56,11 +56,11 @@
         cloudinary.openUploadWidget({ cloud_name: 'oktavian', upload_preset: 'ak1tyhm6'},
                 function(error, result) {
             console.log(error, result);
-                    console.log(result.url);
-                    console.log(result.Object.url);
-                    console.log(Object.url);
+                    var imageData = result;
+                    console.log(imageData);
+
         $(function () {
-            $("#imagefield").val(result.url);
+            $("#imagefield").val(imageData.url);
         });
                 })
     }, false);
