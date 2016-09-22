@@ -54,8 +54,11 @@
     document.getElementById("upload_widget_opener").addEventListener("click", function() {
 
         cloudinary.openUploadWidget({ cloud_name: 'oktavian', upload_preset: 'ak1tyhm6'},
-                function(error, result) { console.log(error, result) });
-
+                function(error, result) { console.log(error, result) ;
+        $(function () {
+            $("#imagefield").val(result);
+        });
+                })
     }, false);
 </script>
 
@@ -71,7 +74,8 @@
                              ng-model="product.Image"
 
                              style="width:100%"
-                             required>
+                             required
+                             id="imagefield">
 
 
              </textarea>
