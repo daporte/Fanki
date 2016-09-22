@@ -34,23 +34,27 @@
 
                     <td>Back Side</td>
                     <td>Image</td>
-                    <td>Is Active</td>
+                    <td>Tag</td>
+                    <td>Literature</td>
+                    <td>Wikipedia</td>
+                    <td>Wikiskripta</td>
+                    <td>ExtraLink</td>
 
                     <td>Added By</td>
-                    <td>Created Date</td>
-                    <td>Modified Date</td>
+
                     <td>Actions</td>
                 </tr>
                 <tr data-ng-repeat="product in products">
                     <td>{{product.FrontSide}}</td>
 
                     <td>{{product.PartialDescription}} ...</td>
-                    <td><img src="{{product.Image}}"></td>
-                    <td>{{product.IsValid}}</td>
-
+                    <td><img src="{{product.Image}}" style="max-height: 200px; max-width: 200px;"></td>
+                    <td><strong>{{product.Tag}}</strong></td>
+                    <td>{{product.Literature}}</td>
+                    <td>{{product.Wikipedia}}</td>
+                    <td>{{product.Wikiskripta}}</td>
+                    <td>{{product.ExtraLink}}</td>
                     <td>{{product.AddedBy}}</td>
-                    <td>{{product.CreatedDate}}</td>
-                    <td>{{product.ModifiedDate}}</td>
 
 
 
