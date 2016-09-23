@@ -1,7 +1,8 @@
 <% include layout.ejs%>
 
 <div data-ng-app="productCategoryModule"
-     data-ng-controller="myDecksController">
+     data-ng-controller="myDecksController"
+     ng-cloak>
 
 <div class="container text-center padding-top-lg">
     <a href="/learn/all" class="btn btn-info btn-lg" role="button">Studovat vše</a>
@@ -26,9 +27,6 @@
                 <td>
                     {{productCategory.CardsLeft}}
                 </td>
-                <td ng-init="cardsTotal = productCategory.DueCards + productCategory.CardsLeft; Total = Total + cardsTotal">
-                    {{cardsTotal}}
-                </td>
                 <td>
                     <a href="/learn/{{productCategory.Id}}" class="btn btn-info" role="button" style="margin-left: -80px">Studovat</a>
 
@@ -36,8 +34,6 @@
             </tr>
         </table>
     </div>
-<div class="container">Total: {{Total}}</div>
-    <div>Total: {{ getTotal() }}</div>
     <div>Totalnew: {{totalCardsDue}}</div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
