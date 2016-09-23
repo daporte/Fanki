@@ -26,6 +26,9 @@
                 <td>
                     {{productCategory.CardsLeft}}
                 </td>
+                <td ng-init="cardsTotal = productCategory.DueCards + productCategory.CardsLeft; controller.Total = controller.Total + cardsTotal">
+                    {{cardsTotal}}
+                </td>
                 <td>
                     <a href="/learn/{{productCategory.Id}}" class="btn btn-info" role="button" style="margin-left: -80px">Studovat</a>
 
@@ -33,7 +36,7 @@
             </tr>
         </table>
     </div>
-
+<div class="container">Total: {{ controller.Total }}</div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
