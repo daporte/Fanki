@@ -6,6 +6,15 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
 
     $scope.Total=0;
 
+    $scope.getTotal = function(){
+        var total = 0;
+        for(var i = 0; i < $scope.productCategories.length; i++){
+            var product = $scope.productCategories[i];
+            total += (productCategory.DueCards + productCategory.CardsLeft);
+        }
+        return total;
+    }
+
     $scope.productCategories = [];
     console.log(loginService.storage);
 
