@@ -4,8 +4,7 @@ myDecksController.$inject = ["$scope", "$timeout", "productCategoryService", "lo
 
 function myDecksController($scope, $timeout, productCategoryService, loginService){
 
-    var vm=this;
-    vm.Total=0;
+    $scope.Total=0;
 
     $scope.productCategories = [];
     console.log(loginService.storage);
