@@ -21,7 +21,7 @@
 
                     <div ng-show="currentTopic == Category.Topic">
 
-                        <table class="table table-hover" style="margin-left:75px;margin-top:5px">
+                        <table class="table table-hover" style="margin-left:75px;margin-top:5px;table-layout: fixed">
                             <tr  ng-show="checkCat" ng-repeat="Deck in Category.Decks" ng-class="{'success':check}">
                                 <td style="width:5%"><input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-init="check = $storage.decks[Deck.Id][0]==1" ng-attr-id="{{getSuperCategory(Category)}}"></td>
                                 <td style="width:70%">{{Deck.DeckName}}</td>
