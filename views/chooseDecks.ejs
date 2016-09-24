@@ -20,6 +20,15 @@
                     </div>
 
                     <div ng-show="currentTopic == Category.Topic">
+                        <table class="table table-hover">
+                            <tr  ng-show="checkCat" ng-repeat="Deck in Category.Decks" ng-class="{'success':check}">
+                                <td><input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-init="check = $storage.decks[Deck.Id][0]==1" ng-attr-id="{{getSuperCategory(Category)}}"></td>
+                                <td>{{Deck.DeckName}}</td>
+                                <td ng-show="check" ng-attr-id="{{getSuperCategory(Category)}}">Přidat detaily</td>
+                                <td ng-show="check" ng-attr-id="{{getSuperCategory(Category)}}"><input type="checkbox" ng-model="checkDet" ng-click="addDetails(Deck, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1" ng-attr-id="{{getSuperCategory(Category)}}"></td>
+                            </tr>
+                        </table>
+
                         <ul style="list-style-type:none; margin-left: 60px; padding: 10px" ng-show="checkCat" ng-repeat="Deck in Category.Decks">
                             <li>
                             <input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-init="check = $storage.decks[Deck.Id][0]==1" ng-attr-id="{{getSuperCategory(Category)}}">
