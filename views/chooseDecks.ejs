@@ -25,8 +25,8 @@
                             <tr  ng-show="checkCat" ng-repeat="Deck in Category.Decks" ng-class="{'success':check}">
                                 <td style="width:15px"><input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-init="check = $storage.decks[Deck.Id][0]==1" ng-attr-id="{{getSuperCategory(Category)}}"></td>
                                 <td style="width:340px">{{Deck.DeckName}}</td>
-                                <td style="width:80px" ng-show="check" ng-attr-id="{{getSuperCategory(Category)}}">Přidat detaily</td>
-                                <td style="width:15px" ng-show="check" ng-attr-id="{{getSuperCategory(Category)}}"><input type="checkbox" ng-model="checkDet" ng-click="addDetails(Deck, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1" ng-attr-id="{{getSuperCategory(Category)}}"></td>
+                                <td style="width:80px" ng-if="check" ng-attr-id="{{getSuperCategory(Category)}}">Přidat detaily</td>
+                                <td style="width:15px" ng-if="check" ng-attr-id="{{getSuperCategory(Category)}}"><input type="checkbox" ng-model="checkDet" ng-click="addDetails(Deck, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1" ng-attr-id="{{getSuperCategory(Category)}}"></td>
                             </tr>
                         </table>
 
