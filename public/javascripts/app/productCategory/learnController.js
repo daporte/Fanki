@@ -56,7 +56,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         var TotalReps = $scope.Card.TotalReps + 1;
         var Reps = $scope.Card.Reps;
         if (q == 0) {
-            Reps=1;
+            Reps=0;
         }
         else {
             Reps++;
