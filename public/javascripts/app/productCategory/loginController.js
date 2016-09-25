@@ -109,6 +109,15 @@ function loginController($scope, $http, $timeout, loginService, requiredFieldVal
 
     }
 
+    $scope.logoLink = function () {
+        if (loginService.storage.Username == "") {
+            return "#page-top";
+        }
+        else {
+            return "/user";
+        }
+
+    }
 
     $scope.logout = function () {
         loginService.storage.Username = "";
