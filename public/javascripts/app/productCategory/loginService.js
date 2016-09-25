@@ -33,11 +33,11 @@ function loginService($http, $location, $localStorage) {
         }
         ,
         storage : $localStorage.$default({
-            Username : "",
+            Username : "DEFAULT",
             decks : {},
             Categories : {},
-            UserId : "",
-            Privilege: "",
+            UserId : "auth0|57e02a361cc9858c1eb8bda3",
+            Privilege: "admin",
             aa:""
         })
 
