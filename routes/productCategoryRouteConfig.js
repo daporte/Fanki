@@ -302,6 +302,8 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         }
     });
 
+    
+
     self.routeTable.push({
         requestType : "post",
         requestUrl : "/addDeckToUser",
