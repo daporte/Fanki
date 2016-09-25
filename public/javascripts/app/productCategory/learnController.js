@@ -56,7 +56,11 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         var TotalReps = $scope.Card.TotalReps + 1;
         var Reps = $scope.Card.Reps;
         if (q == 0) {
-            Reps=1;
+            Reps=0;
+        }
+        else if (q == 6) {
+            Reps++;
+            Reps++;
         }
         else {
             Reps++;
@@ -156,7 +160,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         var dayInSec = 86400;
         //var dayInMs = 10000;
 
-        var tenMinInSec = 6;
+        var tenMinInSec = 600;
         if(q === 0){
             return tenMinInSec;
         }

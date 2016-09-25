@@ -20,14 +20,15 @@
                     </div>
 
                     <div ng-show="currentTopic == Category.Topic">
-                        <ul style="list-style-type:none; margin-left: 60px; padding: 10px" ng-show="checkCat" ng-repeat="Deck in Category.Decks">
-                            <li>
-                            <input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-init="check = $storage.decks[Deck.Id][0]==1" ng-attr-id="{{getSuperCategory(Category)}}">
-                            <span>{{Deck.DeckName}}</span>
-                            <input type="checkbox" ng-show="check" ng-model="checkDet" ng-click="addDetails(Deck, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1" ng-attr-id="{{getSuperCategory(Category)}}">
-                            <span ng-show="check"  ng-attr-id="{{getSuperCategory(Category)}}">Details</span>
-                            </li>
-                        </ul>
+
+                        <table class="table table-hover" style="margin-left:75px;margin-top:5px;table-layout: fixed">
+                            <tr  ng-show="checkCat" ng-repeat="Deck in Category.Decks" ng-class="{'success':check}">
+                                <td style="width:15px"><input type="checkbox" ng-model="check" ng-click="addDeck(Deck, Category, check)" ng-init="check = $storage.decks[Deck.Id][0]==1" ng-attr-id="{{getSuperCategory(Category)}}"></td>
+                                <td style="width:340px">{{Deck.DeckName}}</td>
+                                <td style="width:80px" ng-if="check" ng-attr-id="{{getSuperCategory(Category)}}">Přidat detaily</td>
+                                <td style="width:15px" ng-if="check" ng-attr-id="{{getSuperCategory(Category)}}"><input type="checkbox" ng-model="checkDet" ng-click="addDetails(Deck, checkDet)" ng-checked="$storage.decks[Deck.Id][1]==1" ng-attr-id="{{getSuperCategory(Category)}}"></td>
+                            </tr>
+                        </table>
 
                         <ul ng-hide="!$parent.checkCat" ng-repeat="Category in Category.SubCategories" ng-include ="'field_renderer.html'"></ul>
                     </div>
@@ -57,7 +58,19 @@
                         <a ng-click="SelectedTopic='Histologie'" ng-init="SelectedTopic=0" href="">Histologie</a>
                     </li>
                     <li>
+                        <a ng-click="SelectedTopic='Embryologie'" ng-init="SelectedTopic=0" href="">Embryologie</a>
+                    </li>
+                    <li>
                         <a ng-click="SelectedTopic='Fyziologie'" ng-init="SelectedTopic=0" href="">Fyziologie</a>
+                    </li>
+                    <li>
+                        <a ng-click="SelectedTopic='Biochemie'" ng-init="SelectedTopic=0" href="">Biochemie</a>
+                    </li>
+                    <li>
+                        <a ng-click="SelectedTopic='Cytologie'" ng-init="SelectedTopic=0" href="">Cytologie</a>
+                    </li>
+                    <li>
+                        <a ng-click="SelectedTopic='Latina'" ng-init="SelectedTopic=0" href="">Latina</a>
                     </li>
                 </ul>
             </div>
@@ -66,6 +79,14 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="alert alert-danger">
+                            <h3>Oktavián je v testovací verzi!</h3>
+                            <p>Pokud je téma označeno jako nerevidované, může se jeho obsah radikálně měnit.</p>
+                        </div>
+
+                    </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <li style="list-style-type:none" ng-repeat="Category in Hierarchy.SubCategories | filter:{ Topic: SelectedTopic }" ng-include="'field_renderer.html'"></li>

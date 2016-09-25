@@ -4,6 +4,10 @@ myDecksController.$inject = ["$scope", "$timeout", "productCategoryService", "lo
 
 function myDecksController($scope, $timeout, productCategoryService, loginService){
 
+    $scope.Total=0;
+
+
+
     $scope.productCategories = [];
     console.log(loginService.storage);
 
@@ -48,7 +52,13 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
                     data["Decks"][i]["DueCards"] = dueMap[id] ? dueMap[id] : 0;
                     console.log(data["Decks"][i]);
                 }
-/*
+
+                $scope.totalCardsDue = 0;
+                for(var i=0;i<data["Decks"].length;i++){
+                    $scope.totalCardsDue = $scope.totalCardsDue + data["Decks"][i]["CardsLeft"] + data["Decks"][i]["DueCards"];
+                }
+
+                /*
                 for(var i=0;i<data["Decks"].length;i++){
 
 
@@ -75,8 +85,14 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
 
                 console.log(data);
                 $scope.productCategories = data["Decks"];
-
-
+                console.log($scope.productCategories);
+                if($scope.productCategories.length==0) {
+                    $scope.showNoDecksModal = true;
+                }
+                else {
+                    $scope.showNoDecksModal = false;
+                }
+                console.log($scope.showNoDecksModal);
                 console.log("CCCCCCCCCCCCCCCc");
 
 
@@ -116,10 +132,6 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
             window.location.href = "/viewProductCategory";
         }
     };
-
-
-
-
 
     $scope.productDetailsView = {
         DeckName : "",

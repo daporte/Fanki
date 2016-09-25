@@ -453,6 +453,8 @@ ol li:nth-child(2n+0):before {
 
 .img-jaktofunguje {
 	height:250px; width: 250px; margin: 0 auto; border-radius:10px; padding-top:20px; padding-bottom:20px;
+    border-style: solid;
+    border-width: 4px;
 }
 
 #footer {
@@ -952,4 +954,11 @@ fieldset[disabled] .btn-primary.active {
     padding-bottom: 35px;
 }
 
-body { padding-top: 55px;  }
+body { padding-top: 50px;  }
+
+.img-dokumentace {
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 10px;
+    margin: 35px;
+}

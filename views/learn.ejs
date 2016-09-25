@@ -4,7 +4,8 @@
 <div class="container"
      data-ng-cloak
      data-ng-modules="productCategoryModule, productModule"
-     data-ng-controller="learnController">
+     data-ng-controller="learnController"
+     style="padding-bottom: 55px">
 
     <div class="container padding-top-lg">
             <div class="card-text"
@@ -64,7 +65,7 @@
             </a>
             <a target="_blank" href="{{Card.Wikipedia}}">
             <li ng-show="Card.ExtraLink"> <img width="32" height="32" title="" alt="" src="http://res.cloudinary.com/oktavian/image/upload/v1473885871/source_images/external.png" />
-                <a target="_blank" href="{{Card.ExtraLink}}">Externí zdroj</a>
+                <a target="_blank" href="{{Card.ExtraLink}}">Zdroj</a>
             </li>
             </a>
         </ul>
@@ -120,13 +121,7 @@
 
 </div>
 
-
-<script type="text/javascript">$(document).keyup(function(e) {
-        if (e.keyCode == 27) {
-            alert('Esc key pressed!');
-        }
-    });</script>
     <script src="../../javascripts/app/productCategory/learnController.js"></script>
     <script src="../../javascripts/app/productCategory/productCategoryService.js"></script>
     <script src="../../javascripts/app/productCategory/productService.js"></script>
-<script src="../../javascripts/keystrokes.js"></script>
+    <script src="../../javascripts/keystrokes.js"></script>

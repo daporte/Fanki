@@ -47,6 +47,40 @@
     </div>
 </div>
 <br>
+
+<a href="#" id="upload_widget_opener">Upload image</a>
+
+<script type="text/javascript">
+    document.getElementById("upload_widget_opener").addEventListener("click", function() {
+
+        cloudinary.openUploadWidget({ cloud_name: 'oktavian', upload_preset: 'ak1tyhm6'},
+                function(error, result) {
+            console.log(error, result);
+                    var imageData = result;
+                    console.log(imageData);
+                    console.log(imageData[0]);
+                    console.log(imageData[0].url);
+                    /*                    for(var key in result) {
+                        console.log("key:" + key + element);
+                    }*/
+
+        $(function () {
+            $("#imagefield").val(imageData[0].url).trigger('input');
+/*            $('#imagefield').replaceWith('<textarea
+            class="form-control"
+            placeholder="Literature"
+            rows="2"
+            cols="30"
+            ng-model="product.Literature"
+            style="width:100%"
+            required>
+            imageData[0].url
+            </textarea>');*/
+        });
+                })
+    }, false);
+</script>
+
 <div class="row">
     <div class="form-group">
         <label for="productDetails">Image</label>
@@ -59,7 +93,8 @@
                              ng-model="product.Image"
 
                              style="width:100%"
-                             required>
+                             required
+                             id="imagefield">
 
 
              </textarea>
