@@ -953,3 +953,10 @@ fieldset[disabled] .btn-primary.active {
 }
 
 body { padding-top: 50px;  }
+
+.img-dokumentace {
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 20px;
+}
