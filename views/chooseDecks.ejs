@@ -80,6 +80,14 @@
             <div id="page-content-wrapper">
                 <div class="container-fluid">
                     <div class="row">
+
+                        <div class="alert alert-danger">
+                            <h3>Oktavián je v testovací verzi!</h3>
+                            <p>Pokud je téma označeno jako nerevidované, může se jeho obsah radikálně měnit.</p>
+                        </div>
+
+                    </div>
+                    <div class="row">
                         <div class="col-lg-12">
                             <li style="list-style-type:none" ng-repeat="Category in Hierarchy.SubCategories | filter:{ Topic: SelectedTopic }" ng-include="'field_renderer.html'"></li>
                         </div>
