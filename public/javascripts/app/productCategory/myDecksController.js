@@ -85,7 +85,7 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
 
                 console.log(data);
                 $scope.productCategories = data["Decks"];
-
+                console.log($scope.productCategories);
 
                 console.log("CCCCCCCCCCCCCCCc");
 
