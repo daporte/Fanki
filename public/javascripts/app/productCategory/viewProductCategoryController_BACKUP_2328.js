@@ -33,10 +33,7 @@ function viewProductCategoryController($scope, $timeout, productCategoryService,
 
         if(currentCat["SubCategories"]){
             var SubCategoryIds = currentCat["SubCategories"].split("|");
-<<<<<<< HEAD
-=======
 
->>>>>>> 3bf630fa48d9a667222f5eb37b68075b9ba5bfdd
             SubCategoryIds.sort();
             for(var i=0;i<SubCategoryIds.length;i++){
 
