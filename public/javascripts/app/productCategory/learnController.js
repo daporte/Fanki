@@ -58,6 +58,10 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
         if (q == 0) {
             Reps=0;
         }
+        else if (q == 6) {
+            Reps++;
+            Reps++;
+        }
         else {
             Reps++;
         }
