@@ -86,7 +86,13 @@ function myDecksController($scope, $timeout, productCategoryService, loginServic
                 console.log(data);
                 $scope.productCategories = data["Decks"];
                 console.log($scope.productCategories);
-
+                if($scope.productCategories.length==0) {
+                    $scope.showNoDecksModal = true;
+                }
+                else {
+                    $scope.showNoDecksModal = false;
+                }
+                console.log($scope.showNoDecksModal);
                 console.log("CCCCCCCCCCCCCCCc");
 
 
