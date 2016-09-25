@@ -14,9 +14,6 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                     <h4 class="modal-title">Nemáte aktivována žádná témata</h4>
                 </div>
                 <div class="modal-body">
@@ -24,7 +21,6 @@
                     <p>Pokud si nejste jistí, jak všechno funguje, podívejte se na <a href="/dokumentace">dokumentaci</a></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" ng-click="!showNoDecksModal">Zavřít</button>
                     <a type="button" class="btn btn-primary" href="/dokumentace">Dokumentace</a>
                 </div>
             </div><!-- /.modal-content -->
@@ -32,6 +28,12 @@
     </div><!-- /.modal -->
 
 
+    <div class="container text-center padding-top-lg">
+
+        <h3 ng-show="totalCardsDue==0">Hotovo! Gratulujeme</h3>
+        <h3>Dnes máte {{totalCardsDue}} konceptů k opakování</h3>
+
+    </div>
 
 <div class="container text-center padding-top-lg">
     <a href="/learn/all" class="btn btn-info btn-lg" role="button">Studovat vše</a>
@@ -41,11 +43,19 @@
     <div class="container  padding-top-lg">
 
         <h2 style="padding-bottom: 20px">Studovat jednotlivá témata</h2>
+
         <table
                 data-ng-show="productCategories.length > 0"
                 class="table table-striped table-hover padding-top-lg"
         >
-
+            <thead>
+            <tr>
+                <th>Téma</th>
+                <th>Koncepty k opakování</th>
+                <th>Nové koncepty</th>
+            </tr>
+            </thead>
+            <tbody>
             <tr data-ng-repeat="productCategory in productCategories">
                 <td>
                     {{productCategory.DeckName}}
@@ -61,28 +71,9 @@
 
                 </td>
             </tr>
+            </tbody>
         </table>
     </div>
-    <div>Totalnew: {{totalCardsDue}}</div>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
-                    <h4 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this card?</h4>
-                </div>
-                <div class="modal-body">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" data-ng-click="deleteCard()">Delete Card</button>
-                </div>
-                <div class="modal-footer">
-
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 </div>
 
