@@ -10,6 +10,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
     countDueCards();
     countDeckCards();
+    countRemainingCards();
 
     /*
     $scope.CardId = -1;
