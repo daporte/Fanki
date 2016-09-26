@@ -420,7 +420,7 @@ var productCategoryDao = {
 
     }
     ,
-    countRemainingCards : function(DeckId, UserId, callback){
+    countActiveCards : function(DeckId, UserId, callback){
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         if(DeckId == "all"){
 

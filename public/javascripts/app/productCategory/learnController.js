@@ -10,7 +10,7 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
 
     countDueCards();
     countDeckCards();
-    countRemainingCards();
+    countActiveCards();
 
     /*
     $scope.CardId = -1;
@@ -146,10 +146,10 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
             });
     }
 
-    function countRemainingCards(){
-        productCategoryService.countRemainingCards(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
+    function countActiveCards(){
+        productCategoryService.countActiveCards(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
             .success(function (data) {
-                console.log("REMAINING");
+                console.log("ACTIVE");
 
                 console.log(data);
             });
