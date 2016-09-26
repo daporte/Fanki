@@ -132,6 +132,14 @@ function productCategoryService($http, $location) {
             });
         }
         ,
+        countRemainingCards : function(DeckId){
+            return $http.post("/countRemainingCards",  {
+                DeckId : DeckId,
+                UserId : UserId
+
+            });
+        }
+        ,
         getSoonCard : function (deckId, UserId, bias) {
 
             return $http.post("/getSoonCard",  {

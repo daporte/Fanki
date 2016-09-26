@@ -145,6 +145,14 @@ function learnController($scope, $sce, $timeout, loginService, productCategorySe
             });
     }
 
+    function countRemainingCards(){
+        productCategoryService.countRemainingCards(productCategoryService.getIdFromEndPoint(), loginService.storage.UserId)
+            .success(function (data) {
+                console.log("REMAINING");
+
+                console.log(data);
+            });
+    }
 
 
     function computeEF(EF, q) {

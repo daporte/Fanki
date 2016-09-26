@@ -440,6 +440,28 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
     self.routeTable.push({
         requestType : "post",
+        requestUrl : "/countRemainingCards",
+        callbackFunction : function(request, response){
+
+
+
+            var productCategoryDao = require("../server/dao/productCategoryDao.js");
+
+
+            productCategoryDao.productCategoryDao.countRemainingCards(request.body.DeckId, request.body.UserId,
+                function (data) {
+
+
+
+                    console.log("im here ")
+                    console.log(data);
+                    response.json(data);
+                });
+        }
+    });
+
+    self.routeTable.push({
+        requestType : "post",
         requestUrl : "/getCardsFromDeck",
         callbackFunction : function(request, response){
 
