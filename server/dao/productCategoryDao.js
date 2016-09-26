@@ -424,7 +424,7 @@ var productCategoryDao = {
         var connection = connectionProvider.mysqlConnectionStringProvider.getMySqlConnection();
         if(DeckId == "all"){
 
-            var queryStatement = "SELECT COUNT(*) AS DueCards FROM bridge WHERE UserId = ?";
+            var queryStatement = "SELECT COUNT(*) AS ActiveCards FROM bridge WHERE UserId = ?";
             if (connection){
                 connection.query(queryStatement, [UserId], function(err, rows, fields){
                     if (err) {throw err;}
@@ -438,7 +438,7 @@ var productCategoryDao = {
                 connectionProvider.mysqlConnectionStringProvider.closeMySqlConnection(connection);
             }
         } else {
-            var queryStatement = "SELECT COUNT(*) AS DueCards FROM bridge WHERE UserId = ? AND DeckId = ? ";
+            var queryStatement = "SELECT COUNT(*) AS ActiveCards FROM bridge WHERE UserId = ? AND DeckId = ? ";
             if (connection){
                 connection.query(queryStatement, [UserId, DeckId], function(err, rows, fields){
                     if (err) {throw err;}
