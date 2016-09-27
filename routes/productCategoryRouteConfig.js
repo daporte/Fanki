@@ -189,12 +189,11 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/viewProductCategory",
         callbackFunction : function(request, response){
 
-            //if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
                 response.render("viewProductCategory", { title : "All Decks"})
-            ///} else{
+            } else{
                 response.redirect(self.redirectRoute);
-            //}
-
+            }
         }
     });
 
