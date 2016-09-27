@@ -165,8 +165,8 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
 
 
                     productCategoryDao.productCategoryDao.getCategoryTree(
-                        function(categoryTree){
 
+                        function(categoryTree){
 
                             console.log("CATEGORY TREEEE");
                             console.log(categoryTree);
@@ -189,12 +189,11 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestUrl : "/viewProductCategory",
         callbackFunction : function(request, response){
 
-            if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
+            //if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
                 response.render("viewProductCategory", { title : "All Decks"})
-            } else{
+            ///} else{
                 response.redirect(self.redirectRoute);
-            }
-
+            //}
 
         }
     });
@@ -204,16 +203,15 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         requestType : "get",
         requestUrl : "/editProductCategory/:productCategoryId",
         callbackFunction : function(request, response){
+
             if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
                 response.render("editProductCategory", { title : "Edit Deck"})
             } else{
                 response.redirect(self.redirectRoute);
             }
 
-
         }
     });
-
 
     self.routeTable.push({
         requestType : "get",
@@ -223,14 +221,13 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 var productCategoryDao = require("../server/dao/productCategoryDao.js");
                 productCategoryDao.productCategoryDao.getProductCategoryById(request.params.productCategoryId,
                     function (productCategories) {
-                        console.log("im here ")
+                        console.log("im here ");
                         //console.log(productCategories);
                         response.json({productCategories : productCategories});
                     });
-            } else{
+            } else {
                 response.redirect(self.redirectRoute);
             }
-
 
         }
     });
@@ -245,7 +242,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
                 var productCategoryDao = require("../server/dao/productCategoryDao.js");
                 productCategoryDao.productCategoryDao.updateProductCategory(request.body.DeckName, request.body.Description, request.body.ProductCategoryId, request.body.CategoryId,
                     function (status) {
-                        console.log("im here ")
+                        console.log("im here ");
                         console.log(status);
                         response.json(status);
                     });
@@ -303,7 +300,7 @@ productCategoryRouteConfig.prototype.addRoutes = function () {
         callbackFunction : function(request, response){
 
             if(request.app.get('bs')["_json"]["roles"][0]=="admin"){
-                response.render("editDeck", { title : "Edit Deck"})
+                response.render("editDeck", { title : "Edit Deck"});
             } else{
                 response.redirect(self.redirectRoute);
             }

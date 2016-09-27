@@ -80,7 +80,6 @@ app.get('/user', function (req, res) {
         user: req.user
     });
 
-
 });
 
 
